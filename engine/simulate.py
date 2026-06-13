@@ -120,7 +120,19 @@ def load_data():
             raise SystemExit(f"results.json: {a} y {b} no comparten grupo")
         fixed[(a, b)] = tuple(r["score"])
         fixed[(b, a)] = tuple(reversed(r["score"]))
-    return teams, group_members, fixed, results_raw["results"]
+
+    # Eliminatorias ya jugadas: se fija el ganador (clave = pareja de equipos).
+    knockout = results_raw.get("knockout", [])
+    fixed_ko = {}
+    for r in knockout:
+        a, b, w = r["home"], r["away"], r["winner"]
+        if a not in teams or b not in teams:
+            raise SystemExit(f"knockout: equipo desconocido en {a} vs {b}")
+        if w != a and w != b:
+            raise SystemExit(f"knockout: ganador {w} no es ni {a} ni {b}")
+        fixed_ko[frozenset((a, b))] = w
+
+    return teams, group_members, fixed, fixed_ko, results_raw["results"], knockout
 
 
 def real_standings(teams, group_members, results):
@@ -157,7 +169,7 @@ def main():
                          "(para reconstruir jornadas pasadas)")
     args = ap.parse_args()
 
-    teams, group_members, fixed, results = load_data()
+    teams, group_members, fixed, fixed_ko, results, knockout = load_data()
     fixtures = group_fixtures(group_members)
     rng = random.Random(args.seed)
     counter = {tid: dict.fromkeys(MILESTONES, 0) for tid in teams}
@@ -166,7 +178,7 @@ def main():
     t0 = time.time()
     for _ in range(args.sims):
         simulate_tournament(teams, group_members, fixtures, fixed, rng,
-                            counter, tallies)
+                            counter, tallies, fixed_ko=fixed_ko)
     elapsed = time.time() - t0
 
     order, stats = real_standings(teams, group_members, results)
@@ -188,6 +200,7 @@ def main():
                     for k, d in BRACKET.items()},
         "groups": order,
         "results": results,
+        "knockout": knockout,
         "teams": out_teams,
         "ko": serialize_ko(tallies, n),
         "paths": serialize_paths(tallies, n),

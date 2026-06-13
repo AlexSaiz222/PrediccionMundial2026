@@ -144,9 +144,23 @@ def _record_ko(tallies, match_id, rnd, a, b, a_wins):
             dw[rival] = dw.get(rival, 0) + 1
 
 
+def _ko_outcome(teams, a, b, fixed_ko, rng):
+    """True si gana 'a'. Si el cruce real (a,b) ya se jugó, fuerza el ganador
+    real; si no, lo simula. La clave es la pareja de equipos (no la casilla),
+    así no depende de cómo se hayan sembrado las eliminatorias."""
+    if fixed_ko:
+        win = fixed_ko.get(frozenset((a, b)))
+        if win is not None:
+            return win == a
+    return sim_knockout_match(teams[a], teams[b], rng)
+
+
 def simulate_tournament(teams, group_members, fixtures, fixed_results, rng,
-                        counter, tallies=None):
-    """Una edición completa del Mundial; acumula hitos por equipo en counter."""
+                        counter, tallies=None, fixed_ko=None):
+    """Una edición completa del Mundial; acumula hitos por equipo en counter.
+
+    fixed_ko: {frozenset({id_a, id_b}): id_ganador} con las eliminatorias ya
+    jugadas; esos cruces no se simulan, se fija el ganador real."""
     standings, stats = play_groups(teams, group_members, fixtures,
                                    fixed_results, rng)
     thirds = best_thirds(standings, stats, rng)
@@ -168,7 +182,7 @@ def simulate_tournament(teams, group_members, fixtures, fixed_results, rng,
     winners = {}
     for m, (sa, sb) in R32.items():
         a, b = resolve(sa), resolve(sb)
-        a_wins = sim_knockout_match(teams[a], teams[b], rng)
+        a_wins = _ko_outcome(teams, a, b, fixed_ko, rng)
         winners[m] = a if a_wins else b
         if tallies is not None:
             _record_ko(tallies, m, "r32", a, b, a_wins)
@@ -179,7 +193,7 @@ def simulate_tournament(teams, group_members, fixtures, fixed_results, rng,
             a, b = winners[ma], winners[mb]
             counter[a][milestone] += 1
             counter[b][milestone] += 1
-            a_wins = sim_knockout_match(teams[a], teams[b], rng)
+            a_wins = _ko_outcome(teams, a, b, fixed_ko, rng)
             winners[m] = a if a_wins else b
             if tallies is not None:
                 _record_ko(tallies, m, milestone, a, b, a_wins)

@@ -87,60 +87,68 @@ a { color: var(--accent); text-underline-offset: 0.15em; }
 /* ---------- secciones ---------- */
 section { margin-block: 3rem; scroll-margin-block-start: 1.5rem; }
 
-/* ---------- índice lateral ---------- */
+/* ---------- índice rápido + calendario ---------- */
+/* Móvil/tablet (por defecto): fila de pestañas bajo la cabecera; el calendario
+   se coloca debajo. .layout no hace nada aquí, así que .toc y main se apilan. */
 .toc {
-  display: none;
-  position: fixed; inset-block-start: 11rem;
-  inset-inline-start: max(1.2rem, calc(50vw - 35rem - 13.5rem));
-  inline-size: 11.5rem; font-size: 0.84rem;
+  display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem 0.6rem;
+  max-inline-size: 70rem; margin: 0 auto 1.4rem; padding-inline: 1.25rem;
+  font-size: 0.86rem;
 }
-/* Pantallas anchas: barra flotante en el margen izquierdo. */
-@media (min-width: 1560px) { .toc { display: block; } }
-
-/* Portátil, tablet y móvil: la barra deja de flotar (no cabe en el margen)
-   y se muestra como una fila bajo la cabecera, alineada con el contenido. */
-@media (max-width: 1559.98px) {
-  .toc {
-    display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem 0.7rem;
-    position: static; inline-size: auto;
-    max-inline-size: 70rem; margin: 0 auto 1.6rem; padding-inline: 1.25rem;
-  }
-  .toc-title { display: none; }
-  .toc a {
-    padding: 0.3rem 0.7rem; border: 1px solid var(--border);
-    border-radius: 0.45rem;
-  }
-  .toc a.active { border-color: var(--accent); }
-  #toc-cal:not([hidden]) {
-    display: flex; flex-wrap: wrap; align-items: center; gap: 0.35rem 0.6rem;
-    flex-basis: 100%; margin-block-start: 0.5rem;
-  }
-  .toc-cal-title { margin: 0; }
-  .toc-date { margin-inline-start: 0; inline-size: auto; }
-  .toc-cal-hint { flex-basis: 100%; margin: 0.1rem 0 0; padding-inline-start: 0; }
-}
-.toc-title {
-  margin: 0 0 0.45rem; padding-inline-start: 0.9rem;
-  font-size: 0.78rem; font-weight: 700; color: var(--text);
-}
+.toc-title { display: none; }
 .toc a {
-  display: block; padding: 0.32rem 0.9rem;
+  padding: 0.32rem 0.7rem; border: 1px solid var(--border);
+  border-radius: 0.5rem; white-space: nowrap;
   color: var(--text-dim); text-decoration: none;
-  border-inline-start: 2px solid var(--border);
   transition: color 0.15s, border-color 0.15s;
 }
 .toc a:hover { color: var(--text); }
 .toc a.active { color: var(--accent); border-color: var(--accent); font-weight: 600; }
-.toc-cal-title { margin-block-start: 1.3rem; }
+#toc-cal:not([hidden]) {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 0.3rem 0.5rem;
+  flex-basis: 100%; margin-block-start: 0.5rem;
+}
+.toc-cal-title {
+  display: inline-block; margin: 0; padding: 0;
+  font-size: 0.82rem; font-weight: 600; color: var(--text); white-space: nowrap;
+}
 .toc-date {
-  margin-inline-start: 0.9rem; inline-size: calc(100% - 0.9rem);
-  font: inherit; font-size: 0.82rem; color: var(--text);
+  margin-inline-start: 0; inline-size: auto;
+  font: inherit; font-size: 0.85rem; color: var(--text);
   background: var(--bg-card); border: 1px solid var(--border);
   border-radius: 0.4rem; padding: 0.3rem 0.5rem;
 }
 .toc-cal-hint {
-  margin: 0.45rem 0 0; padding-inline-start: 0.9rem;
-  font-size: 0.74rem; color: var(--text-dim);
+  flex-basis: 100%; margin: 0.1rem 0 0; padding: 0;
+  font-size: 0.76rem; color: var(--text-dim);
+}
+
+/* Portátil y más anchas: barra lateral fija a la izquierda, en su columna. */
+@media (min-width: 1200px) {
+  .layout {
+    display: grid; grid-template-columns: 10.5rem minmax(0, 1fr); gap: 2.2rem;
+    align-items: start;
+    max-inline-size: 70rem; margin-inline: auto; padding-inline: 1.25rem;
+  }
+  .layout > main { max-inline-size: none; margin: 0; padding: 0; }
+  .toc {
+    display: block; position: sticky; inset-block-start: 1.4rem; align-self: start;
+    max-inline-size: none; margin: 0; padding: 0; font-size: 0.84rem;
+  }
+  .toc-title {
+    display: block; margin: 0 0 0.45rem; padding-inline-start: 0.9rem;
+    font-size: 0.78rem; font-weight: 700; color: var(--text);
+  }
+  .toc a {
+    display: block; padding: 0.32rem 0.9rem; border: none;
+    border-inline-start: 2px solid var(--border); border-radius: 0; white-space: normal;
+  }
+  #toc-cal:not([hidden]) { display: block; margin-block-start: 1.3rem; }
+  .toc-cal-title {
+    display: block; margin-block-start: 0; padding-inline-start: 0.9rem; font-size: 0.78rem;
+  }
+  .toc-date { margin-inline-start: 0.9rem; inline-size: calc(100% - 0.9rem); font-size: 0.82rem; }
+  .toc-cal-hint { padding-inline-start: 0.9rem; font-size: 0.74rem; }
 }
 h2 {
   font-size: 1.45rem; letter-spacing: -0.01em; font-weight: 700;
