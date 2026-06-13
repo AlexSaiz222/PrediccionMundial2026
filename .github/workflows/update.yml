@@ -1,0 +1,46 @@
+name: Actualizar resultados y recalcular
+
+# Se ejecuta 4 veces al día (UTC) y también a mano desde la pestaña Actions.
+on:
+  schedule:
+    - cron: "0 6,14,20,23 * * *"
+  workflow_dispatch:
+
+# Necesario para que la Action pueda commitear los datos regenerados.
+permissions:
+  contents: write
+
+# Evita solapes si una ejecución se alarga.
+concurrency:
+  group: update-results
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Descargar partidos jugados (football-data.org)
+        env:
+          FOOTBALL_DATA_TOKEN: ${{ secrets.FOOTBALL_DATA_TOKEN }}
+        run: python engine/fetch_football_data.py
+
+      - name: Recalcular probabilidades (Monte Carlo)
+        run: python engine/simulate.py --sims 20000
+
+      - name: Commit y push si hay cambios
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/results.json docs/data.json docs/history.json docs/snapshots
+          if git diff --cached --quiet; then
+            echo "Sin cambios; nada que publicar."
+          else
+            git commit -m "datos: actualización automática $(date -u +'%Y-%m-%d %H:%M UTC')"
+            git push
+          fi
