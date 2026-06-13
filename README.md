@@ -1,4 +1,4 @@
-# 🏆 Predicción Mundial 2026
+# Predicción Mundial 2026
 
 Modelo estadístico que calcula, en vivo, las probabilidades de cada selección en el
 Mundial 2026: quién gana su grupo, hasta qué ronda llega y quién levanta la copa.
@@ -6,7 +6,7 @@ Las probabilidades se obtienen por **simulación Monte Carlo** (20.000 torneos c
 sobre un modelo de goles **Poisson** con ratings de ataque/defensa entrenados por máxima
 verosimilitud, y se recalculan con los resultados reales según se van jugando.
 
-### 🔗 [**Ver la web en vivo →**](https://alexsaiz222.github.io/PrediccionMundial2026/)
+### [**Ver la web en vivo →**](https://alexsaiz222.github.io/PrediccionMundial2026/)
 
 ![Python](https://img.shields.io/badge/Python-3.8%2B-3776AB?logo=python&logoColor=white)
 ![Sin dependencias](https://img.shields.io/badge/runtime-sin%20dependencias-success)
@@ -14,7 +14,7 @@ verosimilitud, y se recalculan con los resultados reales según se van jugando.
 
 ---
 
-## ✨ Qué incluye la web
+## Qué incluye la web
 
 | Sección | Descripción |
 |---|---|
@@ -27,7 +27,7 @@ verosimilitud, y se recalculan con los resultados reales según se van jugando.
 
 ---
 
-## 🧠 El modelo
+## El modelo
 
 Cada partido se modela como dos distribuciones de Poisson para los goles de cada equipo,
 con medias `λ` determinadas por la fuerza relativa de ataque y defensa:
@@ -64,7 +64,7 @@ métrica, no a ojo.
 
 ---
 
-## ⚙️ Arquitectura
+## Arquitectura
 
 Pipeline de cuatro etapas. El Python solo se ejecuta **offline** para generar los datos;
 la web publicada es 100 % estática y no necesita servidor.
@@ -88,7 +88,7 @@ las del backend.
 
 ---
 
-## 🗂️ Estructura del repositorio
+## Estructura del repositorio
 
 | Ruta | Qué es |
 |---|---|
@@ -107,7 +107,7 @@ las del backend.
 
 ---
 
-## 🚀 Ejecutar en local
+## Ejecutar en local
 
 No hace falta instalar nada para la web ni para la simulación (Python 3.8+ estándar y un
 navegador). Solo el **entrenamiento** (`train.py`) usa `numpy`.
@@ -127,7 +127,7 @@ python -m http.server
 
 ---
 
-## 🔄 Actualizar los datos cada jornada
+## Actualizar los datos cada jornada
 
 ```bash
 python engine/update_results.py   # baja los partidos ya jugados...
@@ -148,7 +148,7 @@ Cada ejecución guarda además la foto del día en `docs/snapshots/` y actualiza
 
 ---
 
-## 🌐 Despliegue
+## Despliegue
 
 La web se publica en **GitHub Pages** sirviendo la carpeta `docs/` de la rama `main`
 (*Settings → Pages → Deploy from a branch → `main` / `docs`*). Al ser un sitio estático,
@@ -156,7 +156,7 @@ cada `git push` redespliega automáticamente en ~1 minuto. Sin servidores ni cos
 
 ---
 
-## ⚖️ Honestidad del modelo
+## Honestidad del modelo
 
 Ningún modelo acierta un Mundial. Los porcentajes **cuantifican la incertidumbre, no la
 eliminan**, y la web siempre muestra cuántas simulaciones y qué resultados reales hay
@@ -168,7 +168,7 @@ Extensión natural pendiente: corregir `λ` con datos de *expected goals* (xG).
 
 ---
 
-## 📚 Créditos
+## Créditos
 
 - **Datos históricos**: [Mart Jürisoo — international_results](https://github.com/martj42/international_results).
 - **Banderas**: [flagcdn.com](https://flagcdn.com).
