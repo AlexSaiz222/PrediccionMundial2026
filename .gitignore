@@ -1,0 +1,58 @@
+# ----- Python -----
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Entornos virtuales
+.venv/
+venv/
+env/
+ENV/
+.python-version
+
+# Empaquetado / build
+build/
+dist/
+*.egg-info/
+.eggs/
+*.egg
+
+# Testing / cobertura
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.mypy_cache/
+.ruff_cache/
+
+# ----- Variables de entorno y secretos -----
+.env
+.env.*
+*.local
+
+# ----- Sistema operativo -----
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ----- Editores / IDE -----
+.vscode/
+.idea/
+*.swp
+*~
+
+# ----- Logs y temporales -----
+*.log
+*.tmp
+tmp/
+
+# ----- Documentos internos / planificación (no públicos) -----
+PLAN.md
+implementation_plan.md
+*_plan.md
+
+# ----- Capturas de pantalla (solo uso interno) -----
+screenshot*.png
+*.screenshot.png

@@ -79,9 +79,8 @@ walk-forward: entrenando solo con datos previos a cada torneo, el log-loss 1X2 e
 
 ## Hoja de ruta
 
-Ver [PLAN.md](PLAN.md) y [implementation_plan.md](implementation_plan.md). Siguiente
-paso: despliegue en GitHub Pages con actualización automática diaria. Extensión
-opcional: corrección de λ con xG de StatsBomb.
+Siguiente paso: despliegue en GitHub Pages con actualización automática diaria.
+Extensión opcional: corrección de λ con xG de StatsBomb.
 
 ## Honestidad del modelo
 
