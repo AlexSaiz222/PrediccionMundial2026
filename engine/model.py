@@ -11,7 +11,7 @@ Dos modos, mismo contrato match_lambdas(team_a, team_b) -> (lambda_a, lambda_b):
 import math
 import random
 
-# Parámetros del modelo. Se exportan a web/data.json para que el simulador JS
+# Parámetros del modelo. Se exportan a docs/data.json para que el simulador JS
 # del "¿y si...?" use exactamente los mismos números.
 PARAMS = {
     "mode": "elo",        # simulate.py lo cambia a "ratings" si hay entrenamiento

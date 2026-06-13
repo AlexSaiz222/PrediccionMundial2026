@@ -1,4 +1,4 @@
-"""Corre N simulaciones Monte Carlo del Mundial 2026 y escribe web/data.json.
+"""Corre N simulaciones Monte Carlo del Mundial 2026 y escribe docs/data.json.
 
 Uso:  python engine/simulate.py [--sims 20000] [--seed 42]
 
@@ -57,7 +57,7 @@ def serialize_paths(tallies, n):
 
 
 def save_history(data, out_teams, day=None):
-    """Foto al cierre de jornada en web/snapshots/ y serie en web/history.json.
+    """Foto al cierre de jornada en docs/snapshots/ y serie en docs/history.json.
 
     La foto se etiqueta con la fecha del último partido fijado (es la jornada
     cuyo cierre representa), no con el día en que se ejecuta: así re-ejecutar
@@ -68,12 +68,12 @@ def save_history(data, out_teams, day=None):
         day = (max(r["date"] for r in data["results"]) if data["results"]
                else TOURNAMENT_EVE)
     today = day
-    snap_dir = ROOT / "web" / "snapshots"
+    snap_dir = ROOT / "docs" / "snapshots"
     snap_dir.mkdir(exist_ok=True)
     (snap_dir / f"{today}.json").write_text(
         json.dumps(data, ensure_ascii=False, indent=1), encoding="utf-8")
 
-    hist_path = ROOT / "web" / "history.json"
+    hist_path = ROOT / "docs" / "history.json"
     hist = (json.loads(hist_path.read_text(encoding="utf-8"))
             if hist_path.exists() else {"days": []})
     entry = {
@@ -192,7 +192,7 @@ def main():
         "ko": serialize_ko(tallies, n),
         "paths": serialize_paths(tallies, n),
     }
-    out_path = ROOT / "web" / "data.json"
+    out_path = ROOT / "docs" / "data.json"
     out_path.parent.mkdir(exist_ok=True)
     out_path.write_text(json.dumps(data, ensure_ascii=False, indent=1),
                         encoding="utf-8")

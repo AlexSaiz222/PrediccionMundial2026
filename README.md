@@ -23,11 +23,11 @@ Además del panel de probabilidades incluye:
 # 0. (opcional, ya hecho) entrenar los ratings propios (necesita numpy)
 python engine/train.py
 
-# 1. Generar las probabilidades (escribe web/data.json)
+# 1. Generar las probabilidades (escribe docs/data.json)
 python engine/simulate.py --sims 20000
 
 # 2. Servir la web
-cd web
+cd docs
 python -m http.server
 # → abrir http://localhost:8000
 ```
@@ -47,8 +47,8 @@ solo el entrenamiento (`train.py`) usa numpy.
 2. `python engine/simulate.py`
 3. Recarga la web. Las probabilidades se reordenan solas.
 
-Cada ejecución guarda además la foto del día en `web/snapshots/` y actualiza la serie
-de `web/history.json`, que alimentan la página de evolución y el viaje en el tiempo.
+Cada ejecución guarda además la foto del día en `docs/snapshots/` y actualiza la serie
+de `docs/history.json`, que alimentan la página de evolución y el viaje en el tiempo.
 
 ## Estructura
 
@@ -57,13 +57,13 @@ de `web/history.json`, que alimentan la página de evolución y el viaje en el t
 | `engine/train.py` | **ML**: ratings ataque/defensa por MLE Poisson (Dixon-Coles) con decaimiento temporal, validados walk-forward en WC2018/2022 |
 | `engine/model.py` | Modelo de partido: fuerza → goles esperados → Poisson (modo ratings o fallback Elo) |
 | `engine/tournament.py` | Reglas 2026: 12 grupos, mejores terceros, cuadro oficial (partidos 73 a 104) |
-| `engine/simulate.py` | CLI Monte Carlo: escribe `web/data.json`, la foto diaria y `web/history.json` (admite `--snapshot-date` para reconstruir jornadas) |
+| `engine/simulate.py` | CLI Monte Carlo: escribe `docs/data.json`, la foto diaria y `docs/history.json` (admite `--snapshot-date` para reconstruir jornadas) |
 | `engine/update_results.py` | Vuelca a `results.json` los partidos de grupos ya jugados según el dataset público |
-| `web/` | Dashboard estático (desplegable tal cual en GitHub Pages) |
-| `web/evolucion.html` | Gráfica de evolución por jornada y viaje en el tiempo |
-| `web/metodologia.html` | Cuaderno de trabajo navegable: modelo, validación y limitaciones |
-| `web/simulator.js` | El mismo motor en JS para el "¿y si...?" sin servidor |
-| `web/snapshots/`, `web/history.json` | Predicción guardada de cada día y serie para la gráfica |
+| `docs/` | Dashboard estático (lo que publica GitHub Pages) |
+| `docs/evolucion.html` | Gráfica de evolución por jornada y viaje en el tiempo |
+| `docs/metodologia.html` | Cuaderno de trabajo navegable: modelo, validación y limitaciones |
+| `docs/simulator.js` | El mismo motor en JS para el "¿y si...?" sin servidor |
+| `docs/snapshots/`, `docs/history.json` | Predicción guardada de cada día y serie para la gráfica |
 | `data/teams.json` | 48 selecciones, grupos del sorteo real, Elo de respaldo |
 | `data/ratings.json` | Ratings entrenados (salida de `train.py`) |
 | `data/international_results.csv` | Histórico ~49.000 partidos (martj42/international_results) |
