@@ -1,5 +1,5 @@
 {
- "updated": "2026-06-13T17:18:03+00:00",
+ "updated": "2026-06-13T20:33:54+00:00",
  "matches": [
   {
    "date": "2026-06-11T19:00:00Z",
@@ -53,10 +53,13 @@
    "date": "2026-06-13T19:00:00Z",
    "stage": "GROUP_STAGE",
    "group": "B",
-   "status": "TIMED",
+   "status": "IN_PLAY",
    "home": "QAT",
    "away": "SUI",
-   "score": null
+   "score": [
+    0,
+    1
+   ]
   },
   {
    "date": "2026-06-13T22:00:00Z",
