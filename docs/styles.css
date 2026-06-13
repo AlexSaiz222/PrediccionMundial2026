@@ -87,14 +87,38 @@ a { color: var(--accent); text-underline-offset: 0.15em; }
 /* ---------- secciones ---------- */
 section { margin-block: 3rem; scroll-margin-block-start: 1.5rem; }
 
-/* ---------- índice lateral (solo pantallas anchas) ---------- */
+/* ---------- índice lateral ---------- */
 .toc {
   display: none;
   position: fixed; inset-block-start: 11rem;
   inset-inline-start: max(1.2rem, calc(50vw - 35rem - 13.5rem));
   inline-size: 11.5rem; font-size: 0.84rem;
 }
+/* Pantallas anchas: barra flotante en el margen izquierdo. */
 @media (min-width: 1560px) { .toc { display: block; } }
+
+/* Portátil, tablet y móvil: la barra deja de flotar (no cabe en el margen)
+   y se muestra como una fila bajo la cabecera, alineada con el contenido. */
+@media (max-width: 1559.98px) {
+  .toc {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem 0.7rem;
+    position: static; inline-size: auto;
+    max-inline-size: 70rem; margin: 0 auto 1.6rem; padding-inline: 1.25rem;
+  }
+  .toc-title { display: none; }
+  .toc a {
+    padding: 0.3rem 0.7rem; border: 1px solid var(--border);
+    border-radius: 0.45rem;
+  }
+  .toc a.active { border-color: var(--accent); }
+  #toc-cal:not([hidden]) {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 0.35rem 0.6rem;
+    flex-basis: 100%; margin-block-start: 0.5rem;
+  }
+  .toc-cal-title { margin: 0; }
+  .toc-date { margin-inline-start: 0; inline-size: auto; }
+  .toc-cal-hint { flex-basis: 100%; margin: 0.1rem 0 0; padding-inline-start: 0; }
+}
 .toc-title {
   margin: 0 0 0.45rem; padding-inline-start: 0.9rem;
   font-size: 0.78rem; font-weight: 700; color: var(--text);
