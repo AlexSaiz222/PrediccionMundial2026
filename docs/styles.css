@@ -124,14 +124,31 @@ section { margin-block: 3rem; scroll-margin-block-start: 1.5rem; }
 }
 
 /* Portátil y más anchas: barra lateral fija a la izquierda, en su columna. */
-@media (min-width: 1200px) {
+@media (min-width: 992px) {
   .layout {
-    display: grid; grid-template-columns: 10.5rem minmax(0, 1fr); gap: 2.2rem;
+    display: grid;
+    grid-template-columns: 12rem minmax(0, 1fr);
+    grid-template-areas:
+      ". hero"
+      "aside main";
+    gap: 0 2.2rem;
     align-items: start;
     max-inline-size: 70rem; margin-inline: auto; padding-inline: 1.25rem;
   }
-  .layout > main { max-inline-size: none; margin: 0; padding: 0; }
+  .layout > .hero {
+    grid-area: hero;
+    max-inline-size: none;
+    margin: 0;
+    padding-inline: 0;
+  }
+  .layout > main {
+    grid-area: main;
+    max-inline-size: none;
+    margin: 0;
+    padding: 0;
+  }
   .toc {
+    grid-area: aside;
     display: block; position: sticky; inset-block-start: 1.4rem; align-self: start;
     max-inline-size: none; margin: 0; padding: 0; font-size: 0.84rem;
   }
@@ -618,3 +635,59 @@ footer p { max-inline-size: 75ch; }
   background: #b3362c14; border: 1px solid #b3362c55; border-radius: 0.5rem;
 }
 .simulating { opacity: 0.55; pointer-events: none; }
+
+/* ---------- calendario de partidos ---------- */
+.cal-filter { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-block: 0.5rem 1.6rem; }
+.filter-btn {
+  font: inherit; font-size: 0.85rem; cursor: pointer;
+  color: var(--text-dim); background: var(--bg-card);
+  border: 1px solid var(--border); border-radius: 99px; padding: 0.3rem 0.95rem;
+  transition: color 0.15s, background 0.15s, border-color 0.15s;
+}
+.filter-btn:hover { color: var(--text); }
+.filter-btn.active { color: #fff; background: var(--accent); border-color: var(--accent); }
+
+.cal-day {
+  font-size: 0.95rem; font-weight: 700; color: var(--text);
+  margin: 1.9rem 0 0.2rem; padding-block-end: 0.35rem;
+  border-block-end: 2px solid var(--border-strong);
+}
+.cal-day:first-child { margin-block-start: 0; }
+.cal-day.is-today { color: var(--accent); border-block-end-color: var(--accent); }
+.cal-hoy {
+  font-size: 0.68rem; font-weight: 700; color: #fff; background: var(--accent);
+  border-radius: 99px; padding: 0.1rem 0.5rem; margin-inline-start: 0.5rem;
+  vertical-align: middle;
+}
+.cal-today-link {
+  margin-inline-start: auto; align-self: center;
+  font: inherit; font-size: 0.82rem; cursor: pointer;
+  color: var(--accent); background: none; border: 0; padding: 0.3rem 0.2rem;
+}
+.cal-today-link:hover { text-decoration: underline; }
+.cal-match {
+  display: grid; grid-template-columns: 4.3rem minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center; gap: 0.7rem;
+  padding: 0.6rem 0.2rem; border-block-end: 1px solid var(--border);
+}
+.cal-when { display: flex; flex-direction: column; line-height: 1.15; }
+.cal-time { font-variant-numeric: tabular-nums; font-size: 0.9rem; color: var(--text); }
+.cal-tag { font-size: 0.68rem; color: var(--text-dim); }
+.cal-side { display: flex; align-items: center; gap: 0.5rem; min-inline-size: 0; }
+.cal-side .tn { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.cal-home { justify-content: flex-end; text-align: end; }
+.cal-away { justify-content: flex-start; }
+.cal-side.win { font-weight: 700; }
+.cal-match:not(.is-done) .cal-side { color: var(--text-dim); }
+.cal-score {
+  font-variant-numeric: tabular-nums; font-weight: 700; font-size: 1rem;
+  min-inline-size: 3rem; text-align: center; color: var(--text);
+}
+.cal-score .dash { color: var(--text-dim); margin-inline: 0.2rem; font-weight: 400; }
+.cal-match:not(.is-done) .cal-score { color: var(--text-dim); font-weight: 400; }
+
+@media (max-width: 560px) {
+  .cal-match { grid-template-columns: 3.2rem minmax(0,1fr) auto minmax(0,1fr); gap: 0.4rem; }
+  .cal-side { gap: 0.35rem; font-size: 0.92rem; }
+  .cal-score { min-inline-size: 2.4rem; font-size: 0.95rem; }
+}

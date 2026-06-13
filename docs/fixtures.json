@@ -1,0 +1,953 @@
+{
+ "updated": "2026-06-13T17:18:03+00:00",
+ "matches": [
+  {
+   "date": "2026-06-11T19:00:00Z",
+   "stage": "GROUP_STAGE",
+   "group": "A",
+   "status": "FINISHED",
+   "home": "MEX",
+   "away": "RSA",
+   "score": [
+    2,
+    0
+   ]
+  },
+  {
+   "date": "2026-06-12T02:00:00Z",
+   "stage": "GROUP_STAGE",
+   "group": "A",
+   "status": "FINISHED",
+   "home": "KOR",
+   "away": "CZE",
+   "score": [
+    2,
+    1
+   ]
+  },
+  {
+   "date": "2026-06-12T19:00:00Z",
+   "stage": "GROUP_STAGE",
+   "group": "B",
+   "status": "FINISHED",
+   "home": "CAN",
+   "away": "BIH",
+   "score": [
+    1,
+    1
+   ]
+  },
+  {
+   "date": "2026-06-13T01:00:00Z",
+   "stage": "GROUP_STAGE",
+   "group": "D",
+   "status": "FINISHED",
+   "home": "USA",
+   "away": "PAR",
+   "score": [
+    4,
+    1
+   ]
+  },
+  {
+   "date": "2026-06-13T19:00:00Z",
+   "stage": "GROUP_STAGE",
+   "group": "B",
+   "status": "TIMED",
+   "home": "QAT",
+   "away": "SUI",
+   "score": null
+  },
+  {
+   "date": "2026-06-13T22:00:00Z",
+   "stage": "GROUP_STAGE",
+   "group": "C",
+   "status": "TIMED",
+   "home": "BRA",
+   "away": "MAR",
+   "score": null
+  },
+  {
+   "date": "2026-06-14T01:00:00Z",
+   "stage": "GROUP_STAGE",
+   "group": "C",
+   "status": "TIMED",
+   "home": "HAI",
+   "away": "SCO",
+   "score": null
+  },
+  {
+   "date": "2026-06-14T04:00:00Z",
+   "stage": "GROUP_STAGE",
+   "group": "D",
+   "status": "TIMED",
+   "home": "AUS",
+   "away": "TUR",
+   "score": null
+  },
+  {
+   "date": "2026-06-14T17:00:00Z",
+   "stage": "GROUP_STAGE",
+   "group": "E",
+   "status": "TIMED",
+   "home": "GER",
+   "away": "CUW",
+   "score": null
+  },
+  {
+   "date": "2026-06-14T20:00:00Z",
+   "stage": "GROUP_STAGE",
+   "group": "F",
+   "status": "TIMED",
+   "home": "NED",
+   "away": "JPN",
+   "score": null
+  },
+  {
+   "date": "2026-06-14T23:00:00Z",
+   "stage": "GROUP_STAGE",
+   "group": "E",
+   "status": "TIMED",
+   "home": "CIV",
+   "away": "ECU",
+   "score": null
+  },
+  {
+   "date": "2026-06-15T02:00:00Z",
+   "stage": "GROUP_STAGE",
+   "group": "F",
+   "status": "TIMED",
+   "home": "SWE",
+   "away": "TUN",
+   "score": null
+  },
+  {
+   "date": "2026-06-15T16:00:00Z",
+   "stage": "GROUP_STAGE",
+   "group": "H",
+   "status": "TIMED",
+   "home": "ESP",
+   "away": "CPV",
+   "score": null
+  },
+  {
+   "date": "2026-06-15T19:00:00Z",
+   "stage": "GROUP_STAGE",
+   "group": "G",
+   "status": "TIMED",
+   "home": "BEL",
+   "away": "EGY",
+   "score": null
+  },
+  {
+   "date": "2026-06-15T22:00:00Z",
+   "stage": "GROUP_STAGE",
+   "group": "H",
+   "status": "TIMED",
+   "home": "KSA",
+   "away": "URU",
+   "score": null
+  },
+  {
+   "date": "2026-06-16T01:00:00Z",
+   "stage": "GROUP_STAGE",
+   "group": "G",
+   "status": "TIMED",
+   "home": "IRN",
+   "away": "NZL",
+   "score": null
+  },
+  {
+   "date": "2026-06-16T19:00:00Z",
+   "stage": "GROUP_STAGE",
+   "group": "I",
+   "status": "TIMED",
+   "home": "FRA",
+   "away": "SEN",
+   "score": null
+  },
+  {
+   "date": "2026-06-16T22:00:00Z",
+   "stage": "GROUP_STAGE",
+   "group": "I",
+   "status": "TIMED",
+   "home": "IRQ",
+   "away": "NOR",
+   "score": null
+  },
+  {
+   "date": "2026-06-17T01:00:00Z",
+   "stage": "GROUP_STAGE",
+   "group": "J",
+   "status": "TIMED",
+   "home": "ARG",
+   "away": "ALG",
+   "score": null
+  },
+  {
+   "date": "2026-06-17T04:00:00Z",
+   "stage": "GROUP_STAGE",
+   "group": "J",
+   "status": "TIMED",
+   "home": "AUT",
+   "away": "JOR",
+   "score": null
+  },
+  {
+   "date": "2026-06-17T17:00:00Z",
+   "stage": "GROUP_STAGE",
+   "group": "K",
+   "status": "TIMED",
+   "home": "POR",
+   "away": "COD",
+   "score": null
+  },
+  {
+   "date": "2026-06-17T20:00:00Z",
+   "stage": "GROUP_STAGE",
+   "group": "L",
+   "status": "TIMED",
+   "home": "ENG",
+   "away": "CRO",
+   "score": null
+  },
+  {
+   "date": "2026-06-17T23:00:00Z",
+   "stage": "GROUP_STAGE",
+   "group": "L",
+   "status": "TIMED",
+   "home": "GHA",
+   "away": "PAN",
+   "score": null
+  },
+  {
+   "date": "2026-06-18T02:00:00Z",
+   "stage": "GROUP_STAGE",
+   "group": "K",
+   "status": "TIMED",
+   "home": "UZB",
+   "away": "COL",
+   "score": null
+  },
+  {
+   "date": "2026-06-18T16:00:00Z",
+   "stage": "GROUP_STAGE",
+   "group": "A",
+   "status": "TIMED",
+   "home": "CZE",
+   "away": "RSA",
+   "score": null
+  },
+  {
+   "date": "2026-06-18T19:00:00Z",
+   "stage": "GROUP_STAGE",
+   "group": "B",
+   "status": "TIMED",
+   "home": "SUI",
+   "away": "BIH",
+   "score": null
+  },
+  {
+   "date": "2026-06-18T22:00:00Z",
+   "stage": "GROUP_STAGE",
+   "group": "B",
+   "status": "TIMED",
+   "home": "CAN",
+   "away": "QAT",
+   "score": null
+  },
+  {
+   "date": "2026-06-19T01:00:00Z",
+   "stage": "GROUP_STAGE",
+   "group": "A",
+   "status": "TIMED",
+   "home": "MEX",
+   "away": "KOR",
+   "score": null
+  },
+  {
+   "date": "2026-06-19T19:00:00Z",
+   "stage": "GROUP_STAGE",
+   "group": "D",
+   "status": "TIMED",
+   "home": "USA",
+   "away": "AUS",
+   "score": null
+  },
+  {
+   "date": "2026-06-19T22:00:00Z",
+   "stage": "GROUP_STAGE",
+   "group": "C",
+   "status": "TIMED",
+   "home": "SCO",
+   "away": "MAR",
+   "score": null
+  },
+  {
+   "date": "2026-06-20T00:30:00Z",
+   "stage": "GROUP_STAGE",
+   "group": "C",
+   "status": "TIMED",
+   "home": "BRA",
+   "away": "HAI",
+   "score": null
+  },
+  {
+   "date": "2026-06-20T03:00:00Z",
+   "stage": "GROUP_STAGE",
+   "group": "D",
+   "status": "TIMED",
+   "home": "TUR",
+   "away": "PAR",
+   "score": null
+  },
+  {
+   "date": "2026-06-20T17:00:00Z",
+   "stage": "GROUP_STAGE",
+   "group": "F",
+   "status": "TIMED",
+   "home": "NED",
+   "away": "SWE",
+   "score": null
+  },
+  {
+   "date": "2026-06-20T20:00:00Z",
+   "stage": "GROUP_STAGE",
+   "group": "E",
+   "status": "TIMED",
+   "home": "GER",
+   "away": "CIV",
+   "score": null
+  },
+  {
+   "date": "2026-06-21T00:00:00Z",
+   "stage": "GROUP_STAGE",
+   "group": "E",
+   "status": "TIMED",
+   "home": "ECU",
+   "away": "CUW",
+   "score": null
+  },
+  {
+   "date": "2026-06-21T04:00:00Z",
+   "stage": "GROUP_STAGE",
+   "group": "F",
+   "status": "TIMED",
+   "home": "TUN",
+   "away": "JPN",
+   "score": null
+  },
+  {
+   "date": "2026-06-21T16:00:00Z",
+   "stage": "GROUP_STAGE",
+   "group": "H",
+   "status": "TIMED",
+   "home": "ESP",
+   "away": "KSA",
+   "score": null
+  },
+  {
+   "date": "2026-06-21T19:00:00Z",
+   "stage": "GROUP_STAGE",
+   "group": "G",
+   "status": "TIMED",
+   "home": "BEL",
+   "away": "IRN",
+   "score": null
+  },
+  {
+   "date": "2026-06-21T22:00:00Z",
+   "stage": "GROUP_STAGE",
+   "group": "H",
+   "status": "TIMED",
+   "home": "URU",
+   "away": "CPV",
+   "score": null
+  },
+  {
+   "date": "2026-06-22T01:00:00Z",
+   "stage": "GROUP_STAGE",
+   "group": "G",
+   "status": "TIMED",
+   "home": "NZL",
+   "away": "EGY",
+   "score": null
+  },
+  {
+   "date": "2026-06-22T17:00:00Z",
+   "stage": "GROUP_STAGE",
+   "group": "J",
+   "status": "TIMED",
+   "home": "ARG",
+   "away": "AUT",
+   "score": null
+  },
+  {
+   "date": "2026-06-22T21:00:00Z",
+   "stage": "GROUP_STAGE",
+   "group": "I",
+   "status": "TIMED",
+   "home": "FRA",
+   "away": "IRQ",
+   "score": null
+  },
+  {
+   "date": "2026-06-23T00:00:00Z",
+   "stage": "GROUP_STAGE",
+   "group": "I",
+   "status": "TIMED",
+   "home": "NOR",
+   "away": "SEN",
+   "score": null
+  },
+  {
+   "date": "2026-06-23T03:00:00Z",
+   "stage": "GROUP_STAGE",
+   "group": "J",
+   "status": "TIMED",
+   "home": "JOR",
+   "away": "ALG",
+   "score": null
+  },
+  {
+   "date": "2026-06-23T17:00:00Z",
+   "stage": "GROUP_STAGE",
+   "group": "K",
+   "status": "TIMED",
+   "home": "POR",
+   "away": "UZB",
+   "score": null
+  },
+  {
+   "date": "2026-06-23T20:00:00Z",
+   "stage": "GROUP_STAGE",
+   "group": "L",
+   "status": "TIMED",
+   "home": "ENG",
+   "away": "GHA",
+   "score": null
+  },
+  {
+   "date": "2026-06-23T23:00:00Z",
+   "stage": "GROUP_STAGE",
+   "group": "L",
+   "status": "TIMED",
+   "home": "PAN",
+   "away": "CRO",
+   "score": null
+  },
+  {
+   "date": "2026-06-24T02:00:00Z",
+   "stage": "GROUP_STAGE",
+   "group": "K",
+   "status": "TIMED",
+   "home": "COL",
+   "away": "COD",
+   "score": null
+  },
+  {
+   "date": "2026-06-24T19:00:00Z",
+   "stage": "GROUP_STAGE",
+   "group": "B",
+   "status": "TIMED",
+   "home": "SUI",
+   "away": "CAN",
+   "score": null
+  },
+  {
+   "date": "2026-06-24T19:00:00Z",
+   "stage": "GROUP_STAGE",
+   "group": "B",
+   "status": "TIMED",
+   "home": "BIH",
+   "away": "QAT",
+   "score": null
+  },
+  {
+   "date": "2026-06-24T22:00:00Z",
+   "stage": "GROUP_STAGE",
+   "group": "C",
+   "status": "TIMED",
+   "home": "MAR",
+   "away": "HAI",
+   "score": null
+  },
+  {
+   "date": "2026-06-24T22:00:00Z",
+   "stage": "GROUP_STAGE",
+   "group": "C",
+   "status": "TIMED",
+   "home": "SCO",
+   "away": "BRA",
+   "score": null
+  },
+  {
+   "date": "2026-06-25T01:00:00Z",
+   "stage": "GROUP_STAGE",
+   "group": "A",
+   "status": "TIMED",
+   "home": "CZE",
+   "away": "MEX",
+   "score": null
+  },
+  {
+   "date": "2026-06-25T01:00:00Z",
+   "stage": "GROUP_STAGE",
+   "group": "A",
+   "status": "TIMED",
+   "home": "RSA",
+   "away": "KOR",
+   "score": null
+  },
+  {
+   "date": "2026-06-25T20:00:00Z",
+   "stage": "GROUP_STAGE",
+   "group": "E",
+   "status": "TIMED",
+   "home": "ECU",
+   "away": "GER",
+   "score": null
+  },
+  {
+   "date": "2026-06-25T20:00:00Z",
+   "stage": "GROUP_STAGE",
+   "group": "E",
+   "status": "TIMED",
+   "home": "CUW",
+   "away": "CIV",
+   "score": null
+  },
+  {
+   "date": "2026-06-25T23:00:00Z",
+   "stage": "GROUP_STAGE",
+   "group": "F",
+   "status": "TIMED",
+   "home": "TUN",
+   "away": "NED",
+   "score": null
+  },
+  {
+   "date": "2026-06-25T23:00:00Z",
+   "stage": "GROUP_STAGE",
+   "group": "F",
+   "status": "TIMED",
+   "home": "JPN",
+   "away": "SWE",
+   "score": null
+  },
+  {
+   "date": "2026-06-26T02:00:00Z",
+   "stage": "GROUP_STAGE",
+   "group": "D",
+   "status": "TIMED",
+   "home": "TUR",
+   "away": "USA",
+   "score": null
+  },
+  {
+   "date": "2026-06-26T02:00:00Z",
+   "stage": "GROUP_STAGE",
+   "group": "D",
+   "status": "TIMED",
+   "home": "PAR",
+   "away": "AUS",
+   "score": null
+  },
+  {
+   "date": "2026-06-26T19:00:00Z",
+   "stage": "GROUP_STAGE",
+   "group": "I",
+   "status": "TIMED",
+   "home": "NOR",
+   "away": "FRA",
+   "score": null
+  },
+  {
+   "date": "2026-06-26T19:00:00Z",
+   "stage": "GROUP_STAGE",
+   "group": "I",
+   "status": "TIMED",
+   "home": "SEN",
+   "away": "IRQ",
+   "score": null
+  },
+  {
+   "date": "2026-06-27T00:00:00Z",
+   "stage": "GROUP_STAGE",
+   "group": "H",
+   "status": "TIMED",
+   "home": "URU",
+   "away": "ESP",
+   "score": null
+  },
+  {
+   "date": "2026-06-27T00:00:00Z",
+   "stage": "GROUP_STAGE",
+   "group": "H",
+   "status": "TIMED",
+   "home": "CPV",
+   "away": "KSA",
+   "score": null
+  },
+  {
+   "date": "2026-06-27T03:00:00Z",
+   "stage": "GROUP_STAGE",
+   "group": "G",
+   "status": "TIMED",
+   "home": "NZL",
+   "away": "BEL",
+   "score": null
+  },
+  {
+   "date": "2026-06-27T03:00:00Z",
+   "stage": "GROUP_STAGE",
+   "group": "G",
+   "status": "TIMED",
+   "home": "EGY",
+   "away": "IRN",
+   "score": null
+  },
+  {
+   "date": "2026-06-27T21:00:00Z",
+   "stage": "GROUP_STAGE",
+   "group": "L",
+   "status": "TIMED",
+   "home": "PAN",
+   "away": "ENG",
+   "score": null
+  },
+  {
+   "date": "2026-06-27T21:00:00Z",
+   "stage": "GROUP_STAGE",
+   "group": "L",
+   "status": "TIMED",
+   "home": "CRO",
+   "away": "GHA",
+   "score": null
+  },
+  {
+   "date": "2026-06-27T23:30:00Z",
+   "stage": "GROUP_STAGE",
+   "group": "K",
+   "status": "TIMED",
+   "home": "COL",
+   "away": "POR",
+   "score": null
+  },
+  {
+   "date": "2026-06-27T23:30:00Z",
+   "stage": "GROUP_STAGE",
+   "group": "K",
+   "status": "TIMED",
+   "home": "COD",
+   "away": "UZB",
+   "score": null
+  },
+  {
+   "date": "2026-06-28T02:00:00Z",
+   "stage": "GROUP_STAGE",
+   "group": "J",
+   "status": "TIMED",
+   "home": "JOR",
+   "away": "ARG",
+   "score": null
+  },
+  {
+   "date": "2026-06-28T02:00:00Z",
+   "stage": "GROUP_STAGE",
+   "group": "J",
+   "status": "TIMED",
+   "home": "ALG",
+   "away": "AUT",
+   "score": null
+  },
+  {
+   "date": "2026-06-28T19:00:00Z",
+   "stage": "LAST_32",
+   "group": null,
+   "status": "TIMED",
+   "home": null,
+   "away": null,
+   "score": null
+  },
+  {
+   "date": "2026-06-29T17:00:00Z",
+   "stage": "LAST_32",
+   "group": null,
+   "status": "TIMED",
+   "home": null,
+   "away": null,
+   "score": null
+  },
+  {
+   "date": "2026-06-29T20:30:00Z",
+   "stage": "LAST_32",
+   "group": null,
+   "status": "TIMED",
+   "home": null,
+   "away": null,
+   "score": null
+  },
+  {
+   "date": "2026-06-30T01:00:00Z",
+   "stage": "LAST_32",
+   "group": null,
+   "status": "TIMED",
+   "home": null,
+   "away": null,
+   "score": null
+  },
+  {
+   "date": "2026-06-30T17:00:00Z",
+   "stage": "LAST_32",
+   "group": null,
+   "status": "TIMED",
+   "home": null,
+   "away": null,
+   "score": null
+  },
+  {
+   "date": "2026-06-30T21:00:00Z",
+   "stage": "LAST_32",
+   "group": null,
+   "status": "TIMED",
+   "home": null,
+   "away": null,
+   "score": null
+  },
+  {
+   "date": "2026-07-01T01:00:00Z",
+   "stage": "LAST_32",
+   "group": null,
+   "status": "TIMED",
+   "home": null,
+   "away": null,
+   "score": null
+  },
+  {
+   "date": "2026-07-01T16:00:00Z",
+   "stage": "LAST_32",
+   "group": null,
+   "status": "TIMED",
+   "home": null,
+   "away": null,
+   "score": null
+  },
+  {
+   "date": "2026-07-01T20:00:00Z",
+   "stage": "LAST_32",
+   "group": null,
+   "status": "TIMED",
+   "home": null,
+   "away": null,
+   "score": null
+  },
+  {
+   "date": "2026-07-02T00:00:00Z",
+   "stage": "LAST_32",
+   "group": null,
+   "status": "TIMED",
+   "home": null,
+   "away": null,
+   "score": null
+  },
+  {
+   "date": "2026-07-02T19:00:00Z",
+   "stage": "LAST_32",
+   "group": null,
+   "status": "TIMED",
+   "home": null,
+   "away": null,
+   "score": null
+  },
+  {
+   "date": "2026-07-02T23:00:00Z",
+   "stage": "LAST_32",
+   "group": null,
+   "status": "TIMED",
+   "home": null,
+   "away": null,
+   "score": null
+  },
+  {
+   "date": "2026-07-03T03:00:00Z",
+   "stage": "LAST_32",
+   "group": null,
+   "status": "TIMED",
+   "home": null,
+   "away": null,
+   "score": null
+  },
+  {
+   "date": "2026-07-03T18:00:00Z",
+   "stage": "LAST_32",
+   "group": null,
+   "status": "TIMED",
+   "home": null,
+   "away": null,
+   "score": null
+  },
+  {
+   "date": "2026-07-03T22:00:00Z",
+   "stage": "LAST_32",
+   "group": null,
+   "status": "TIMED",
+   "home": null,
+   "away": null,
+   "score": null
+  },
+  {
+   "date": "2026-07-04T01:30:00Z",
+   "stage": "LAST_32",
+   "group": null,
+   "status": "TIMED",
+   "home": null,
+   "away": null,
+   "score": null
+  },
+  {
+   "date": "2026-07-04T17:00:00Z",
+   "stage": "LAST_16",
+   "group": null,
+   "status": "TIMED",
+   "home": null,
+   "away": null,
+   "score": null
+  },
+  {
+   "date": "2026-07-04T21:00:00Z",
+   "stage": "LAST_16",
+   "group": null,
+   "status": "TIMED",
+   "home": null,
+   "away": null,
+   "score": null
+  },
+  {
+   "date": "2026-07-05T20:00:00Z",
+   "stage": "LAST_16",
+   "group": null,
+   "status": "TIMED",
+   "home": null,
+   "away": null,
+   "score": null
+  },
+  {
+   "date": "2026-07-06T00:00:00Z",
+   "stage": "LAST_16",
+   "group": null,
+   "status": "TIMED",
+   "home": null,
+   "away": null,
+   "score": null
+  },
+  {
+   "date": "2026-07-06T19:00:00Z",
+   "stage": "LAST_16",
+   "group": null,
+   "status": "TIMED",
+   "home": null,
+   "away": null,
+   "score": null
+  },
+  {
+   "date": "2026-07-07T00:00:00Z",
+   "stage": "LAST_16",
+   "group": null,
+   "status": "TIMED",
+   "home": null,
+   "away": null,
+   "score": null
+  },
+  {
+   "date": "2026-07-07T16:00:00Z",
+   "stage": "LAST_16",
+   "group": null,
+   "status": "TIMED",
+   "home": null,
+   "away": null,
+   "score": null
+  },
+  {
+   "date": "2026-07-07T20:00:00Z",
+   "stage": "LAST_16",
+   "group": null,
+   "status": "TIMED",
+   "home": null,
+   "away": null,
+   "score": null
+  },
+  {
+   "date": "2026-07-09T20:00:00Z",
+   "stage": "QUARTER_FINALS",
+   "group": null,
+   "status": "TIMED",
+   "home": null,
+   "away": null,
+   "score": null
+  },
+  {
+   "date": "2026-07-10T19:00:00Z",
+   "stage": "QUARTER_FINALS",
+   "group": null,
+   "status": "TIMED",
+   "home": null,
+   "away": null,
+   "score": null
+  },
+  {
+   "date": "2026-07-11T21:00:00Z",
+   "stage": "QUARTER_FINALS",
+   "group": null,
+   "status": "TIMED",
+   "home": null,
+   "away": null,
+   "score": null
+  },
+  {
+   "date": "2026-07-12T01:00:00Z",
+   "stage": "QUARTER_FINALS",
+   "group": null,
+   "status": "TIMED",
+   "home": null,
+   "away": null,
+   "score": null
+  },
+  {
+   "date": "2026-07-14T19:00:00Z",
+   "stage": "SEMI_FINALS",
+   "group": null,
+   "status": "TIMED",
+   "home": null,
+   "away": null,
+   "score": null
+  },
+  {
+   "date": "2026-07-15T19:00:00Z",
+   "stage": "SEMI_FINALS",
+   "group": null,
+   "status": "TIMED",
+   "home": null,
+   "away": null,
+   "score": null
+  },
+  {
+   "date": "2026-07-18T21:00:00Z",
+   "stage": "THIRD_PLACE",
+   "group": null,
+   "status": "TIMED",
+   "home": null,
+   "away": null,
+   "score": null
+  },
+  {
+   "date": "2026-07-19T19:00:00Z",
+   "stage": "FINAL",
+   "group": null,
+   "status": "TIMED",
+   "home": null,
+   "away": null,
+   "score": null
+  }
+ ]
+}

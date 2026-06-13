@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Calendario de partidos: Predicción Mundial 2026</title>
+  <meta name="description" content="Calendario completo del Mundial 2026: todos los partidos, los ya jugados con su resultado y los pendientes con su fecha y hora.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230b7a4b'/><text x='50' y='68' font-size='46' font-weight='bold' font-family='Segoe UI,sans-serif' fill='white' text-anchor='middle'>26</text></svg>">
+</head>
+<body>
+
+<nav class="topbar" aria-label="Principal">
+  <a class="brand" href="index.html">Predicción Mundial 2026<span class="dot">.</span></a>
+  <div class="topnav">
+    <a href="index.html">Probabilidades</a>
+    <a href="partidos.html" aria-current="page">Partidos</a>
+    <a href="evolucion.html">Evolución</a>
+    <a href="metodologia.html">Metodología</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <h1>Calendario del Mundial 2026</h1>
+  <p class="tagline">Los 104 partidos, en orden. Los ya jugados muestran su resultado;
+    los pendientes, su día y hora (en la hora de tu dispositivo). Las eliminatorias
+    aún sin rival aparecen como «Por determinar».</p>
+</header>
+
+<main>
+  <div class="cal-filter" role="group" aria-label="Filtrar partidos">
+    <button class="filter-btn active" data-filter="all">Todos</button>
+    <button class="filter-btn" data-filter="played">Jugados</button>
+    <button class="filter-btn" data-filter="pending">Por jugar</button>
+    <button class="cal-today-link" id="jump-today" hidden>Ir a hoy ↓</button>
+  </div>
+  <div id="cal" class="cal"></div>
+</main>
+
+<footer>
+  <p>Calendario y resultados de
+    <a href="https://github.com/martj42/international_results">datos públicos</a>
+    vía football-data.org. Proyecto académico de
+    <a href="https://www.linkedin.com/in/alejandrosaizgarc%C3%ADa">Alejandro Saiz García</a> ·
+    <a href="https://github.com/AlexSaiz222/PrediccionMundial2026">código fuente</a> ·
+    <a href="index.html">volver a las probabilidades</a></p>
+</footer>
+
+<div id="load-error" class="load-error" hidden>
+  No se pudo cargar <code>fixtures.json</code>. Si abriste el archivo directamente, arranca
+  un servidor local: <code>python -m http.server</code> dentro de la carpeta
+  <code>docs/</code> y abre <a href="http://localhost:8000">localhost:8000</a>.
+</div>
+
+<script src="partidos.js"></script>
+</body>
+</html>

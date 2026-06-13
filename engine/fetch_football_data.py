@@ -19,6 +19,7 @@ import os
 import sys
 import urllib.error
 import urllib.request
+from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -51,6 +52,37 @@ def fetch_matches(token):
         raise SystemExit(f"Error HTTP {e.code} de la API: {e.reason}")
 
 
+def write_fixtures(matches, ids):
+    """Escribe docs/fixtures.json con TODOS los partidos (jugados y pendientes)
+    para la página de calendario. Equipos como id de teams.json (o null si el
+    cruce aún no tiene rival), grupo sin el prefijo, marcador si lo hay."""
+    out = []
+    for m in matches:
+        ft = m.get("score", {}).get("fullTime", {})
+        score = ([int(ft["home"]), int(ft["away"])]
+                 if ft.get("home") is not None and ft.get("away") is not None
+                 else None)
+        def tid(side):
+            t = TLA_ALIASES.get(m[side].get("tla"), m[side].get("tla"))
+            return t if t in ids else None
+        grp = m.get("group")
+        out.append({
+            "date": m.get("utcDate"),
+            "stage": m.get("stage"),
+            "group": grp.replace("GROUP_", "") if grp else None,
+            "status": m.get("status"),
+            "home": tid("homeTeam"),
+            "away": tid("awayTeam"),
+            "score": score,
+        })
+    out.sort(key=lambda x: x["date"] or "")
+    path = ROOT / "docs" / "fixtures.json"
+    path.write_text(json.dumps(
+        {"updated": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+         "matches": out}, ensure_ascii=False, indent=1), encoding="utf-8")
+    print(f"Calendario actualizado: {len(out)} partidos -> {path}")
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--token", help="token de football-data.org "
@@ -78,8 +110,11 @@ def main():
         h, a = TLA_ALIASES.get(ht, ht), TLA_ALIASES.get(at, at)
         return h, a, (ht, at)
 
+    matches = fetch_matches(token)
+    write_fixtures(matches, ids)            # calendario completo (siempre fresco)
+
     added, ko_added, conflicts, unknown = [], [], [], set()
-    for m in fetch_matches(token):
+    for m in matches:
         stage, status = m.get("stage"), m.get("status")
         if status != "FINISHED":
             continue
