@@ -1,0 +1,447 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Metodología · Predicción Mundial 2026</title>
+  <meta name="description" content="Cómo se calculan las probabilidades del Mundial 2026: modelo de Poisson con ratings propios, estimación por máxima verosimilitud, validación en los Mundiales 2018 y 2022 y simulación Monte Carlo.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230b7a4b'/><text x='50' y='68' font-size='46' font-weight='bold' font-family='Segoe UI,sans-serif' fill='white' text-anchor='middle'>26</text></svg>">
+</head>
+<body>
+
+<nav class="topbar" aria-label="Principal">
+  <a class="brand" href="index.html">Predicción Mundial 2026<span class="dot">.</span></a>
+  <div class="topnav">
+    <a href="index.html">Probabilidades</a>
+    <a href="evolucion.html">Evolución</a>
+    <a href="metodologia.html" aria-current="page">Metodología</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <h1>Cómo se calculan estas probabilidades</h1>
+  <p class="tagline">Todo el recorrido: de 49.000 partidos históricos a un porcentaje
+    por selección, con la validación del modelo y sus limitaciones a la vista.</p>
+</header>
+
+<main class="prose">
+
+  <h2>1. La idea</h2>
+  <p>Si sabes estimar quién gana un partido cualquiera entre dos selecciones (con qué
+    probabilidad y con qué marcador aproximado), puedes <em>jugar el Mundial entero miles
+    de veces</em> en el ordenador y contar. Si España levantara la copa en 2.400 de cada
+    20.000 torneos simulados, diríamos que tiene un 12&nbsp;% de probabilidad de ser campeona.
+    Eso es una <strong>simulación de Monte Carlo</strong>, el mismo enfoque que hicieron
+    famoso FiveThirtyEight u Opta.</p>
+  <p>La gracia está en que, conforme se juega el Mundial real, los resultados ya
+    disputados se <em>fijan</em> y solo se simula lo que queda. Una sorpresa en la fase
+    de grupos reordena el cuadro entero, y se nota al día siguiente.</p>
+
+  <figure class="fig">
+    <svg viewBox="0 0 740 130" role="img" aria-label="Esquema del proceso: del histórico de partidos a las probabilidades publicadas">
+      <defs>
+        <marker id="ar1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+          <path d="M0,0 L10,5 L0,10 z" fill="#6b7280"/>
+        </marker>
+      </defs>
+      <g fill="#ffffff" stroke="#e4e1d8">
+        <rect x="10" y="26" width="166" height="80" rx="10"/>
+        <rect x="198" y="26" width="166" height="80" rx="10"/>
+        <rect x="386" y="26" width="166" height="80" rx="10"/>
+        <rect x="574" y="26" width="156" height="80" rx="10" fill="#0b7a4b14" stroke="#0b7a4b66"/>
+      </g>
+      <g stroke="#6b7280" stroke-width="1.5">
+        <line x1="178" y1="66" x2="192" y2="66" marker-end="url(#ar1)"/>
+        <line x1="366" y1="66" x2="380" y2="66" marker-end="url(#ar1)"/>
+        <line x1="554" y1="66" x2="568" y2="66" marker-end="url(#ar1)"/>
+      </g>
+      <g text-anchor="middle" fill="#1a2433">
+        <text x="93" y="54" font-size="13.5" font-weight="700">Histórico real</text>
+        <text x="93" y="73" font-size="12" fill="#6b7280">49.400 partidos</text>
+        <text x="93" y="89" font-size="12" fill="#6b7280">desde 1872</text>
+        <text x="281" y="54" font-size="13.5" font-weight="700">Fuerzas por equipo</text>
+        <text x="281" y="73" font-size="12" fill="#6b7280">ataque y defensa, por</text>
+        <text x="281" y="89" font-size="12" fill="#6b7280">máxima verosimilitud</text>
+        <text x="469" y="54" font-size="13.5" font-weight="700">20.000 Mundiales</text>
+        <text x="469" y="73" font-size="12" fill="#6b7280">simulados cada día,</text>
+        <text x="469" y="89" font-size="12" fill="#6b7280">con lo jugado fijado</text>
+        <text x="652" y="54" font-size="13.5" font-weight="700" fill="#0b7a4b">Probabilidades</text>
+        <text x="652" y="73" font-size="12" fill="#6b7280">por grupo, por ronda</text>
+        <text x="652" y="89" font-size="12" fill="#6b7280">y de título</text>
+      </g>
+    </svg>
+    <figcaption>El recorrido completo: los datos históricos fijan la fuerza de cada
+      selección y con ella se juega el torneo entero miles de veces.</figcaption>
+  </figure>
+
+  <h2>2. El modelo de partido</h2>
+  <p>Cada selección tiene dos números: una fuerza <strong>ofensiva</strong> (att) y una
+    <strong>defensiva</strong> (def). Los goles que se esperan de cada equipo en un
+    partido salen de ahí:</p>
+  <div class="formula">log&nbsp;λ<sub>local</sub> = μ + h·(juega&nbsp;en&nbsp;casa) + att<sub>local</sub> − def<sub>visitante</sub><br>
+log&nbsp;λ<sub>visitante</sub> = μ + att<sub>visitante</sub> − def<sub>local</sub></div>
+  <p>donde μ es el nivel de goles base y h la ventaja de jugar en casa (en este Mundial,
+    solo la disfrutan México, Estados Unidos y Canadá). El marcador del partido se
+    muestrea de dos distribuciones de <strong>Poisson</strong> independientes con esas
+    medias, la forma clásica de modelar goles en fútbol desde Maher (1982) y
+    Dixon&nbsp;&amp;&nbsp;Coles (1997). En las eliminatorias, si hay empate se simula una
+    prórroga (a un tercio del ritmo de gol) y, si persiste, unos penaltis casi a moneda
+    al aire, ligeramente inclinados hacia el equipo más fuerte.</p>
+
+  <figure class="fig">
+    <svg viewBox="0 0 740 262" role="img" aria-label="Distribución de Poisson de los goles de un favorito y de su rival">
+      <g font-size="13" fill="#1a2433">
+        <rect x="80" y="8" width="14" height="14" rx="3" fill="#0b7a4b"/>
+        <text x="101" y="20">favorito (espera 2,1 goles)</text>
+        <rect x="310" y="8" width="14" height="14" rx="3" fill="#a8b0bd"/>
+        <text x="331" y="20">rival (espera 0,8 goles)</text>
+      </g>
+      <!-- barras: % de veces que cada equipo marca k goles -->
+      <g fill="#0b7a4b">
+        <rect x="80" y="167" width="42" height="38" rx="3"/>
+        <rect x="188" y="125" width="42" height="80" rx="3"/>
+        <rect x="296" y="121" width="42" height="84" rx="3"/>
+        <rect x="404" y="146" width="42" height="59" rx="3"/>
+        <rect x="512" y="174" width="42" height="31" rx="3"/>
+        <rect x="620" y="192" width="42" height="13" rx="3"/>
+      </g>
+      <g fill="#a8b0bd">
+        <rect x="126" y="66" width="42" height="139" rx="3"/>
+        <rect x="234" y="94" width="42" height="111" rx="3"/>
+        <rect x="342" y="160" width="42" height="45" rx="3"/>
+        <rect x="450" y="193" width="42" height="12" rx="3"/>
+        <rect x="558" y="202" width="42" height="3" rx="1.5"/>
+        <rect x="666" y="204" width="42" height="1"/>
+      </g>
+      <g text-anchor="middle" font-size="11.5" fill="#6b7280">
+        <text x="101" y="161">12</text><text x="147" y="60">45</text>
+        <text x="209" y="119">26</text><text x="255" y="88">36</text>
+        <text x="317" y="115">27</text><text x="363" y="154">14</text>
+        <text x="425" y="140">19</text><text x="471" y="187">4</text>
+        <text x="533" y="168">10</text><text x="579" y="196">1</text>
+        <text x="641" y="186">4</text><text x="687" y="198">0</text>
+      </g>
+      <line x1="70" y1="205" x2="715" y2="205" stroke="#1a2433" stroke-width="1"/>
+      <g text-anchor="middle" font-size="12.5" fill="#1a2433">
+        <text x="124" y="226">0</text><text x="232" y="226">1</text>
+        <text x="340" y="226">2</text><text x="448" y="226">3</text>
+        <text x="556" y="226">4</text><text x="664" y="226">5</text>
+      </g>
+      <text x="394" y="250" text-anchor="middle" font-size="12" fill="#6b7280">goles marcados en el partido</text>
+    </svg>
+    <figcaption>Lo que implica el modelo en un cruce desigual: porcentaje de veces que
+      cada equipo marca 0, 1, 2... goles. El favorito se queda a cero un 12&nbsp;% de las
+      veces y el rival marca dos o más un 19&nbsp;%: por eso ningún cruce está decidido
+      de antemano.</figcaption>
+  </figure>
+
+  <h2>3. De dónde salen las fuerzas: el ajuste por máxima verosimilitud</h2>
+  <p>Aquí está el trabajo de verdad. Las fuerzas no se copian de ningún ranking: se
+    <strong>estiman</strong> a partir del histórico completo de partidos internacionales
+    (<a href="https://github.com/martj42/international_results">la recopilación pública de
+    Mart Jürisoo</a>, unos 49.400 partidos con marcador desde 1872). El ajuste usa los
+    últimos 12 años: 11.546 partidos y 298 selecciones.</p>
+  <p>Se buscan los parámetros (att y def de cada selección, μ y h) que maximizan la
+    <strong>log-verosimilitud de Poisson ponderada</strong> de todos esos marcadores,
+    es decir: los valores bajo los cuales lo que realmente pasó habría sido lo más
+    probable. La optimización es un descenso por gradiente (Adam, implementado con
+    numpy) sobre unos 600 parámetros. Tres ponderaciones importan:</p>
+  <ul>
+    <li><strong>Decaimiento temporal</strong>: un partido de hace seis meses dice más que
+      uno de 2016. El peso de cada partido se reduce a la mitad por cada semivida que
+      pasa; la semivida elegida es de 4 años, así que un partido de hace cuatro años
+      cuenta la mitad que uno de ayer.</li>
+    <li><strong>Amistosos a mitad de peso</strong>: se compite distinto cuando no hay nada
+      en juego.</li>
+    <li><strong>Regularización L2</strong>: encoge hacia la media a las selecciones con
+      pocos partidos, para no sacar conclusiones grandiosas de muestras diminutas.</li>
+  </ul>
+  <p>El ajuste vigente da μ&nbsp;=&nbsp;0,17 (un equipo medio espera 1,2 goles ante otro
+    equipo medio) y h&nbsp;=&nbsp;0,26 (jugar en casa multiplica los goles esperados
+    por 1,3, una ventaja que en este Mundial solo tienen los tres anfitriones).</p>
+
+  <figure class="fig">
+    <svg viewBox="0 0 740 215" role="img" aria-label="Curva de decaimiento del peso de cada partido según su antigüedad">
+      <g stroke="#e4e1d8" stroke-dasharray="3 4">
+        <line x1="60" y1="105" x2="679" y2="105"/>
+        <line x1="60" y1="142" x2="679" y2="142"/>
+      </g>
+      <path d="M60,30 L112,54 L163,74 L215,91 L266,105 L318,117 L370,127 L421,135 L473,142 L524,148 L576,153 L628,158 L679,161 L679,180 L60,180 Z"
+            fill="#0b7a4b18"/>
+      <polyline points="60,30 112,54 163,74 215,91 266,105 318,117 370,127 421,135 473,142 524,148 576,153 628,158 679,161"
+                fill="none" stroke="#0b7a4b" stroke-width="2.5"/>
+      <line x1="266" y1="105" x2="266" y2="180" stroke="#6b7280" stroke-dasharray="4 4"/>
+      <circle cx="266" cy="105" r="4" fill="#0b7a4b"/>
+      <text x="278" y="96" font-size="12.5" fill="#1a2433">un partido de hace 4 años pesa la mitad que uno de ayer</text>
+      <line x1="60" y1="180" x2="679" y2="180" stroke="#1a2433" stroke-width="1"/>
+      <g text-anchor="end" font-size="12" fill="#6b7280">
+        <text x="52" y="34">100&nbsp;%</text>
+        <text x="52" y="109">50&nbsp;%</text>
+        <text x="52" y="146">25&nbsp;%</text>
+      </g>
+      <g text-anchor="middle" font-size="12" fill="#6b7280">
+        <text x="64" y="200">hoy</text>
+        <text x="266" y="200">hace 4 años</text>
+        <text x="473" y="200">hace 8 años</text>
+        <text x="679" y="200">hace 12 años</text>
+      </g>
+    </svg>
+    <figcaption>Peso de cada partido en el entrenamiento según su antigüedad. La semivida
+      de 4 años la eligió la validación, no la intuición.</figcaption>
+  </figure>
+
+  <details class="tech">
+    <summary>Para el lector técnico: cómo se optimiza exactamente</summary>
+    <p>La función objetivo es la log-verosimilitud Poisson negativa ponderada más la
+      penalización L2. Su gradiente tiene forma cerrada: el residuo ponderado
+      <code>w·(λ − goles)</code> de cada partido respecto del logaritmo de cada lambda,
+      acumulado sobre los parámetros implicados (el ataque del que dispara, la defensa
+      del que encaja, μ y h). No hay autograd ni framework de ML: el gradiente está
+      derivado a mano y vectorizado con numpy.</p>
+    <ul>
+      <li><strong>Optimizador</strong>: Adam (paso 0,05, β₁ 0,9, β₂ 0,999), 1.200
+        iteraciones sobre el lote completo de 11.546 partidos; unos 600 parámetros en
+        total (ataque y defensa de 298 selecciones, μ y h).</li>
+      <li><strong>Identificabilidad</strong>: sumar una constante a todos los ataques y
+        defensas no cambia ninguna λ, así que al terminar se recentra (media de att y de
+        def a cero) absorbiendo el desplazamiento en μ. Las predicciones no cambian; los
+        parámetros pasan a ser comparables entre sí.</li>
+      <li><strong>Reproducibilidad</strong>: el entrenamiento es determinista. Parte de
+        ceros, no usa minilotes aleatorios y recorre los datos siempre en el mismo orden:
+        con la misma versión de los datos y del código, los ratings salen idénticos al
+        cuarto decimal.</li>
+    </ul>
+  </details>
+
+  <h2>4. Validación: ¿funciona de verdad?</h2>
+  <p>La única forma honesta de saberlo es <strong>walk-forward</strong>: entrenar el
+    modelo solo con partidos <em>anteriores</em> a un Mundial pasado y comprobar qué tal
+    predijo ese Mundial, que el modelo nunca vio. Se hizo con los 64 partidos de 2018 y
+    los 64 de 2022, midiendo el <strong>log-loss</strong> de las probabilidades 1X2
+    (cuanto más bajo, mejor; un modelo que se encoge de hombros y da siempre ⅓, ⅓, ⅓
+    se queda en 1,099). Los dos hiperparámetros, la semivida del decaimiento y la fuerza
+    de la regularización, se eligieron con esa rejilla, no a ojo:</p>
+
+  <figure class="fig">
+    <svg viewBox="0 0 770 195" role="img" aria-label="Esquema de la validación walk-forward con los Mundiales 2018 y 2022">
+      <g stroke="#f0eee7">
+        <line x1="60" y1="18" x2="60" y2="152"/>
+        <line x1="180" y1="18" x2="180" y2="152"/>
+        <line x1="300" y1="18" x2="300" y2="152"/>
+        <line x1="420" y1="18" x2="420" y2="152"/>
+        <line x1="540" y1="18" x2="540" y2="152"/>
+        <line x1="660" y1="18" x2="660" y2="152"/>
+      </g>
+      <g>
+        <rect x="74" y="26" width="361" height="22" rx="4" fill="#edebe3"/>
+        <rect x="437" y="26" width="13" height="22" rx="2" fill="#0b7a4b"/>
+        <text x="255" y="41" text-anchor="middle" font-size="11.5" fill="#6b7280">12 años de entrenamiento</text>
+        <text x="458" y="41" font-size="12" fill="#1a2433">evalúa el Mundial 2018</text>
+      </g>
+      <g>
+        <rect x="207" y="70" width="361" height="22" rx="4" fill="#edebe3"/>
+        <rect x="570" y="70" width="13" height="22" rx="2" fill="#0b7a4b"/>
+        <text x="591" y="85" font-size="12" fill="#1a2433">evalúa el Mundial 2022</text>
+      </g>
+      <g>
+        <rect x="315" y="114" width="345" height="22" rx="4" fill="#edebe3"/>
+        <rect x="662" y="114" width="13" height="22" rx="2" fill="#0b7a4b"/>
+        <text x="683" y="129" font-size="12" fill="#1a2433" font-weight="700">predice 2026</text>
+      </g>
+      <line x1="60" y1="152" x2="675" y2="152" stroke="#1a2433" stroke-width="1"/>
+      <g text-anchor="middle" font-size="12" fill="#6b7280">
+        <text x="60" y="172">2006</text>
+        <text x="180" y="172">2010</text>
+        <text x="300" y="172">2014</text>
+        <text x="420" y="172">2018</text>
+        <text x="540" y="172">2022</text>
+        <text x="660" y="172">2026</text>
+      </g>
+    </svg>
+    <figcaption>Validación walk-forward: cada fila entrena solo con el pasado (bloque
+      gris) y se examina con los 64 partidos de un Mundial que nunca vio (bloque verde).
+      La tercera fila es el modelo en producción.</figcaption>
+  </figure>
+
+  <table>
+    <thead><tr><th>Semivida</th><th>L2</th><th>Log-loss WC2018</th><th>Log-loss WC2022</th><th>Media</th></tr></thead>
+    <tbody>
+      <tr><td>2,5 años</td><td>1,0</td><td>0,976</td><td>1,043</td><td>1,010</td></tr>
+      <tr><td>2,5 años</td><td>2,5</td><td>0,996</td><td>1,051</td><td>1,024</td></tr>
+      <tr><td>2,5 años</td><td>5,0</td><td>1,008</td><td>1,057</td><td>1,032</td></tr>
+      <tr><td><strong>4 años</strong></td><td><strong>1,0</strong></td><td><strong>0,976</strong></td><td><strong>1,033</strong></td><td><strong>1,004</strong></td></tr>
+      <tr><td>4 años</td><td>2,5</td><td>0,996</td><td>1,040</td><td>1,018</td></tr>
+      <tr><td>4 años</td><td>5,0</td><td>1,011</td><td>1,047</td><td>1,029</td></tr>
+    </tbody>
+  </table>
+  <p>Dos lecturas honestas. Primera: el modelo bate al azar con claridad, y la mejora
+    puede parecer modesta porque <em>predecir fútbol es difícil</em>: un solo partido de
+    Mundial es cerca del máximo de incertidumbre que ofrece el deporte. Segunda: la
+    propia rejilla corrigió un error de diseño; la regularización inicial (L2=5)
+    comprimía tanto las fuerzas que México salía con un 6,5&nbsp;% de ser campeón.
+    Los datos pidieron menos encogimiento.</p>
+
+  <details class="tech">
+    <summary>Para el lector técnico: Brier score y un baseline más exigente</summary>
+    <p>El log-loss castiga mucho la sobreconfianza, así que conviene una segunda métrica:
+      el <strong>Brier score</strong> (error cuadrático de las probabilidades 1X2; más
+      bajo, mejor; el baseline uniforme se queda en 0,667). Y conviene un rival más duro
+      que el azar: las <strong>frecuencias reales</strong> de victoria, empate y derrota
+      de cada Mundial, calculadas sobre el propio test. Ese baseline hace trampa a su
+      favor (resume un futuro que el modelo no puede conocer) y aun así pierde:</p>
+    <table>
+      <thead><tr><th>Mundial</th><th>Log-loss modelo</th><th>Log-loss frecuencias</th>
+        <th>Log-loss uniforme</th><th>Brier modelo</th><th>Brier uniforme</th></tr></thead>
+      <tbody>
+        <tr><td>2018</td><td><strong>0,976</strong></td><td>1,057</td><td>1,099</td>
+          <td><strong>0,582</strong></td><td>0,667</td></tr>
+        <tr><td>2022</td><td><strong>1,033</strong></td><td>1,067</td><td>1,099</td>
+          <td><strong>0,609</strong></td><td>0,667</td></tr>
+      </tbody>
+    </table>
+    <p>La lectura: el modelo no solo distingue mejor que el azar, sino mejor que conocer
+      de antemano el reparto global de resultados del torneo. Lo que añade es
+      discriminación partido a partido: saber <em>cuáles</em> serán más probablemente
+      victorias y de quién.</p>
+  </details>
+
+  <h2>5. Las reglas del torneo, tal cual son</h2>
+  <p>El formato 2026 es nuevo: 48 selecciones en 12 grupos de 4. Pasan a dieciseisavos
+    los dos primeros de cada grupo y los <strong>8 mejores terceros</strong>. El
+    simulador implementa el cuadro oficial de la FIFA (partidos 73 a 104), incluida la
+    parte más enrevesada: cada hueco de tercero del cuadro solo admite terceros de
+    ciertos grupos, así que la asignación se resuelve como un problema de emparejamiento
+    con backtracking que respeta esas mismas restricciones del reglamento.</p>
+
+  <figure class="fig">
+    <svg viewBox="0 0 740 258" role="img" aria-label="Embudo del formato 2026: de 48 selecciones a una campeona">
+      <g fill="#0b7a4b">
+        <rect x="132" y="10"  width="576" height="25" rx="4" opacity="0.45"/>
+        <rect x="228" y="45"  width="384" height="25" rx="4" opacity="0.55"/>
+        <rect x="324" y="80"  width="192" height="25" rx="4" opacity="0.65"/>
+        <rect x="372" y="115" width="96"  height="25" rx="4" opacity="0.75"/>
+        <rect x="396" y="150" width="48"  height="25" rx="4" opacity="0.85"/>
+        <rect x="408" y="185" width="24"  height="25" rx="4" opacity="0.95"/>
+        <rect x="414" y="220" width="12"  height="25" rx="3"/>
+      </g>
+      <g font-size="13" fill="#1a2433">
+        <text x="10" y="27">Fase de grupos</text>
+        <text x="10" y="62">Dieciseisavos</text>
+        <text x="10" y="97">Octavos</text>
+        <text x="10" y="132">Cuartos</text>
+        <text x="10" y="167">Semifinales</text>
+        <text x="10" y="202">Final</text>
+        <text x="10" y="237">Campeón</text>
+      </g>
+      <g font-size="13" font-weight="700" fill="#1a2433">
+        <text x="716" y="27">48</text>
+        <text x="620" y="62">32</text>
+        <text x="524" y="97">16</text>
+        <text x="476" y="132">8</text>
+        <text x="452" y="167">4</text>
+        <text x="440" y="202">2</text>
+        <text x="434" y="237">1</text>
+      </g>
+    </svg>
+    <figcaption>El embudo del formato 2026: a dieciseisavos avanzan los dos primeros de
+      cada grupo y los ocho mejores terceros; desde ahí, eliminación directa.</figcaption>
+  </figure>
+  <p>Simplificaciones asumidas: el desempate en grupos usa primero los puntos, luego la
+    diferencia de goles, luego los goles a favor y, en última instancia, el azar (se
+    omite el desempate por enfrentamiento directo de la FIFA, de impacto marginal sobre
+    probabilidades agregadas), y los penaltis no dependen de la habilidad específica
+    lanzando.</p>
+
+  <h2>6. El «¿y si...?»: el mismo motor, en tu navegador</h2>
+  <p>El botón de la portada permite forzar el marcador de cualquier partido pendiente.
+    Para que la respuesta sea instantánea, el motor de simulación está
+    <strong>replicado en JavaScript</strong> con exactamente los mismos parámetros del
+    modelo (la web los recibe junto a los datos): tu navegador vuelve a jugar 10.000
+    Mundiales en medio segundo, sin servidor. La paridad entre ambas implementaciones
+    se verifica comparando sus salidas. Todo lo que ves se recalcula con tus marcadores
+    forzados: las probabilidades, el cuadro de eliminatorias y el camino de cada
+    selección.</p>
+
+  <details class="tech">
+    <summary>Para el lector técnico: paridad entre motores y ruido de muestreo</summary>
+    <ul>
+      <li><strong>Paridad verificada</strong>: los dos motores (Python y JavaScript)
+        implementan el mismo muestreo Poisson, los mismos desempates y la misma
+        asignación de terceros por backtracking, y reciben los parámetros del mismo
+        sitio (el JSON publicado). Sus salidas se comparan ejecutando el motor JS con
+        Node: las probabilidades coinciden dentro del error de muestreo.</li>
+      <li><strong>Cuánto ruido tiene cada cifra</strong>: con 20.000 simulaciones, una
+        probabilidad del 15&nbsp;% lleva un error estándar de ±0,25 puntos; por eso dos
+        ejecuciones consecutivas pueden diferir en alguna décima sin que signifique
+        nada. El error cae con la raíz del número de simulaciones: afinar el doble
+        cuesta el cuádruple de cómputo.</li>
+      <li><strong>Sin dependencias</strong>: el simulador es Python estándar y la web es
+        HTML, CSS y JavaScript sin frameworks; solo el entrenamiento usa numpy. La web
+        es estática: cada día se publican los 20.000 torneos resumidos en un JSON, y el
+        navegador no necesita servidor para re-simular.</li>
+    </ul>
+  </details>
+
+  <h2>7. El ciclo diario</h2>
+  <ol>
+    <li>Se añaden los partidos terminados a <code>data/results.json</code>.</li>
+    <li><code>python engine/simulate.py</code> vuelve a simular 20.000 torneos fijando
+      lo ya jugado y publica las probabilidades nuevas.</li>
+    <li>Esa misma ejecución guarda una foto completa de la predicción del día; con ellas
+      se construyen la gráfica de la página de <a href="evolucion.html">Evolución</a> y
+      el viaje en el tiempo para revisitar cualquier jornada.</li>
+    <li>Periódicamente, <code>python engine/train.py</code> vuelve a entrenar las fuerzas
+      con los partidos del propio Mundial ya incluidos.</li>
+  </ol>
+
+  <h2>8. Limitaciones</h2>
+  <ul>
+    <li>Doble Poisson independiente: ignora la pequeña correlación entre los goles de
+      ambos equipos (la corrección ρ de Dixon-Coles), que infraestima ligeramente los
+      empates cortos.</li>
+    <li>Las confederaciones juegan poco entre sí; la comparación entre África, Europa y
+      Asia depende de los cruces escasos que existen en los datos (Mundiales, amistosos).</li>
+    <li>No hay información de plantilla: una lesión de última hora no mueve los números
+      hasta que se refleja en resultados.</li>
+    <li>Y la madre de todas: <strong>ningún modelo acierta un Mundial</strong>. El valor
+      de esto es cuantificar la incertidumbre y verla moverse, no eliminarla.</li>
+  </ul>
+
+  <h2>9. Decisiones que cambiaron por el camino</h2>
+  <p>Los errores corregidos explican el diseño final mejor que ninguna otra cosa, así
+    que aquí van los tres que más enseñaron:</p>
+  <ul>
+    <li><strong>El Elo prestado inflaba a los favoritos.</strong> La primera versión
+      convertía ratings Elo públicos (eloratings.net) en goles esperados, suficiente
+      para tener algo funcionando en un día. Pero el reparto ingenuo daba a España un
+      42&nbsp;% de ser campeona, el doble de lo que cotizan las casas de apuestas. La
+      causa: la puntuación Elo cuenta el empate como medio punto, y traducirla cruda a
+      reparto de goles exagera al fuerte. Se calibró con un amortiguador y, en cuanto
+      existió el modelo propio, se sustituyó entera.</li>
+    <li><strong>La regularización puesta a ojo era el doble de fuerte de la cuenta.</strong>
+      Con L2=5 las fuerzas quedaban tan comprimidas que México salía con un 6,5&nbsp;%
+      de título, por delante de selecciones claramente superiores. En vez de retocarla a
+      mano, se metió en la rejilla de validación y fueron los Mundiales 2018 y 2022
+      quienes eligieron L2=1.</li>
+    <li><strong>El contrato entre módulos nunca cambió</strong>: dados dos equipos,
+      devolver sus goles esperados. Por eso cambiar el corazón del modelo (de Elo a
+      máxima verosimilitud) no obligó a tocar ni las reglas del torneo ni la web, y por
+      eso una futura mejora (xG, datos de plantilla) tampoco lo haría.</li>
+  </ul>
+  <p>Todo el proceso, del entrenamiento a la validación, es reproducible con el código
+    del proyecto.</p>
+
+</main>
+
+<footer>
+  <p>Proyecto académico de
+    <a href="https://www.linkedin.com/in/alejandrosaizgarc%C3%ADa">Alejandro Saiz García</a>.
+    Datos históricos: recopilación pública de
+    <a href="https://github.com/martj42/international_results">Mart Jürisoo</a> ·
+    banderas: <a href="https://flagcdn.com">flagcdn.com</a> ·
+    <a href="index.html">volver a las probabilidades</a></p>
+</footer>
+
+</body>
+</html>

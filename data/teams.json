@@ -1,0 +1,64 @@
+{
+  "_comment": "Sorteo oficial del 5-dic-2025. Elo aproximado de eloratings.net (jun-2026) — actualizable a mano o, en fase 2, sustituido por ratings propios via ML. 'flag' es el código de flagcdn.com.",
+  "teams": [
+    { "id": "MEX", "name": "México",               "flag": "mx",     "group": "A", "elo": 1790, "host": true  },
+    { "id": "KOR", "name": "Corea del Sur",        "flag": "kr",     "group": "A", "elo": 1745, "host": false },
+    { "id": "RSA", "name": "Sudáfrica",            "flag": "za",     "group": "A", "elo": 1620, "host": false },
+    { "id": "CZE", "name": "Chequia",              "flag": "cz",     "group": "A", "elo": 1670, "host": false },
+
+    { "id": "CAN", "name": "Canadá",               "flag": "ca",     "group": "B", "elo": 1755, "host": true  },
+    { "id": "QAT", "name": "Catar",                "flag": "qa",     "group": "B", "elo": 1545, "host": false },
+    { "id": "SUI", "name": "Suiza",                "flag": "ch",     "group": "B", "elo": 1810, "host": false },
+    { "id": "BIH", "name": "Bosnia y Herzegovina", "flag": "ba",     "group": "B", "elo": 1655, "host": false },
+
+    { "id": "BRA", "name": "Brasil",               "flag": "br",     "group": "C", "elo": 2000, "host": false },
+    { "id": "HAI", "name": "Haití",                "flag": "ht",     "group": "C", "elo": 1465, "host": false },
+    { "id": "SCO", "name": "Escocia",              "flag": "gb-sct", "group": "C", "elo": 1700, "host": false },
+    { "id": "MAR", "name": "Marruecos",            "flag": "ma",     "group": "C", "elo": 1855, "host": false },
+
+    { "id": "USA", "name": "Estados Unidos",       "flag": "us",     "group": "D", "elo": 1790, "host": true  },
+    { "id": "PAR", "name": "Paraguay",             "flag": "py",     "group": "D", "elo": 1740, "host": false },
+    { "id": "AUS", "name": "Australia",            "flag": "au",     "group": "D", "elo": 1700, "host": false },
+    { "id": "TUR", "name": "Turquía",              "flag": "tr",     "group": "D", "elo": 1800, "host": false },
+
+    { "id": "GER", "name": "Alemania",             "flag": "de",     "group": "E", "elo": 1940, "host": false },
+    { "id": "CIV", "name": "Costa de Marfil",      "flag": "ci",     "group": "E", "elo": 1690, "host": false },
+    { "id": "ECU", "name": "Ecuador",              "flag": "ec",     "group": "E", "elo": 1880, "host": false },
+    { "id": "CUW", "name": "Curazao",              "flag": "cw",     "group": "E", "elo": 1460, "host": false },
+
+    { "id": "NED", "name": "Países Bajos",         "flag": "nl",     "group": "F", "elo": 1965, "host": false },
+    { "id": "JPN", "name": "Japón",                "flag": "jp",     "group": "F", "elo": 1865, "host": false },
+    { "id": "TUN", "name": "Túnez",                "flag": "tn",     "group": "F", "elo": 1660, "host": false },
+    { "id": "SWE", "name": "Suecia",               "flag": "se",     "group": "F", "elo": 1700, "host": false },
+
+    { "id": "BEL", "name": "Bélgica",              "flag": "be",     "group": "G", "elo": 1880, "host": false },
+    { "id": "EGY", "name": "Egipto",               "flag": "eg",     "group": "G", "elo": 1690, "host": false },
+    { "id": "IRN", "name": "Irán",                 "flag": "ir",     "group": "G", "elo": 1760, "host": false },
+    { "id": "NZL", "name": "Nueva Zelanda",        "flag": "nz",     "group": "G", "elo": 1500, "host": false },
+
+    { "id": "ESP", "name": "España",               "flag": "es",     "group": "H", "elo": 2190, "host": false },
+    { "id": "CPV", "name": "Cabo Verde",           "flag": "cv",     "group": "H", "elo": 1480, "host": false },
+    { "id": "KSA", "name": "Arabia Saudí",         "flag": "sa",     "group": "H", "elo": 1590, "host": false },
+    { "id": "URU", "name": "Uruguay",              "flag": "uy",     "group": "H", "elo": 1890, "host": false },
+
+    { "id": "FRA", "name": "Francia",              "flag": "fr",     "group": "I", "elo": 2075, "host": false },
+    { "id": "SEN", "name": "Senegal",              "flag": "sn",     "group": "I", "elo": 1750, "host": false },
+    { "id": "IRQ", "name": "Irak",                 "flag": "iq",     "group": "I", "elo": 1540, "host": false },
+    { "id": "NOR", "name": "Noruega",              "flag": "no",     "group": "I", "elo": 1850, "host": false },
+
+    { "id": "ARG", "name": "Argentina",            "flag": "ar",     "group": "J", "elo": 2150, "host": false },
+    { "id": "ALG", "name": "Argelia",              "flag": "dz",     "group": "J", "elo": 1720, "host": false },
+    { "id": "AUT", "name": "Austria",              "flag": "at",     "group": "J", "elo": 1790, "host": false },
+    { "id": "JOR", "name": "Jordania",             "flag": "jo",     "group": "J", "elo": 1530, "host": false },
+
+    { "id": "POR", "name": "Portugal",             "flag": "pt",     "group": "K", "elo": 2010, "host": false },
+    { "id": "COD", "name": "RD Congo",             "flag": "cd",     "group": "K", "elo": 1600, "host": false },
+    { "id": "UZB", "name": "Uzbekistán",           "flag": "uz",     "group": "K", "elo": 1640, "host": false },
+    { "id": "COL", "name": "Colombia",             "flag": "co",     "group": "K", "elo": 1925, "host": false },
+
+    { "id": "ENG", "name": "Inglaterra",           "flag": "gb-eng", "group": "L", "elo": 2010, "host": false },
+    { "id": "CRO", "name": "Croacia",              "flag": "hr",     "group": "L", "elo": 1840, "host": false },
+    { "id": "GHA", "name": "Ghana",                "flag": "gh",     "group": "L", "elo": 1640, "host": false },
+    { "id": "PAN", "name": "Panamá",               "flag": "pa",     "group": "L", "elo": 1680, "host": false }
+  ]
+}

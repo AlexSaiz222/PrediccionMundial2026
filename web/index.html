@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Predicción Mundial 2026: probabilidades actualizadas cada jornada</title>
+  <meta name="description" content="Probabilidades de cada selección en el Mundial 2026, recalculadas cada día con simulación Monte Carlo y un modelo estadístico entrenado con el histórico de partidos internacionales.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230b7a4b'/><text x='50' y='68' font-size='46' font-weight='bold' font-family='Segoe UI,sans-serif' fill='white' text-anchor='middle'>26</text></svg>">
+</head>
+<body>
+
+<nav class="topbar" aria-label="Principal">
+  <a class="brand" href="index.html">Predicción Mundial 2026<span class="dot">.</span></a>
+  <div class="topnav">
+    <a href="index.html" aria-current="page">Probabilidades</a>
+    <a href="evolucion.html">Evolución</a>
+    <a href="metodologia.html">Metodología</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <h1>¿Quién ganará el Mundial 2026?</h1>
+  <p class="tagline">Un modelo estadístico entrenado con miles de partidos internacionales
+    simula el Mundial completo <strong id="sims-count">miles de</strong> veces cada día,
+    incorporando los resultados reales según se van jugando. De esas simulaciones sale
+    cada cifra de esta página: quién gana su grupo, quién supera cada cruce y quién
+    acaba levantando la copa.</p>
+  <p class="meta">
+    <span id="updated">Cargando...</span> ·
+    <span id="results-count"></span> ·
+    <a href="metodologia.html">cómo se calcula</a>
+  </p>
+  <div id="whatif-banner" class="whatif-banner" hidden>
+    <span>Modo hipotético: <span id="whatif-desc"></span></span>
+    <button id="whatif-reset" class="btn btn-small">Volver a la realidad</button>
+  </div>
+  <div id="snapshot-banner" class="whatif-banner">
+    <span id="snapshot-msg">Estás viendo la predicción más reciente.</span>
+    <a id="snapshot-back" class="btn btn-small ghost" href="index.html">Volver a la actual</a>
+  </div>
+</header>
+
+<aside class="toc" aria-label="Índice de secciones">
+  <p class="toc-title">En esta página</p>
+  <a href="#favoritos">Favoritos al título</a>
+  <a href="#grupos">Fase de grupos</a>
+  <a href="#bracket-section">Cuadro de eliminatorias</a>
+  <a href="#rondas">Probabilidad por ronda</a>
+  <a href="#cara-a-cara">Cara a cara</a>
+  <div id="toc-cal" hidden>
+    <p class="toc-title toc-cal-title">Ver otra jornada</p>
+    <input type="date" id="toc-date" class="toc-date"
+      aria-label="Ver la predicción al cierre de otra jornada">
+    <p class="toc-cal-hint">Los porcentajes cambian a cómo quedaron al cierre
+      de la jornada elegida.</p>
+  </div>
+</aside>
+
+<main>
+  <section aria-labelledby="favs-title" id="favoritos">
+    <div class="section-head">
+      <div>
+        <h2 id="favs-title">Favoritos al título</h2>
+        <p class="hint">Probabilidad de levantar la copa el 19 de julio.</p>
+      </div>
+      <button id="whatif-open" class="btn btn-accent">Probar un «¿y si...?»</button>
+    </div>
+    <ol id="thermometer" class="thermometer"></ol>
+  </section>
+
+  <section aria-labelledby="groups-title" id="grupos">
+    <h2 id="groups-title">Fase de grupos</h2>
+    <p class="hint">Pts y PJ son reales. <em>1º</em> y <em>Clasif.</em> son la probabilidad
+      de ganar el grupo y de pasar a dieciseisavos (incluye los ocho mejores terceros).</p>
+    <div id="groups" class="groups-grid"></div>
+  </section>
+
+  <section aria-labelledby="bracket-title" id="bracket-section">
+    <h2 id="bracket-title">Cuadro de eliminatorias</h2>
+    <p class="hint">El árbol oficial de cruces, de dieciseisavos a la final. Cada casilla
+      muestra la selección que más veces la ocupa en las simulaciones, con su probabilidad;
+      pasa el cursor por encima para ver las alternativas. En el modo hipotético el cuadro
+      se recoloca según los marcadores que fuerces.</p>
+    <div class="bracket-wrap">
+      <div class="edge-shadow edge-l" aria-hidden="true"></div>
+      <div class="edge-shadow edge-r" aria-hidden="true"></div>
+      <div id="bracket" class="bracket"></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="table-title" id="rondas">
+    <h2 id="table-title">Probabilidad de alcanzar cada ronda</h2>
+    <p class="hint">Ordenadas por probabilidad de título: se muestran las 24 con más
+      opciones y puedes desplegar el resto. Pulsa el nombre de cualquier selección para
+      ver su camino más probable hasta la final.</p>
+    <div class="table-wrap">
+      <table id="rounds-table">
+        <thead>
+          <tr>
+            <th class="sticky-col">Selección</th>
+            <th>Dieciseisavos</th><th>Octavos</th><th>Cuartos</th>
+            <th>Semifinal</th><th>Final</th><th>Campeón</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <div class="table-foot">
+      <button id="rounds-toggle" class="btn">Ver las 48 selecciones</button>
+    </div>
+  </section>
+
+  <section aria-labelledby="h2h-title" id="cara-a-cara">
+    <h2 id="h2h-title">Cara a cara</h2>
+    <p class="hint">Enfrenta a dos selecciones cualesquiera: el mismo modelo de goles
+      calcula al instante quién ganaría, con qué frecuencia habría empate y los marcadores
+      más probables.</p>
+    <div class="h2h-controls">
+      <label class="field">Primera selección
+        <select id="h2h-a"></select>
+      </label>
+      <label class="field">Segunda selección
+        <select id="h2h-b"></select>
+      </label>
+      <button id="h2h-swap" class="btn btn-small" type="button">Intercambiar</button>
+    </div>
+    <div id="h2h-out"></div>
+  </section>
+</main>
+
+<dialog id="whatif-dialog" aria-labelledby="whatif-title">
+  <form method="dialog" class="dialog-head">
+    <h3 id="whatif-title">¿Y si...?</h3>
+    <button class="btn btn-small" value="close" aria-label="Cerrar">×</button>
+  </form>
+  <p class="hint">Fuerza el marcador de cualquier partido de grupos pendiente y
+    re-simula el Mundial entero en tu navegador.</p>
+  <label class="field">Grupo
+    <select id="whatif-group"></select>
+  </label>
+  <ul id="whatif-matches" class="match-list"></ul>
+  <div id="whatif-forced" class="forced-list"></div>
+</dialog>
+
+<dialog id="path-dialog" aria-labelledby="path-title">
+  <form method="dialog" class="dialog-head">
+    <h3 id="path-title">Camino más probable</h3>
+    <button class="btn btn-small" value="close" aria-label="Cerrar">×</button>
+  </form>
+  <div id="path-body"></div>
+</dialog>
+
+<footer>
+  <p><strong>Cómo funciona:</strong> <span id="model-info">cada selección tiene una fuerza
+    estimada</span>; un modelo de Poisson convierte la diferencia de fuerzas en marcadores
+    probables, y el torneo se juega miles de veces fijando los resultados ya disputados.
+    Los porcentajes son la frecuencia de cada hito en esas simulaciones.
+    <a href="metodologia.html">Explicación completa, con la validación del modelo</a>.</p>
+  <p>Ningún modelo acierta un Mundial: esto cuantifica la incertidumbre, no la elimina.
+    Proyecto académico de
+    <a href="https://www.linkedin.com/in/alejandrosaizgarc%C3%ADa">Alejandro Saiz García</a>.
+    El modelo se entrena con el histórico público de resultados
+    internacionales recopilado por
+    <a href="https://github.com/martj42/international_results">Mart Jürisoo</a>;
+    las banderas son de <a href="https://flagcdn.com">flagcdn.com</a>.</p>
+</footer>
+
+<div id="load-error" class="load-error" hidden>
+  No se pudo cargar <code>data.json</code>. Si abriste el archivo directamente, arranca un
+  servidor local: <code>python -m http.server</code> dentro de la carpeta <code>web/</code>
+  y abre <a href="http://localhost:8000">localhost:8000</a>.
+</div>
+
+<script src="simulator.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

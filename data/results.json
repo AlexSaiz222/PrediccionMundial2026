@@ -1,0 +1,8 @@
+{
+  "_comment": "Resultados reales jugados. Añadir cada día los partidos terminados (marcador en 90'+prórroga; los penaltis no afectan a la fase de grupos). Luego ejecutar: python engine/simulate.py",
+  "results": [
+    { "date": "2026-06-11", "home": "MEX", "away": "RSA", "score": [2, 0] },
+    { "date": "2026-06-11", "home": "KOR", "away": "CZE", "score": [2, 1] },
+    { "date": "2026-06-12", "home": "CAN", "away": "BIH", "score": [1, 1] }
+  ]
+}

@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Evolución de las probabilidades: Predicción Mundial 2026</title>
+  <meta name="description" content="Cómo cambian día a día las probabilidades de campeón del Mundial 2026 según avanzan los partidos reales, con acceso a la predicción guardada de cada jornada.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230b7a4b'/><text x='50' y='68' font-size='46' font-weight='bold' font-family='Segoe UI,sans-serif' fill='white' text-anchor='middle'>26</text></svg>">
+</head>
+<body>
+
+<nav class="topbar" aria-label="Principal">
+  <a class="brand" href="index.html">Predicción Mundial 2026<span class="dot">.</span></a>
+  <div class="topnav">
+    <a href="index.html">Probabilidades</a>
+    <a href="evolucion.html" aria-current="page">Evolución</a>
+    <a href="metodologia.html">Metodología</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <h1>Cómo cambia la predicción día a día</h1>
+  <p class="tagline">Cada jornada, los resultados reales mueven las probabilidades. Esta
+    gráfica registra la probabilidad de campeón de las selecciones favoritas tras cada
+    actualización, y desde aquí puedes volver a ver la predicción completa de cualquier
+    día pasado.</p>
+</header>
+
+<main>
+  <section aria-labelledby="chart-title">
+    <h2 id="chart-title">Probabilidad de campeón, jornada a jornada</h2>
+    <p class="hint" id="chart-hint">Las ocho selecciones con más opciones de título en la
+      última actualización. Pasa el cursor por una línea o su etiqueta para destacarla,
+      y haz clic para dejarla fijada. El eje se ajusta al rango de las favoritas, así
+      los movimientos de cada jornada se aprecian aunque sean de décimas.</p>
+    <div class="chart-wrap"><div id="chart"></div></div>
+    <p class="hint" id="chart-note" hidden>De momento solo hay una jornada registrada: la
+      gráfica irá creciendo cada día, con el primer cambio visible tras la próxima
+      actualización.</p>
+  </section>
+
+  <section aria-labelledby="movers-title" id="movers-section" hidden>
+    <h2 id="movers-title">Qué se movió en la última jornada</h2>
+    <p class="hint" id="movers-hint"></p>
+    <div id="movers" class="movers"></div>
+  </section>
+
+  <section aria-labelledby="tt-title">
+    <h2 id="tt-title">Viaje en el tiempo</h2>
+    <p class="hint">Pulsa cualquier jornada y verás la página de probabilidades
+      exactamente como quedó al cierre de ese día, con sus partidos ya incorporados:
+      grupos, cuadro de eliminatorias y tabla de rondas incluidos. La del 10 de junio
+      es la predicción de salida, antes del primer partido.</p>
+    <div class="table-wrap tt-wrap">
+      <table id="tt-table">
+        <thead>
+          <tr><th>Jornada</th><th>Partidos del día</th><th>Favorito ese día</th><th></th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>Cada ejecución diaria del simulador guarda una foto completa de la predicción; eso
+    es lo que alimenta esta página. Proyecto académico de
+    <a href="https://www.linkedin.com/in/alejandrosaizgarc%C3%ADa">Alejandro Saiz García</a> ·
+    <a href="metodologia.html">cómo se calcula todo</a> ·
+    <a href="index.html">volver a las probabilidades</a></p>
+</footer>
+
+<div id="load-error" class="load-error" hidden>
+  No se pudo cargar <code>history.json</code>. Si abriste el archivo directamente, arranca
+  un servidor local: <code>python -m http.server</code> dentro de la carpeta
+  <code>web/</code> y abre <a href="http://localhost:8000">localhost:8000</a>.
+</div>
+
+<script src="evolucion.js"></script>
+</body>
+</html>
