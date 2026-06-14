@@ -30,6 +30,15 @@
     },
     {
       "date": "2026-06-13",
+      "home": "BRA",
+      "away": "MAR",
+      "score": [
+        1,
+        1
+      ]
+    },
+    {
+      "date": "2026-06-13",
       "home": "QAT",
       "away": "SUI",
       "score": [
@@ -43,6 +52,24 @@
       "away": "PAR",
       "score": [
         4,
+        1
+      ]
+    },
+    {
+      "date": "2026-06-14",
+      "home": "AUS",
+      "away": "TUR",
+      "score": [
+        2,
+        0
+      ]
+    },
+    {
+      "date": "2026-06-14",
+      "home": "HAI",
+      "away": "SCO",
+      "score": [
+        0,
         1
       ]
     }
