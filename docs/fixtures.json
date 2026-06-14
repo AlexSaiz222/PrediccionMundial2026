@@ -1,5 +1,5 @@
 {
- "updated": "2026-06-14T20:34:27+00:00",
+ "updated": "2026-06-14T23:32:12+00:00",
  "matches": [
   {
    "date": "2026-06-11T19:00:00Z",
@@ -113,12 +113,12 @@
    "date": "2026-06-14T20:00:00Z",
    "stage": "GROUP_STAGE",
    "group": "F",
-   "status": "IN_PLAY",
+   "status": "FINISHED",
    "home": "NED",
    "away": "JPN",
    "score": [
-    0,
-    0
+    2,
+    2
    ]
   },
   {
