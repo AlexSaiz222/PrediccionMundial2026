@@ -102,6 +102,24 @@
     },
     {
       "date": "2026-06-15",
+      "home": "BEL",
+      "away": "EGY",
+      "score": [
+        1,
+        1
+      ]
+    },
+    {
+      "date": "2026-06-15",
+      "home": "ESP",
+      "away": "CPV",
+      "score": [
+        0,
+        0
+      ]
+    },
+    {
+      "date": "2026-06-15",
       "home": "SWE",
       "away": "TUN",
       "score": [
