@@ -1,5 +1,5 @@
 {
- "updated": "2026-06-16T15:44:34+00:00",
+ "updated": "2026-06-16T21:06:52+00:00",
  "matches": [
   {
    "date": "2026-06-11T19:00:00Z",
@@ -197,10 +197,13 @@
    "date": "2026-06-16T19:00:00Z",
    "stage": "GROUP_STAGE",
    "group": "I",
-   "status": "TIMED",
+   "status": "IN_PLAY",
    "home": "FRA",
    "away": "SEN",
-   "score": null
+   "score": [
+    3,
+    1
+   ]
   },
   {
    "date": "2026-06-16T22:00:00Z",
