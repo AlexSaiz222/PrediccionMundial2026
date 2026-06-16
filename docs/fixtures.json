@@ -1,5 +1,5 @@
 {
- "updated": "2026-06-15T23:38:24+00:00",
+ "updated": "2026-06-16T08:07:38+00:00",
  "matches": [
   {
    "date": "2026-06-11T19:00:00Z",
@@ -173,22 +173,25 @@
    "date": "2026-06-15T22:00:00Z",
    "stage": "GROUP_STAGE",
    "group": "H",
-   "status": "IN_PLAY",
+   "status": "FINISHED",
    "home": "KSA",
    "away": "URU",
    "score": [
     1,
-    0
+    1
    ]
   },
   {
    "date": "2026-06-16T01:00:00Z",
    "stage": "GROUP_STAGE",
    "group": "G",
-   "status": "TIMED",
+   "status": "FINISHED",
    "home": "IRN",
    "away": "NZL",
-   "score": null
+   "score": [
+    2,
+    2
+   ]
   },
   {
    "date": "2026-06-16T19:00:00Z",

@@ -120,11 +120,29 @@
     },
     {
       "date": "2026-06-15",
+      "home": "KSA",
+      "away": "URU",
+      "score": [
+        1,
+        1
+      ]
+    },
+    {
+      "date": "2026-06-15",
       "home": "SWE",
       "away": "TUN",
       "score": [
         5,
         1
+      ]
+    },
+    {
+      "date": "2026-06-16",
+      "home": "IRN",
+      "away": "NZL",
+      "score": [
+        2,
+        2
       ]
     }
   ],
