@@ -153,6 +153,33 @@
         2,
         2
       ]
+    },
+    {
+      "date": "2026-06-16",
+      "home": "IRQ",
+      "away": "NOR",
+      "score": [
+        1,
+        4
+      ]
+    },
+    {
+      "date": "2026-06-17",
+      "home": "ARG",
+      "away": "ALG",
+      "score": [
+        3,
+        0
+      ]
+    },
+    {
+      "date": "2026-06-17",
+      "home": "AUT",
+      "away": "JOR",
+      "score": [
+        3,
+        1
+      ]
     }
   ],
   "knockout": []
