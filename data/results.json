@@ -192,11 +192,29 @@
     },
     {
       "date": "2026-06-17",
+      "home": "GHA",
+      "away": "PAN",
+      "score": [
+        1,
+        0
+      ]
+    },
+    {
+      "date": "2026-06-17",
       "home": "POR",
       "away": "COD",
       "score": [
         1,
         1
+      ]
+    },
+    {
+      "date": "2026-06-18",
+      "home": "UZB",
+      "away": "COL",
+      "score": [
+        1,
+        3
       ]
     }
   ],
