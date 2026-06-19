@@ -1,5 +1,5 @@
 {
- "updated": "2026-06-18T23:37:33+00:00",
+ "updated": "2026-06-19T08:01:33+00:00",
  "matches": [
   {
    "date": "2026-06-11T19:00:00Z",
@@ -317,11 +317,11 @@
    "date": "2026-06-18T22:00:00Z",
    "stage": "GROUP_STAGE",
    "group": "B",
-   "status": "IN_PLAY",
+   "status": "FINISHED",
    "home": "CAN",
    "away": "QAT",
    "score": [
-    4,
+    6,
     0
    ]
   },
@@ -329,10 +329,13 @@
    "date": "2026-06-19T01:00:00Z",
    "stage": "GROUP_STAGE",
    "group": "A",
-   "status": "TIMED",
+   "status": "FINISHED",
    "home": "MEX",
    "away": "KOR",
-   "score": null
+   "score": [
+    1,
+    0
+   ]
   },
   {
    "date": "2026-06-19T19:00:00Z",
