@@ -1,5 +1,5 @@
 {
- "updated": "2026-06-19T15:06:55+00:00",
+ "updated": "2026-06-19T20:36:14+00:00",
  "matches": [
   {
    "date": "2026-06-11T19:00:00Z",
@@ -341,10 +341,13 @@
    "date": "2026-06-19T19:00:00Z",
    "stage": "GROUP_STAGE",
    "group": "D",
-   "status": "TIMED",
+   "status": "IN_PLAY",
    "home": "USA",
    "away": "AUS",
-   "score": null
+   "score": [
+    2,
+    0
+   ]
   },
   {
    "date": "2026-06-19T22:00:00Z",
