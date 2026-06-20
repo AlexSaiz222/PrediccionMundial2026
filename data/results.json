@@ -282,6 +282,15 @@
     },
     {
       "date": "2026-06-20",
+      "home": "GER",
+      "away": "CIV",
+      "score": [
+        2,
+        1
+      ]
+    },
+    {
+      "date": "2026-06-20",
       "home": "NED",
       "away": "SWE",
       "score": [
