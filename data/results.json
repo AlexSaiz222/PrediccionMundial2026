@@ -255,11 +255,38 @@
     },
     {
       "date": "2026-06-19",
+      "home": "SCO",
+      "away": "MAR",
+      "score": [
+        0,
+        1
+      ]
+    },
+    {
+      "date": "2026-06-19",
       "home": "USA",
       "away": "AUS",
       "score": [
         2,
         0
+      ]
+    },
+    {
+      "date": "2026-06-20",
+      "home": "BRA",
+      "away": "HAI",
+      "score": [
+        3,
+        0
+      ]
+    },
+    {
+      "date": "2026-06-20",
+      "home": "TUR",
+      "away": "PAR",
+      "score": [
+        0,
+        1
       ]
     }
   ],
