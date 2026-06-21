@@ -1,5 +1,5 @@
 {
- "updated": "2026-06-21T14:51:22+00:00",
+ "updated": "2026-06-21T20:37:39+00:00",
  "matches": [
   {
    "date": "2026-06-11T19:00:00Z",
@@ -437,19 +437,25 @@
    "date": "2026-06-21T16:00:00Z",
    "stage": "GROUP_STAGE",
    "group": "H",
-   "status": "TIMED",
+   "status": "FINISHED",
    "home": "ESP",
    "away": "KSA",
-   "score": null
+   "score": [
+    4,
+    0
+   ]
   },
   {
    "date": "2026-06-21T19:00:00Z",
    "stage": "GROUP_STAGE",
    "group": "G",
-   "status": "TIMED",
+   "status": "IN_PLAY",
    "home": "BEL",
    "away": "IRN",
-   "score": null
+   "score": [
+    0,
+    0
+   ]
   },
   {
    "date": "2026-06-21T22:00:00Z",
