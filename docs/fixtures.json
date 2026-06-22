@@ -1,5 +1,5 @@
 {
- "updated": "2026-06-22T15:43:51+00:00",
+ "updated": "2026-06-22T21:05:42+00:00",
  "matches": [
   {
    "date": "2026-06-11T19:00:00Z",
@@ -485,10 +485,13 @@
    "date": "2026-06-22T17:00:00Z",
    "stage": "GROUP_STAGE",
    "group": "J",
-   "status": "TIMED",
+   "status": "FINISHED",
    "home": "ARG",
    "away": "AUT",
-   "score": null
+   "score": [
+    2,
+    0
+   ]
   },
   {
    "date": "2026-06-22T21:00:00Z",
