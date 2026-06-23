@@ -1,5 +1,5 @@
 {
- "updated": "2026-06-22T23:34:23+00:00",
+ "updated": "2026-06-23T07:24:10+00:00",
  "matches": [
   {
    "date": "2026-06-11T19:00:00Z",
@@ -497,11 +497,11 @@
    "date": "2026-06-22T21:00:00Z",
    "stage": "GROUP_STAGE",
    "group": "I",
-   "status": "PAUSED",
+   "status": "FINISHED",
    "home": "FRA",
    "away": "IRQ",
    "score": [
-    1,
+    3,
     0
    ]
   },
@@ -509,19 +509,25 @@
    "date": "2026-06-23T00:00:00Z",
    "stage": "GROUP_STAGE",
    "group": "I",
-   "status": "TIMED",
+   "status": "FINISHED",
    "home": "NOR",
    "away": "SEN",
-   "score": null
+   "score": [
+    3,
+    2
+   ]
   },
   {
    "date": "2026-06-23T03:00:00Z",
    "stage": "GROUP_STAGE",
    "group": "J",
-   "status": "TIMED",
+   "status": "FINISHED",
    "home": "JOR",
    "away": "ALG",
-   "score": null
+   "score": [
+    1,
+    2
+   ]
   },
   {
    "date": "2026-06-23T17:00:00Z",

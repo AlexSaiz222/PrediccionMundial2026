@@ -363,11 +363,38 @@
     },
     {
       "date": "2026-06-22",
+      "home": "FRA",
+      "away": "IRQ",
+      "score": [
+        3,
+        0
+      ]
+    },
+    {
+      "date": "2026-06-22",
       "home": "NZL",
       "away": "EGY",
       "score": [
         1,
         3
+      ]
+    },
+    {
+      "date": "2026-06-23",
+      "home": "JOR",
+      "away": "ALG",
+      "score": [
+        1,
+        2
+      ]
+    },
+    {
+      "date": "2026-06-23",
+      "home": "NOR",
+      "away": "SEN",
+      "score": [
+        3,
+        2
       ]
     }
   ],
