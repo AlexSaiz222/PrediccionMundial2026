@@ -408,10 +408,28 @@
     },
     {
       "date": "2026-06-23",
+      "home": "PAN",
+      "away": "CRO",
+      "score": [
+        0,
+        1
+      ]
+    },
+    {
+      "date": "2026-06-23",
       "home": "POR",
       "away": "UZB",
       "score": [
         5,
+        0
+      ]
+    },
+    {
+      "date": "2026-06-24",
+      "home": "COL",
+      "away": "COD",
+      "score": [
+        1,
         0
       ]
     }
