@@ -426,11 +426,29 @@
     },
     {
       "date": "2026-06-24",
+      "home": "BIH",
+      "away": "QAT",
+      "score": [
+        3,
+        1
+      ]
+    },
+    {
+      "date": "2026-06-24",
       "home": "COL",
       "away": "COD",
       "score": [
         1,
         0
+      ]
+    },
+    {
+      "date": "2026-06-24",
+      "home": "SUI",
+      "away": "CAN",
+      "score": [
+        2,
+        1
       ]
     }
   ],
