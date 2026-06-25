@@ -1,5 +1,5 @@
 {
- "updated": "2026-06-25T20:44:29+00:00",
+ "updated": "2026-06-25T23:33:18+00:00",
  "matches": [
   {
    "date": "2026-06-11T19:00:00Z",
@@ -103,7 +103,7 @@
    "group": "E",
    "status": "FINISHED",
    "home": "GER",
-   "away": "CUW",
+   "away": null,
    "score": [
     7,
     1
@@ -415,7 +415,7 @@
    "group": "E",
    "status": "FINISHED",
    "home": "ECU",
-   "away": "CUW",
+   "away": null,
    "score": [
     0,
     0
@@ -653,11 +653,11 @@
    "date": "2026-06-25T20:00:00Z",
    "stage": "GROUP_STAGE",
    "group": "E",
-   "status": "LIVE",
+   "status": "FINISHED",
    "home": "ECU",
    "away": "GER",
    "score": [
-    1,
+    2,
     1
    ]
   },
@@ -665,31 +665,37 @@
    "date": "2026-06-25T20:00:00Z",
    "stage": "GROUP_STAGE",
    "group": "E",
-   "status": "LIVE",
-   "home": "CUW",
+   "status": "FINISHED",
+   "home": null,
    "away": "CIV",
    "score": [
     0,
-    1
+    2
    ]
   },
   {
    "date": "2026-06-25T23:00:00Z",
    "stage": "GROUP_STAGE",
    "group": "F",
-   "status": "TIMED",
+   "status": "IN_PLAY",
    "home": "TUN",
    "away": "NED",
-   "score": null
+   "score": [
+    0,
+    2
+   ]
   },
   {
    "date": "2026-06-25T23:00:00Z",
    "stage": "GROUP_STAGE",
    "group": "F",
-   "status": "TIMED",
+   "status": "IN_PLAY",
    "home": "JPN",
    "away": "SWE",
-   "score": null
+   "score": [
+    0,
+    0
+   ]
   },
   {
    "date": "2026-06-26T02:00:00Z",
@@ -840,7 +846,7 @@
    "stage": "LAST_32",
    "group": null,
    "status": "TIMED",
-   "home": "GER",
+   "home": null,
    "away": null,
    "score": null
   },
@@ -876,7 +882,7 @@
    "stage": "LAST_32",
    "group": null,
    "status": "TIMED",
-   "home": "MEX",
+   "home": null,
    "away": null,
    "score": null
   },
@@ -903,7 +909,7 @@
    "stage": "LAST_32",
    "group": null,
    "status": "TIMED",
-   "home": "USA",
+   "home": null,
    "away": null,
    "score": null
   },
@@ -948,7 +954,7 @@
    "stage": "LAST_32",
    "group": null,
    "status": "TIMED",
-   "home": "ARG",
+   "home": null,
    "away": null,
    "score": null
   },

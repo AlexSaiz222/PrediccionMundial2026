@@ -480,6 +480,15 @@
     },
     {
       "date": "2026-06-25",
+      "home": "ECU",
+      "away": "GER",
+      "score": [
+        2,
+        1
+      ]
+    },
+    {
+      "date": "2026-06-25",
       "home": "RSA",
       "away": "KOR",
       "score": [
