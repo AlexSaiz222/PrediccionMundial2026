@@ -1,5 +1,5 @@
 {
- "updated": "2026-06-25T15:04:35+00:00",
+ "updated": "2026-06-25T20:44:29+00:00",
  "matches": [
   {
    "date": "2026-06-11T19:00:00Z",
@@ -653,19 +653,25 @@
    "date": "2026-06-25T20:00:00Z",
    "stage": "GROUP_STAGE",
    "group": "E",
-   "status": "TIMED",
+   "status": "LIVE",
    "home": "ECU",
    "away": "GER",
-   "score": null
+   "score": [
+    1,
+    1
+   ]
   },
   {
    "date": "2026-06-25T20:00:00Z",
    "stage": "GROUP_STAGE",
    "group": "E",
-   "status": "TIMED",
+   "status": "LIVE",
    "home": "CUW",
    "away": "CIV",
-   "score": null
+   "score": [
+    0,
+    1
+   ]
   },
   {
    "date": "2026-06-25T23:00:00Z",
