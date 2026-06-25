@@ -1,5 +1,5 @@
 {
- "updated": "2026-06-25T07:20:46+00:00",
+ "updated": "2026-06-25T15:04:35+00:00",
  "matches": [
   {
    "date": "2026-06-11T19:00:00Z",
@@ -834,7 +834,7 @@
    "stage": "LAST_32",
    "group": null,
    "status": "TIMED",
-   "home": null,
+   "home": "GER",
    "away": null,
    "score": null
   },
@@ -870,7 +870,7 @@
    "stage": "LAST_32",
    "group": null,
    "status": "TIMED",
-   "home": null,
+   "home": "MEX",
    "away": null,
    "score": null
   },
@@ -897,7 +897,7 @@
    "stage": "LAST_32",
    "group": null,
    "status": "TIMED",
-   "home": null,
+   "home": "USA",
    "away": null,
    "score": null
   },
@@ -942,7 +942,7 @@
    "stage": "LAST_32",
    "group": null,
    "status": "TIMED",
-   "home": null,
+   "home": "ARG",
    "away": null,
    "score": null
   },
