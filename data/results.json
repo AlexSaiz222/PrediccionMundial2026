@@ -444,11 +444,47 @@
     },
     {
       "date": "2026-06-24",
+      "home": "MAR",
+      "away": "HAI",
+      "score": [
+        4,
+        2
+      ]
+    },
+    {
+      "date": "2026-06-24",
+      "home": "SCO",
+      "away": "BRA",
+      "score": [
+        0,
+        3
+      ]
+    },
+    {
+      "date": "2026-06-24",
       "home": "SUI",
       "away": "CAN",
       "score": [
         2,
         1
+      ]
+    },
+    {
+      "date": "2026-06-25",
+      "home": "CZE",
+      "away": "MEX",
+      "score": [
+        0,
+        3
+      ]
+    },
+    {
+      "date": "2026-06-25",
+      "home": "RSA",
+      "away": "KOR",
+      "score": [
+        1,
+        0
       ]
     }
   ],
