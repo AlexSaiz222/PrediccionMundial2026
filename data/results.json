@@ -471,6 +471,15 @@
     },
     {
       "date": "2026-06-25",
+      "home": "CUW",
+      "away": "CIV",
+      "score": [
+        0,
+        2
+      ]
+    },
+    {
+      "date": "2026-06-25",
       "home": "CZE",
       "away": "MEX",
       "score": [
@@ -489,11 +498,47 @@
     },
     {
       "date": "2026-06-25",
+      "home": "JPN",
+      "away": "SWE",
+      "score": [
+        1,
+        1
+      ]
+    },
+    {
+      "date": "2026-06-25",
       "home": "RSA",
       "away": "KOR",
       "score": [
         1,
         0
+      ]
+    },
+    {
+      "date": "2026-06-25",
+      "home": "TUN",
+      "away": "NED",
+      "score": [
+        1,
+        3
+      ]
+    },
+    {
+      "date": "2026-06-26",
+      "home": "PAR",
+      "away": "AUS",
+      "score": [
+        0,
+        0
+      ]
+    },
+    {
+      "date": "2026-06-26",
+      "home": "TUR",
+      "away": "USA",
+      "score": [
+        3,
+        2
       ]
     }
   ],
