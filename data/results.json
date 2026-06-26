@@ -525,10 +525,28 @@
     },
     {
       "date": "2026-06-26",
+      "home": "NOR",
+      "away": "FRA",
+      "score": [
+        1,
+        4
+      ]
+    },
+    {
+      "date": "2026-06-26",
       "home": "PAR",
       "away": "AUS",
       "score": [
         0,
+        0
+      ]
+    },
+    {
+      "date": "2026-06-26",
+      "home": "SEN",
+      "away": "IRQ",
+      "score": [
+        5,
         0
       ]
     },

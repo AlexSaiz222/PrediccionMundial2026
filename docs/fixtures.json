@@ -1,5 +1,5 @@
 {
- "updated": "2026-06-26T20:38:59+00:00",
+ "updated": "2026-06-26T23:30:32+00:00",
  "matches": [
   {
    "date": "2026-06-11T19:00:00Z",
@@ -725,23 +725,23 @@
    "date": "2026-06-26T19:00:00Z",
    "stage": "GROUP_STAGE",
    "group": "I",
-   "status": "IN_PLAY",
+   "status": "FINISHED",
    "home": "NOR",
    "away": "FRA",
    "score": [
     1,
-    3
+    4
    ]
   },
   {
    "date": "2026-06-26T19:00:00Z",
    "stage": "GROUP_STAGE",
    "group": "I",
-   "status": "IN_PLAY",
+   "status": "FINISHED",
    "home": "SEN",
    "away": "IRQ",
    "score": [
-    3,
+    5,
     0
    ]
   },
@@ -840,8 +840,8 @@
    "stage": "LAST_32",
    "group": null,
    "status": "TIMED",
-   "home": null,
-   "away": null,
+   "home": "RSA",
+   "away": "CAN",
    "score": null
   },
   {
@@ -849,8 +849,8 @@
    "stage": "LAST_32",
    "group": null,
    "status": "TIMED",
-   "home": null,
-   "away": null,
+   "home": "BRA",
+   "away": "JPN",
    "score": null
   },
   {
@@ -858,7 +858,7 @@
    "stage": "LAST_32",
    "group": null,
    "status": "TIMED",
-   "home": null,
+   "home": "GER",
    "away": null,
    "score": null
   },
@@ -867,8 +867,8 @@
    "stage": "LAST_32",
    "group": null,
    "status": "TIMED",
-   "home": null,
-   "away": null,
+   "home": "NED",
+   "away": "MAR",
    "score": null
   },
   {
@@ -894,7 +894,7 @@
    "stage": "LAST_32",
    "group": null,
    "status": "TIMED",
-   "home": null,
+   "home": "MEX",
    "away": null,
    "score": null
   },
@@ -921,8 +921,8 @@
    "stage": "LAST_32",
    "group": null,
    "status": "TIMED",
-   "home": null,
-   "away": null,
+   "home": "USA",
+   "away": "BIH",
    "score": null
   },
   {
@@ -948,7 +948,7 @@
    "stage": "LAST_32",
    "group": null,
    "status": "TIMED",
-   "home": null,
+   "home": "SUI",
    "away": null,
    "score": null
   },
@@ -957,7 +957,7 @@
    "stage": "LAST_32",
    "group": null,
    "status": "TIMED",
-   "home": null,
+   "home": "AUS",
    "away": null,
    "score": null
   },
@@ -966,7 +966,7 @@
    "stage": "LAST_32",
    "group": null,
    "status": "TIMED",
-   "home": null,
+   "home": "ARG",
    "away": null,
    "score": null
   },
