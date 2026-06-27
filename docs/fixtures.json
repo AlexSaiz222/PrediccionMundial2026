@@ -1,5 +1,5 @@
 {
- "updated": "2026-06-27T14:36:39+00:00",
+ "updated": "2026-06-27T20:28:56+00:00",
  "matches": [
   {
    "date": "2026-06-11T19:00:00Z",
@@ -852,8 +852,8 @@
    "stage": "LAST_32",
    "group": null,
    "status": "TIMED",
-   "home": "RSA",
-   "away": "CAN",
+   "home": null,
+   "away": null,
    "score": null
   },
   {
@@ -861,8 +861,8 @@
    "stage": "LAST_32",
    "group": null,
    "status": "TIMED",
-   "home": "BRA",
-   "away": "JPN",
+   "home": null,
+   "away": null,
    "score": null
   },
   {
@@ -870,7 +870,7 @@
    "stage": "LAST_32",
    "group": null,
    "status": "TIMED",
-   "home": "GER",
+   "home": null,
    "away": null,
    "score": null
   },
@@ -879,8 +879,8 @@
    "stage": "LAST_32",
    "group": null,
    "status": "TIMED",
-   "home": "NED",
-   "away": "MAR",
+   "home": null,
+   "away": null,
    "score": null
   },
   {
@@ -888,7 +888,7 @@
    "stage": "LAST_32",
    "group": null,
    "status": "TIMED",
-   "home": "CIV",
+   "home": null,
    "away": null,
    "score": null
   },
@@ -906,7 +906,7 @@
    "stage": "LAST_32",
    "group": null,
    "status": "TIMED",
-   "home": "MEX",
+   "home": null,
    "away": null,
    "score": null
   },
@@ -933,8 +933,8 @@
    "stage": "LAST_32",
    "group": null,
    "status": "TIMED",
-   "home": "USA",
-   "away": "BIH",
+   "home": null,
+   "away": null,
    "score": null
   },
   {
@@ -960,7 +960,7 @@
    "stage": "LAST_32",
    "group": null,
    "status": "TIMED",
-   "home": "SUI",
+   "home": null,
    "away": null,
    "score": null
   },
@@ -969,7 +969,7 @@
    "stage": "LAST_32",
    "group": null,
    "status": "TIMED",
-   "home": "AUS",
+   "home": null,
    "away": null,
    "score": null
   },
@@ -978,7 +978,7 @@
    "stage": "LAST_32",
    "group": null,
    "status": "TIMED",
-   "home": "ARG",
+   "home": null,
    "away": null,
    "score": null
   },
