@@ -1,5 +1,5 @@
 {
- "updated": "2026-06-26T23:30:32+00:00",
+ "updated": "2026-06-27T07:12:50+00:00",
  "matches": [
   {
    "date": "2026-06-11T19:00:00Z",
@@ -749,37 +749,49 @@
    "date": "2026-06-27T00:00:00Z",
    "stage": "GROUP_STAGE",
    "group": "H",
-   "status": "TIMED",
+   "status": "FINISHED",
    "home": "URU",
    "away": "ESP",
-   "score": null
+   "score": [
+    0,
+    1
+   ]
   },
   {
    "date": "2026-06-27T00:00:00Z",
    "stage": "GROUP_STAGE",
    "group": "H",
-   "status": "TIMED",
+   "status": "FINISHED",
    "home": "CPV",
    "away": "KSA",
-   "score": null
+   "score": [
+    0,
+    0
+   ]
   },
   {
    "date": "2026-06-27T03:00:00Z",
    "stage": "GROUP_STAGE",
    "group": "G",
-   "status": "TIMED",
+   "status": "FINISHED",
    "home": "NZL",
    "away": "BEL",
-   "score": null
+   "score": [
+    1,
+    5
+   ]
   },
   {
    "date": "2026-06-27T03:00:00Z",
    "stage": "GROUP_STAGE",
    "group": "G",
-   "status": "TIMED",
+   "status": "FINISHED",
    "home": "EGY",
    "away": "IRN",
-   "score": null
+   "score": [
+    1,
+    1
+   ]
   },
   {
    "date": "2026-06-27T21:00:00Z",
@@ -876,7 +888,7 @@
    "stage": "LAST_32",
    "group": null,
    "status": "TIMED",
-   "home": null,
+   "home": "CIV",
    "away": null,
    "score": null
   },

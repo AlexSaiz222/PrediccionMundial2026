@@ -558,6 +558,42 @@
         3,
         2
       ]
+    },
+    {
+      "date": "2026-06-27",
+      "home": "CPV",
+      "away": "KSA",
+      "score": [
+        0,
+        0
+      ]
+    },
+    {
+      "date": "2026-06-27",
+      "home": "EGY",
+      "away": "IRN",
+      "score": [
+        1,
+        1
+      ]
+    },
+    {
+      "date": "2026-06-27",
+      "home": "NZL",
+      "away": "BEL",
+      "score": [
+        1,
+        5
+      ]
+    },
+    {
+      "date": "2026-06-27",
+      "home": "URU",
+      "away": "ESP",
+      "score": [
+        0,
+        1
+      ]
     }
   ],
   "knockout": []
