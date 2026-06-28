@@ -650,5 +650,17 @@
       ]
     }
   ],
-  "knockout": []
+  "knockout": [
+    {
+      "date": "2026-06-28",
+      "stage": "LAST_32",
+      "home": "RSA",
+      "away": "CAN",
+      "score": [
+        0,
+        1
+      ],
+      "winner": "CAN"
+    }
+  ]
 }
