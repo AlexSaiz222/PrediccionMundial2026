@@ -1,5 +1,5 @@
 {
- "updated": "2026-06-28T14:38:33+00:00",
+ "updated": "2026-06-28T20:31:30+00:00",
  "matches": [
   {
    "date": "2026-06-11T19:00:00Z",
@@ -869,10 +869,13 @@
    "date": "2026-06-28T19:00:00Z",
    "stage": "LAST_32",
    "group": null,
-   "status": "TIMED",
+   "status": "IN_PLAY",
    "home": "RSA",
    "away": "CAN",
-   "score": null
+   "score": [
+    0,
+    0
+   ]
   },
   {
    "date": "2026-06-29T17:00:00Z",
