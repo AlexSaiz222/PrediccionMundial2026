@@ -661,6 +661,17 @@
         1
       ],
       "winner": "CAN"
+    },
+    {
+      "date": "2026-06-29",
+      "stage": "LAST_32",
+      "home": "BRA",
+      "away": "JPN",
+      "score": [
+        2,
+        1
+      ],
+      "winner": "BRA"
     }
   ]
 }
