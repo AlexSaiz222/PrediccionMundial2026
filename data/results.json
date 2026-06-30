@@ -672,6 +672,28 @@
         1
       ],
       "winner": "BRA"
+    },
+    {
+      "date": "2026-06-29",
+      "stage": "LAST_32",
+      "home": "GER",
+      "away": "PAR",
+      "score": [
+        4,
+        5
+      ],
+      "winner": "PAR"
+    },
+    {
+      "date": "2026-06-30",
+      "stage": "LAST_32",
+      "home": "NED",
+      "away": "MAR",
+      "score": [
+        3,
+        4
+      ],
+      "winner": "MAR"
     }
   ]
 }
