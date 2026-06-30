@@ -687,6 +687,17 @@
     {
       "date": "2026-06-30",
       "stage": "LAST_32",
+      "home": "CIV",
+      "away": "NOR",
+      "score": [
+        1,
+        2
+      ],
+      "winner": "NOR"
+    },
+    {
+      "date": "2026-06-30",
+      "stage": "LAST_32",
       "home": "NED",
       "away": "MAR",
       "score": [

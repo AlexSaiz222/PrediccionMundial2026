@@ -1,5 +1,5 @@
 {
- "updated": "2026-06-30T14:58:02+00:00",
+ "updated": "2026-06-30T20:43:31+00:00",
  "matches": [
   {
    "date": "2026-06-11T19:00:00Z",
@@ -917,10 +917,13 @@
    "date": "2026-06-30T17:00:00Z",
    "stage": "LAST_32",
    "group": null,
-   "status": "TIMED",
+   "status": "FINISHED",
    "home": "CIV",
    "away": "NOR",
-   "score": null
+   "score": [
+    1,
+    2
+   ]
   },
   {
    "date": "2026-06-30T21:00:00Z",
