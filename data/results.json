@@ -698,6 +698,17 @@
     {
       "date": "2026-06-30",
       "stage": "LAST_32",
+      "home": "FRA",
+      "away": "SWE",
+      "score": [
+        3,
+        0
+      ],
+      "winner": "FRA"
+    },
+    {
+      "date": "2026-06-30",
+      "stage": "LAST_32",
       "home": "NED",
       "away": "MAR",
       "score": [
