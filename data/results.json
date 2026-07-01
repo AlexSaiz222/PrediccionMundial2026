@@ -720,6 +720,17 @@
     {
       "date": "2026-07-01",
       "stage": "LAST_32",
+      "home": "ENG",
+      "away": "COD",
+      "score": [
+        2,
+        1
+      ],
+      "winner": "ENG"
+    },
+    {
+      "date": "2026-07-01",
+      "stage": "LAST_32",
       "home": "MEX",
       "away": "ECU",
       "score": [
