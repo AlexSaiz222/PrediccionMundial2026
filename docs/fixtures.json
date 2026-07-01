@@ -1,5 +1,5 @@
 {
- "updated": "2026-06-30T23:31:53+00:00",
+ "updated": "2026-07-01T07:39:20+00:00",
  "matches": [
   {
    "date": "2026-06-11T19:00:00Z",
@@ -941,10 +941,13 @@
    "date": "2026-07-01T01:00:00Z",
    "stage": "LAST_32",
    "group": null,
-   "status": "TIMED",
+   "status": "FINISHED",
    "home": "MEX",
    "away": "ECU",
-   "score": null
+   "score": [
+    2,
+    0
+   ]
   },
   {
    "date": "2026-07-01T16:00:00Z",
@@ -1042,7 +1045,7 @@
    "group": null,
    "status": "TIMED",
    "home": "PAR",
-   "away": null,
+   "away": "FRA",
    "score": null
   },
   {
@@ -1051,7 +1054,7 @@
    "group": null,
    "status": "TIMED",
    "home": "BRA",
-   "away": null,
+   "away": "NOR",
    "score": null
   },
   {

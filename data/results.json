@@ -716,6 +716,17 @@
         4
       ],
       "winner": "MAR"
+    },
+    {
+      "date": "2026-07-01",
+      "stage": "LAST_32",
+      "home": "MEX",
+      "away": "ECU",
+      "score": [
+        2,
+        0
+      ],
+      "winner": "MEX"
     }
   ]
 }
