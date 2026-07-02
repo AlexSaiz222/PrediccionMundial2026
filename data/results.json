@@ -753,6 +753,17 @@
     {
       "date": "2026-07-02",
       "stage": "LAST_32",
+      "home": "ESP",
+      "away": "AUT",
+      "score": [
+        3,
+        0
+      ],
+      "winner": "ESP"
+    },
+    {
+      "date": "2026-07-02",
+      "stage": "LAST_32",
       "home": "USA",
       "away": "BIH",
       "score": [
