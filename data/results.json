@@ -749,6 +749,17 @@
         0
       ],
       "winner": "MEX"
+    },
+    {
+      "date": "2026-07-02",
+      "stage": "LAST_32",
+      "home": "USA",
+      "away": "BIH",
+      "score": [
+        2,
+        0
+      ],
+      "winner": "USA"
     }
   ]
 }
