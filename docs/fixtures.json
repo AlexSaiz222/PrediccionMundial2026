@@ -1,5 +1,5 @@
 {
- "updated": "2026-07-03T20:28:44+00:00",
+ "updated": "2026-07-03T23:25:53+00:00",
  "matches": [
   {
    "date": "2026-06-11T19:00:00Z",
@@ -1025,22 +1025,25 @@
    "date": "2026-07-03T18:00:00Z",
    "stage": "LAST_32",
    "group": null,
-   "status": "PAUSED",
+   "status": "FINISHED",
    "home": "AUS",
    "away": "EGY",
    "score": [
-    1,
-    1
+    3,
+    5
    ]
   },
   {
    "date": "2026-07-03T22:00:00Z",
    "stage": "LAST_32",
    "group": null,
-   "status": "TIMED",
+   "status": "IN_PLAY",
    "home": "ARG",
    "away": "CPV",
-   "score": null
+   "score": [
+    1,
+    1
+   ]
   },
   {
    "date": "2026-07-04T01:30:00Z",
