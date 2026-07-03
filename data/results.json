@@ -764,6 +764,17 @@
     {
       "date": "2026-07-02",
       "stage": "LAST_32",
+      "home": "POR",
+      "away": "CRO",
+      "score": [
+        2,
+        1
+      ],
+      "winner": "POR"
+    },
+    {
+      "date": "2026-07-02",
+      "stage": "LAST_32",
       "home": "USA",
       "away": "BIH",
       "score": [
@@ -771,6 +782,17 @@
         0
       ],
       "winner": "USA"
+    },
+    {
+      "date": "2026-07-03",
+      "stage": "LAST_32",
+      "home": "SUI",
+      "away": "ALG",
+      "score": [
+        2,
+        0
+      ],
+      "winner": "SUI"
     }
   ]
 }

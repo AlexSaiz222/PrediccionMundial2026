@@ -1,5 +1,5 @@
 {
- "updated": "2026-07-02T23:27:46+00:00",
+ "updated": "2026-07-03T07:12:26+00:00",
  "matches": [
   {
    "date": "2026-06-11T19:00:00Z",
@@ -1001,22 +1001,25 @@
    "date": "2026-07-02T23:00:00Z",
    "stage": "LAST_32",
    "group": null,
-   "status": "IN_PLAY",
+   "status": "FINISHED",
    "home": "POR",
    "away": "CRO",
    "score": [
-    0,
-    0
+    2,
+    1
    ]
   },
   {
    "date": "2026-07-03T03:00:00Z",
    "stage": "LAST_32",
    "group": null,
-   "status": "TIMED",
+   "status": "FINISHED",
    "home": "SUI",
    "away": "ALG",
-   "score": null
+   "score": [
+    2,
+    0
+   ]
   },
   {
    "date": "2026-07-03T18:00:00Z",
