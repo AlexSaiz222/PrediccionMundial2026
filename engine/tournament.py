@@ -156,21 +156,31 @@ def _ko_outcome(teams, a, b, fixed_ko, rng):
 
 
 def simulate_tournament(teams, group_members, fixtures, fixed_results, rng,
-                        counter, tallies=None, fixed_ko=None):
+                        counter, tallies=None, fixed_ko=None,
+                        forced_thirds=None):
     """Una edición completa del Mundial; acumula hitos por equipo en counter.
 
     fixed_ko: {frozenset({id_a, id_b}): id_ganador} con las eliminatorias ya
-    jugadas; esos cruces no se simulan, se fija el ganador real."""
+    jugadas; esos cruces no se simulan, se fija el ganador real.
+    forced_thirds: {nº_casilla: id_tercero} con la asignación REAL de terceros
+    a sus huecos (derivada del sorteo/cruces oficiales de dieciseisavos). Cuando
+    se pasa, sustituye al backtracking de assign_thirds, que podría elegir una
+    permutación válida pero distinta de la oficial y falsear el cuadro."""
     standings, stats = play_groups(teams, group_members, fixtures,
                                    fixed_results, rng)
-    thirds = best_thirds(standings, stats, rng)
-    third_of = assign_thirds(thirds)
+    if forced_thirds is not None:
+        third_of = forced_thirds
+        third_ids = list(forced_thirds.values())
+    else:
+        thirds = best_thirds(standings, stats, rng)
+        third_of = assign_thirds(thirds)
+        third_ids = [tid for _, tid in thirds]
 
     qualified = set()
     for g in GROUPS:
         counter[standings[g][0]]["win_group"] += 1
         qualified.update(standings[g][:2])
-    qualified.update(tid for _, tid in thirds)
+    qualified.update(third_ids)
     for tid in qualified:
         counter[tid]["r32"] += 1
 

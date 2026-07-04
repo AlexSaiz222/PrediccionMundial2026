@@ -51,6 +51,29 @@ const Simulator = (() => {
     return Math.random() < 0.5 + (e - 0.5) * params.pen_tilt;
   }
 
+  // Asignación REAL de terceros a sus huecos, leída de los dieciseisavos ya
+  // jugados (igual que engine/simulate.py::derive_forced_thirds). Evita que el
+  // backtracking elija una permutación válida pero distinta de la oficial y
+  // contradiga el cuadro publicado. data.groups ya viene ordenado 1º..4º real.
+  // Devuelve {nºcasilla: id} solo si se resuelven las 8 casillas; si no, null.
+  function deriveForcedThirds(data) {
+    const R32 = data.bracket.R32, order = data.groups;
+    const thirdSlots = {};
+    for (const m in R32) if (R32[m][1][0] === "T") thirdSlots[m] = R32[m][0];
+    const seedToSlot = {};
+    for (const m in thirdSlots) {
+      const seed = thirdSlots[m];               // p.ej. "1E"
+      seedToSlot[order[seed[1]][Number(seed[0]) - 1]] = m;
+    }
+    const forced = {};
+    for (const r of data.knockout || []) {
+      if (r.stage !== "LAST_32") continue;
+      if (seedToSlot[r.home] !== undefined) forced[seedToSlot[r.home]] = r.away;
+      else if (seedToSlot[r.away] !== undefined) forced[seedToSlot[r.away]] = r.home;
+    }
+    return Object.keys(forced).length === Object.keys(thirdSlots).length ? forced : null;
+  }
+
   // Asignación de terceros a huecos admisibles, por backtracking.
   function assignThirds(qualified, thirdSlots) {  // qualified: [[grupo, id]]
     const slots = Object.keys(thirdSlots).sort((m1, m2) => {
@@ -124,6 +147,20 @@ const Simulator = (() => {
     for (const m of [R32, R16, QF, SF, FINAL].flatMap(Object.keys))
       slots[m] = [{}, {}];
     const meet = {}, beat = {};
+
+    // eliminatorias reales ya jugadas: se fijan por pareja (como fixed_ko en
+    // Python), y la asignación real de terceros a sus casillas.
+    const fixedKo = new Map();
+    for (const r of data.knockout || []) {
+      fixedKo.set(r.home + "|" + r.away, r.winner);
+      fixedKo.set(r.away + "|" + r.home, r.winner);
+    }
+    const koOutcome = (a, b) => {              // true si gana a
+      const w = fixedKo.get(a + "|" + b);
+      return w !== undefined ? w === a : simKnockout(teams[a], teams[b], params);
+    };
+    const forcedThirds = deriveForcedThirds(data);
+
     const recordKo = (m, rnd, a, b, aWins) => {
       slots[m][0][a] = (slots[m][0][a] || 0) + 1;
       slots[m][1][b] = (slots[m][1][b] || 0) + 1;
@@ -164,14 +201,16 @@ const Simulator = (() => {
 
       const thirds = groups.map(g => [g, standings[g][2]])
         .sort((x, y) => key[y[1]] - key[x[1]]).slice(0, 8);
-      const thirdOf = assignThirds(thirds, THIRD_SLOTS);
+      const thirdOf = forcedThirds || assignThirds(thirds, THIRD_SLOTS);
+      const thirdIds = forcedThirds
+        ? Object.values(forcedThirds) : thirds.map(([, tid]) => tid);
 
       for (const g of groups) {
         counter[standings[g][0]].win_group++;
         counter[standings[g][0]].r32++;
         counter[standings[g][1]].r32++;
       }
-      for (const [, tid] of thirds) counter[tid].r32++;
+      for (const tid of thirdIds) counter[tid].r32++;
 
       const resolve = slot => slot[0] === "T"
         ? thirdOf[slot.slice(1)]
@@ -182,7 +221,7 @@ const Simulator = (() => {
       for (const m in R32) {
         const [sa, sb] = R32[m];
         const a = resolve(sa), b = resolve(sb);
-        const aWins = simKnockout(teams[a], teams[b], params);
+        const aWins = koOutcome(a, b);
         winners[m] = aWins ? a : b;
         recordKo(m, "r32", a, b, aWins);
       }
@@ -191,7 +230,7 @@ const Simulator = (() => {
         for (const m in def) {
           const a = winners[def[m][0]], b = winners[def[m][1]];
           counter[a][milestone]++; counter[b][milestone]++;
-          const aWins = simKnockout(teams[a], teams[b], params);
+          const aWins = koOutcome(a, b);
           winners[m] = aWins ? a : b;
           recordKo(m, milestone, a, b, aWins);
         }

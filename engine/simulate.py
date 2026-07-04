@@ -16,7 +16,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
 
 from model import PARAMS
-from tournament import (BRACKET, GROUPS, best_thirds, group_fixtures,
+from tournament import (BRACKET, GROUPS, R32, best_thirds, group_fixtures,
                         new_tallies, play_groups, simulate_tournament)
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -62,11 +62,14 @@ def save_history(data, out_teams, day=None):
     La foto se etiqueta con la fecha del último partido fijado (es la jornada
     cuyo cierre representa), no con el día en que se ejecuta: así re-ejecutar
     por la mañana siguiente actualiza la misma jornada en vez de crear otra.
-    Sin resultados aún, se etiqueta con la víspera del torneo.
+    Cuenta tanto los partidos de grupos como las eliminatorias; si no, durante
+    los KO la foto se quedaría clavada en el último día de la fase de grupos y
+    la Evolución dejaría de avanzar. Sin resultados aún, la víspera del torneo.
     """
     if day is None:
-        day = (max(r["date"] for r in data["results"]) if data["results"]
-               else TOURNAMENT_EVE)
+        dates = ([r["date"] for r in data["results"]]
+                 + [r["date"] for r in data.get("knockout", [])])
+        day = max(dates) if dates else TOURNAMENT_EVE
     today = day
     snap_dir = ROOT / "docs" / "snapshots"
     snap_dir.mkdir(exist_ok=True)
@@ -135,6 +138,32 @@ def load_data():
     return teams, group_members, fixed, fixed_ko, results_raw["results"], knockout
 
 
+def derive_forced_thirds(order, knockout):
+    """Asignación REAL de cada tercero a su casilla, leída de los dieciseisavos
+    ya conocidos. Evita depender del backtracking de assign_thirds, que elige una
+    permutación *válida* de terceros pero no necesariamente la oficial de FIFA
+    (bastan dos terceros elegibles para las mismas casillas para que se crucen mal
+    y, al fijarse los resultados por pareja, el marcador real no llegue a aplicarse).
+
+    order: clasificación real por grupo (real_standings). knockout: bloque de
+    dieciseisavos con los equipos reales de cada cruce. Devuelve {nº_casilla: id}
+    solo si se resuelven las 8 casillas de tercero; si no, {} (se usa el backtracking).
+    """
+    third_slots = {m: sides[0] for m, sides in R32.items() if sides[1][0] == "T"}
+    seed_to_slot = {order[seed[1]][int(seed[0]) - 1]: m
+                    for m, seed in third_slots.items()}
+    forced = {}
+    for r in knockout:
+        if r.get("stage") != "LAST_32":
+            continue
+        h, a = r["home"], r["away"]
+        if h in seed_to_slot:
+            forced[seed_to_slot[h]] = a
+        elif a in seed_to_slot:
+            forced[seed_to_slot[a]] = h
+    return forced if len(forced) == len(third_slots) else {}
+
+
 def real_standings(teams, group_members, results):
     """Clasificación actual de cada grupo SOLO con resultados reales."""
     stats = {tid: {"pj": 0, "pts": 0, "gf": 0, "ga": 0} for tid in teams}
@@ -175,13 +204,19 @@ def main():
     counter = {tid: dict.fromkeys(MILESTONES, 0) for tid in teams}
     tallies = new_tallies()
 
+    order, stats = real_standings(teams, group_members, results)
+    forced_thirds = derive_forced_thirds(order, knockout) or None
+    if forced_thirds:
+        print(f"Asignación real de terceros fijada desde los dieciseisavos "
+              f"({len(forced_thirds)} casillas)")
+
     t0 = time.time()
     for _ in range(args.sims):
         simulate_tournament(teams, group_members, fixtures, fixed, rng,
-                            counter, tallies, fixed_ko=fixed_ko)
+                            counter, tallies, fixed_ko=fixed_ko,
+                            forced_thirds=forced_thirds)
     elapsed = time.time() - t0
 
-    order, stats = real_standings(teams, group_members, results)
     n = args.sims
     out_teams = []
     for tid, t in teams.items():
