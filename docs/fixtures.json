@@ -1,5 +1,5 @@
 {
- "updated": "2026-07-04T14:34:06+00:00",
+ "updated": "2026-07-04T20:23:38+00:00",
  "matches": [
   {
    "date": "2026-06-11T19:00:00Z",
@@ -1061,10 +1061,13 @@
    "date": "2026-07-04T17:00:00Z",
    "stage": "LAST_16",
    "group": null,
-   "status": "TIMED",
+   "status": "FINISHED",
    "home": "CAN",
    "away": "MAR",
-   "score": null
+   "score": [
+    0,
+    3
+   ]
   },
   {
    "date": "2026-07-04T21:00:00Z",

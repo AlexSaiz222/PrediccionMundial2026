@@ -818,6 +818,17 @@
     },
     {
       "date": "2026-07-04",
+      "stage": "LAST_16",
+      "home": "CAN",
+      "away": "MAR",
+      "score": [
+        0,
+        3
+      ],
+      "winner": "MAR"
+    },
+    {
+      "date": "2026-07-04",
       "stage": "LAST_32",
       "home": "COL",
       "away": "GHA",
