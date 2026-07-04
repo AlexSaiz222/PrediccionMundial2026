@@ -81,7 +81,7 @@ def save_history(data, out_teams, day=None):
             if hist_path.exists() else {"days": []})
     entry = {
         "date": today,
-        "results": len(data["results"]),
+        "results": len(data["results"]) + len(data.get("knockout", [])),
         "champion": {t["id"]: t["probs"]["champion"] for t in out_teams},
     }
     hist["days"] = [d for d in hist["days"] if d["date"] != today] + [entry]
@@ -138,25 +138,34 @@ def load_data():
     return teams, group_members, fixed, fixed_ko, results_raw["results"], knockout
 
 
-def derive_forced_thirds(order, knockout):
-    """Asignación REAL de cada tercero a su casilla, leída de los dieciseisavos
-    ya conocidos. Evita depender del backtracking de assign_thirds, que elige una
+def load_r32_pairs():
+    """Emparejamientos reales de dieciseisavos ya SORTEADOS (equipos reales),
+    leídos de docs/fixtures.json. Están disponibles desde el sorteo (fin de la
+    fase de grupos), aunque el partido aún no se haya jugado."""
+    fx_path = ROOT / "docs" / "fixtures.json"
+    if not fx_path.exists():
+        return []
+    fx = json.loads(fx_path.read_text(encoding="utf-8"))
+    return [(m["home"], m["away"]) for m in fx.get("matches", [])
+            if m.get("stage") == "LAST_32" and m.get("home") and m.get("away")]
+
+
+def derive_forced_thirds(order, r32_pairs):
+    """Asignación REAL de cada tercero a su casilla, leída del sorteo de
+    dieciseisavos. Evita depender del backtracking de assign_thirds, que elige una
     permutación *válida* de terceros pero no necesariamente la oficial de FIFA
     (bastan dos terceros elegibles para las mismas casillas para que se crucen mal
     y, al fijarse los resultados por pareja, el marcador real no llegue a aplicarse).
 
-    order: clasificación real por grupo (real_standings). knockout: bloque de
-    dieciseisavos con los equipos reales de cada cruce. Devuelve {nº_casilla: id}
-    solo si se resuelven las 8 casillas de tercero; si no, {} (se usa el backtracking).
+    order: clasificación real por grupo (real_standings). r32_pairs: [(home, away)]
+    de cada cruce de dieciseisavos. Devuelve {nº_casilla: id} solo si se resuelven
+    las 8 casillas de tercero (sorteo completo); si no, {} (se usa el backtracking).
     """
     third_slots = {m: sides[0] for m, sides in R32.items() if sides[1][0] == "T"}
     seed_to_slot = {order[seed[1]][int(seed[0]) - 1]: m
                     for m, seed in third_slots.items()}
     forced = {}
-    for r in knockout:
-        if r.get("stage") != "LAST_32":
-            continue
-        h, a = r["home"], r["away"]
+    for h, a in r32_pairs:
         if h in seed_to_slot:
             forced[seed_to_slot[h]] = a
         elif a in seed_to_slot:
@@ -196,16 +205,26 @@ def main():
     ap.add_argument("--snapshot-date", default=None, metavar="AAAA-MM-DD",
                     help="fecha la foto del historial en un día concreto "
                          "(para reconstruir jornadas pasadas)")
+    ap.add_argument("--ko-until", default=None, metavar="AAAA-MM-DD",
+                    help="ignora las eliminatorias jugadas después de esta fecha "
+                         "(para reconstruir la predicción de una jornada pasada)")
     args = ap.parse_args()
 
     teams, group_members, fixed, fixed_ko, results, knockout = load_data()
+    if args.ko_until:                       # reconstrucción: solo KO hasta esa fecha
+        knockout = [r for r in knockout if r["date"] <= args.ko_until]
+        fixed_ko = {frozenset((r["home"], r["away"])): r["winner"] for r in knockout}
     fixtures = group_fixtures(group_members)
     rng = random.Random(args.seed)
     counter = {tid: dict.fromkeys(MILESTONES, 0) for tid in teams}
     tallies = new_tallies()
 
     order, stats = real_standings(teams, group_members, results)
-    forced_thirds = derive_forced_thirds(order, knockout) or None
+    # El sorteo de dieciseisavos fija la asignación de terceros ya (aunque no se
+    # hayan jugado); si aún no hay sorteo, se cae a los cruces jugados.
+    r32_pairs = load_r32_pairs() or [(r["home"], r["away"]) for r in knockout
+                                     if r.get("stage") == "LAST_32"]
+    forced_thirds = derive_forced_thirds(order, r32_pairs) or None
     if forced_thirds:
         print(f"Asignación real de terceros fijada desde los dieciseisavos "
               f"({len(forced_thirds)} casillas)")
