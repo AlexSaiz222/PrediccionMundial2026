@@ -786,6 +786,28 @@
     {
       "date": "2026-07-03",
       "stage": "LAST_32",
+      "home": "ARG",
+      "away": "CPV",
+      "score": [
+        3,
+        2
+      ],
+      "winner": "ARG"
+    },
+    {
+      "date": "2026-07-03",
+      "stage": "LAST_32",
+      "home": "AUS",
+      "away": "EGY",
+      "score": [
+        3,
+        5
+      ],
+      "winner": "EGY"
+    },
+    {
+      "date": "2026-07-03",
+      "stage": "LAST_32",
       "home": "SUI",
       "away": "ALG",
       "score": [
@@ -793,6 +815,17 @@
         0
       ],
       "winner": "SUI"
+    },
+    {
+      "date": "2026-07-04",
+      "stage": "LAST_32",
+      "home": "COL",
+      "away": "GHA",
+      "score": [
+        1,
+        0
+      ],
+      "winner": "COL"
     }
   ]
 }
