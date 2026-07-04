@@ -837,6 +837,17 @@
         0
       ],
       "winner": "COL"
+    },
+    {
+      "date": "2026-07-04",
+      "stage": "LAST_16",
+      "home": "PAR",
+      "away": "FRA",
+      "score": [
+        0,
+        1
+      ],
+      "winner": "FRA"
     }
   ]
 }
