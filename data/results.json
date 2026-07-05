@@ -848,6 +848,17 @@
         1
       ],
       "winner": "FRA"
+    },
+    {
+      "date": "2026-07-05",
+      "stage": "LAST_16",
+      "home": "BRA",
+      "away": "NOR",
+      "score": [
+        1,
+        2
+      ],
+      "winner": "NOR"
     }
   ]
 }
