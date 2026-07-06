@@ -1,5 +1,5 @@
 {
- "updated": "2026-07-06T15:08:20+00:00",
+ "updated": "2026-07-06T20:41:36+00:00",
  "matches": [
   {
    "date": "2026-06-11T19:00:00Z",
@@ -1109,10 +1109,13 @@
    "date": "2026-07-06T19:00:00Z",
    "stage": "LAST_16",
    "group": null,
-   "status": "TIMED",
+   "status": "IN_PLAY",
    "home": "POR",
    "away": "ESP",
-   "score": null
+   "score": [
+    0,
+    0
+   ]
   },
   {
    "date": "2026-07-07T00:00:00Z",
