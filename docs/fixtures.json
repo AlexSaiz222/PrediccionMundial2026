@@ -1,5 +1,5 @@
 {
- "updated": "2026-07-05T23:26:28+00:00",
+ "updated": "2026-07-06T07:42:03+00:00",
  "matches": [
   {
    "date": "2026-06-11T19:00:00Z",
@@ -1094,13 +1094,16 @@
    ]
   },
   {
-   "date": "2026-07-06T00:00:00Z",
+   "date": "2026-07-06T01:00:00Z",
    "stage": "LAST_16",
    "group": null,
-   "status": "TIMED",
+   "status": "FINISHED",
    "home": "MEX",
    "away": "ENG",
-   "score": null
+   "score": [
+    2,
+    3
+   ]
   },
   {
    "date": "2026-07-06T19:00:00Z",
@@ -1161,8 +1164,8 @@
    "stage": "QUARTER_FINALS",
    "group": null,
    "status": "TIMED",
-   "home": null,
-   "away": null,
+   "home": "NOR",
+   "away": "ENG",
    "score": null
   },
   {

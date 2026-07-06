@@ -859,6 +859,17 @@
         2
       ],
       "winner": "NOR"
+    },
+    {
+      "date": "2026-07-06",
+      "stage": "LAST_16",
+      "home": "MEX",
+      "away": "ENG",
+      "score": [
+        2,
+        3
+      ],
+      "winner": "ENG"
     }
   ]
 }
