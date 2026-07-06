@@ -870,6 +870,17 @@
         3
       ],
       "winner": "ENG"
+    },
+    {
+      "date": "2026-07-06",
+      "stage": "LAST_16",
+      "home": "POR",
+      "away": "ESP",
+      "score": [
+        0,
+        1
+      ],
+      "winner": "ESP"
     }
   ]
 }
