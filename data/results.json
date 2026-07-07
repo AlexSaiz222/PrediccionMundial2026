@@ -885,6 +885,17 @@
     {
       "date": "2026-07-07",
       "stage": "LAST_16",
+      "home": "ARG",
+      "away": "EGY",
+      "score": [
+        3,
+        2
+      ],
+      "winner": "ARG"
+    },
+    {
+      "date": "2026-07-07",
+      "stage": "LAST_16",
       "home": "USA",
       "away": "BEL",
       "score": [
