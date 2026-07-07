@@ -881,6 +881,17 @@
         1
       ],
       "winner": "ESP"
+    },
+    {
+      "date": "2026-07-07",
+      "stage": "LAST_16",
+      "home": "USA",
+      "away": "BEL",
+      "score": [
+        1,
+        4
+      ],
+      "winner": "BEL"
     }
   ]
 }
