@@ -896,6 +896,17 @@
     {
       "date": "2026-07-07",
       "stage": "LAST_16",
+      "home": "SUI",
+      "away": "COL",
+      "score": [
+        4,
+        3
+      ],
+      "winner": "SUI"
+    },
+    {
+      "date": "2026-07-07",
+      "stage": "LAST_16",
       "home": "USA",
       "away": "BEL",
       "score": [
