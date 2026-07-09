@@ -1,5 +1,5 @@
 {
- "updated": "2026-07-09T15:05:26+00:00",
+ "updated": "2026-07-09T20:37:58+00:00",
  "matches": [
   {
    "date": "2026-06-11T19:00:00Z",
@@ -1157,10 +1157,13 @@
    "date": "2026-07-09T20:00:00Z",
    "stage": "QUARTER_FINALS",
    "group": null,
-   "status": "TIMED",
+   "status": "IN_PLAY",
    "home": "FRA",
    "away": "MAR",
-   "score": null
+   "score": [
+    0,
+    0
+   ]
   },
   {
    "date": "2026-07-10T19:00:00Z",
