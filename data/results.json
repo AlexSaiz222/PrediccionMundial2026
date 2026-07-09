@@ -914,6 +914,17 @@
         4
       ],
       "winner": "BEL"
+    },
+    {
+      "date": "2026-07-09",
+      "stage": "QUARTER_FINALS",
+      "home": "FRA",
+      "away": "MAR",
+      "score": [
+        2,
+        0
+      ],
+      "winner": "FRA"
     }
   ]
 }
