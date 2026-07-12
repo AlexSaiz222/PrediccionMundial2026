@@ -936,6 +936,28 @@
         1
       ],
       "winner": "ESP"
+    },
+    {
+      "date": "2026-07-11",
+      "stage": "QUARTER_FINALS",
+      "home": "NOR",
+      "away": "ENG",
+      "score": [
+        1,
+        2
+      ],
+      "winner": "ENG"
+    },
+    {
+      "date": "2026-07-12",
+      "stage": "QUARTER_FINALS",
+      "home": "ARG",
+      "away": "SUI",
+      "score": [
+        3,
+        1
+      ],
+      "winner": "ARG"
     }
   ]
 }

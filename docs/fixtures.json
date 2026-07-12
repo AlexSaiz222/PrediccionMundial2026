@@ -1,5 +1,5 @@
 {
- "updated": "2026-07-11T23:20:43+00:00",
+ "updated": "2026-07-12T06:58:30+00:00",
  "matches": [
   {
    "date": "2026-06-11T19:00:00Z",
@@ -1097,7 +1097,7 @@
    "date": "2026-07-06T01:00:00Z",
    "stage": "LAST_16",
    "group": null,
-   "status": "2026-07-06 01:00:00Z",
+   "status": "FINISHED",
    "home": "MEX",
    "away": "ENG",
    "score": [
@@ -1181,7 +1181,7 @@
    "date": "2026-07-11T21:00:00Z",
    "stage": "QUARTER_FINALS",
    "group": null,
-   "status": "IN_PLAY",
+   "status": "FINISHED",
    "home": "NOR",
    "away": "ENG",
    "score": [
@@ -1193,10 +1193,13 @@
    "date": "2026-07-12T01:00:00Z",
    "stage": "QUARTER_FINALS",
    "group": null,
-   "status": "TIMED",
+   "status": "FINISHED",
    "home": "ARG",
    "away": "SUI",
-   "score": null
+   "score": [
+    3,
+    1
+   ]
   },
   {
    "date": "2026-07-14T19:00:00Z",
@@ -1212,8 +1215,8 @@
    "stage": "SEMI_FINALS",
    "group": null,
    "status": "TIMED",
-   "home": null,
-   "away": null,
+   "home": "ENG",
+   "away": "ARG",
    "score": null
   },
   {
