@@ -958,6 +958,17 @@
         1
       ],
       "winner": "ARG"
+    },
+    {
+      "date": "2026-07-14",
+      "stage": "SEMI_FINALS",
+      "home": "FRA",
+      "away": "ESP",
+      "score": [
+        0,
+        2
+      ],
+      "winner": "ESP"
     }
   ]
 }

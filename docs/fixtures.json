@@ -1,5 +1,5 @@
 {
- "updated": "2026-07-14T20:28:30+00:00",
+ "updated": "2026-07-14T23:20:45+00:00",
  "matches": [
   {
    "date": "2026-06-11T19:00:00Z",
@@ -1205,7 +1205,7 @@
    "date": "2026-07-14T19:00:00Z",
    "stage": "SEMI_FINALS",
    "group": null,
-   "status": "IN_PLAY",
+   "status": "FINISHED",
    "home": "FRA",
    "away": "ESP",
    "score": [
