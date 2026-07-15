@@ -1,5 +1,5 @@
 {
- "updated": "2026-07-15T20:25:06+00:00",
+ "updated": "2026-07-15T23:22:39+00:00",
  "matches": [
   {
    "date": "2026-06-11T19:00:00Z",
@@ -1217,12 +1217,12 @@
    "date": "2026-07-15T19:00:00Z",
    "stage": "SEMI_FINALS",
    "group": null,
-   "status": "IN_PLAY",
+   "status": "FINISHED",
    "home": "ENG",
    "away": "ARG",
    "score": [
     1,
-    0
+    2
    ]
   },
   {
