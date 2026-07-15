@@ -1,5 +1,5 @@
 {
- "updated": "2026-07-14T23:20:45+00:00",
+ "updated": "2026-07-15T06:51:44+00:00",
  "matches": [
   {
    "date": "2026-06-11T19:00:00Z",
@@ -1227,7 +1227,7 @@
    "stage": "THIRD_PLACE",
    "group": null,
    "status": "TIMED",
-   "home": null,
+   "home": "FRA",
    "away": null,
    "score": null
   },
@@ -1236,7 +1236,7 @@
    "stage": "FINAL",
    "group": null,
    "status": "TIMED",
-   "home": null,
+   "home": "ESP",
    "away": null,
    "score": null
   }
