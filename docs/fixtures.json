@@ -1,5 +1,5 @@
 {
- "updated": "2026-07-15T23:22:39+00:00",
+ "updated": "2026-07-16T06:55:15+00:00",
  "matches": [
   {
    "date": "2026-06-11T19:00:00Z",
@@ -1231,7 +1231,7 @@
    "group": null,
    "status": "TIMED",
    "home": "FRA",
-   "away": null,
+   "away": "ENG",
    "score": null
   },
   {
@@ -1240,7 +1240,7 @@
    "group": null,
    "status": "TIMED",
    "home": "ESP",
-   "away": null,
+   "away": "ARG",
    "score": null
   }
  ]
