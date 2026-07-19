@@ -1,5 +1,5 @@
 {
- "updated": "2026-07-19T14:30:55+00:00",
+ "updated": "2026-07-19T20:19:55+00:00",
  "sims": 20000,
  "params": {
   "mode": "ratings",
@@ -1234,7 +1234,7 @@
     "qf": 1.0,
     "sf": 1.0,
     "final": 1.0,
-    "champion": 0.5472,
+    "champion": 0.5473,
     "win_group": 1.0
    },
    "real": {
@@ -1259,7 +1259,7 @@
     "qf": 1.0,
     "sf": 1.0,
     "final": 1.0,
-    "champion": 0.4528,
+    "champion": 0.4527,
     "win_group": 1.0
    },
    "real": {
