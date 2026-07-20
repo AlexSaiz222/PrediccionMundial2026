@@ -980,6 +980,17 @@
         2
       ],
       "winner": "ARG"
+    },
+    {
+      "date": "2026-07-19",
+      "stage": "FINAL",
+      "home": "ESP",
+      "away": "ARG",
+      "score": [
+        1,
+        0
+      ],
+      "winner": "ESP"
     }
   ]
 }

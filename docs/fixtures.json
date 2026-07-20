@@ -1,5 +1,5 @@
 {
- "updated": "2026-07-19T20:19:53+00:00",
+ "updated": "2026-07-20T03:11:01+00:00",
  "matches": [
   {
    "date": "2026-06-11T19:00:00Z",
@@ -1241,11 +1241,11 @@
    "date": "2026-07-19T19:00:00Z",
    "stage": "FINAL",
    "group": null,
-   "status": "PAUSED",
+   "status": "FINISHED",
    "home": "ESP",
    "away": "ARG",
    "score": [
-    0,
+    1,
     0
    ]
   }
