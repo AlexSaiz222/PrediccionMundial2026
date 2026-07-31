@@ -143,24 +143,27 @@ function renderScorecard(ev) {
 /* ---------- calibración ---------- */
 
 function renderCalibration(bins) {
-  const rows = bins.map(b => {
-    const p = b.predicted * 100, o = b.observed * 100;
-    return `<div class="cal-row">
+  // Las etiquetas van FUERA de la barra: si se meten dentro hay que darle un
+  // ancho mínimo para que quepa el texto, y entonces la longitud deja de ser
+  // proporcional al dato — que es lo único que este gráfico tiene que hacer bien.
+  const rows = bins.map(b => `
+    <div class="cal-row">
       <div class="cal-label">${(b.lo * 100).toFixed(0)}–${(b.hi * 100).toFixed(0)}%
         <span class="cal-n">n=${b.n}</span></div>
-      <div class="cal-bars">
-        <div class="cal-bar cal-pred" style="inline-size:${p}%">
-          <span>dijo ${pct(b.predicted)}</span></div>
-        <div class="cal-bar cal-obs" style="inline-size:${o}%">
-          <span>pasó ${pct(b.observed)}</span></div>
+      <div class="cal-track">
+        <div class="cal-bar cal-pred" style="inline-size:${b.predicted * 100}%"></div>
+        <div class="cal-bar cal-obs" style="inline-size:${b.observed * 100}%"></div>
       </div>
-    </div>`;
-  }).join("");
-  $("#calibration").innerHTML = rows + `
+      <div class="cal-vals">
+        <span class="cal-v dim">${pct1(b.predicted)}</span>
+        <span class="cal-v strong">${pct1(b.observed)}</span>
+      </div>
+    </div>`).join("");
+  $("#calibration").innerHTML = `
     <div class="cal-legend">
       <span><i class="sw sw-pred"></i> lo que anunció el modelo</span>
       <span><i class="sw sw-obs"></i> lo que ocurrió de verdad</span>
-    </div>`;
+    </div>${rows}`;
 }
 
 /* ---------- acierto por ronda ---------- */

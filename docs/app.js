@@ -78,23 +78,44 @@ async function fetchDay(dia) {
 /* cabecera y pie: franja de jornada (altura constante para no desplazar
    el contenido al comparar días), fecha, nº de partidos, modelo */
 function updateMeta(dia) {
+  const ko = state.data.knockout || [];
+  // El torneo está cerrado en cuanto la final aparece entre los resultados
+  // fijados: a partir de ahí no hay "predicción reciente" que valga.
+  const fin = ko.find(r => r.stage === "FINAL");
+
   const banner = $("#snapshot-banner");
   if (dia) {
     $("#snapshot-msg").innerHTML =
       `Estás viendo la predicción al cierre del <strong>${fmtDate(dia)}</strong>.`;
     banner.classList.add("is-past");
     $("#snapshot-back").classList.remove("ghost");
+  } else if (fin) {
+    const champ = teamById(fin.winner);
+    $("#snapshot-msg").innerHTML =
+      `Torneo finalizado: ganó <strong>${champ ? champ.name : fin.winner}</strong>. ` +
+      `Estos son los porcentajes tal y como quedaron. ` +
+      `<a href="balance.html">Ver el balance</a>.`;
+    banner.classList.remove("is-past");
+    $("#snapshot-back").classList.add("ghost");
   } else {
     $("#snapshot-msg").textContent = "Estás viendo la predicción más reciente.";
     banner.classList.remove("is-past");
     $("#snapshot-back").classList.add("ghost");
   }
-  const d = new Date(state.data.updated);
-  $("#updated").textContent = "Actualizado: " +
-    d.toLocaleDateString("es", { day: "numeric", month: "long", year: "numeric" });
+
+  // Con el torneo cerrado, la fecha útil es la de la final, no la del último
+  // recálculo del robot (que puede ser semanas posterior).
+  if (fin) {
+    $("#updated").textContent = `Datos finales · ${fmtDate(fin.date)}`;
+  } else {
+    const d = new Date(state.data.updated);
+    $("#updated").textContent = "Actualizado: " +
+      d.toLocaleDateString("es", { day: "numeric", month: "long", year: "numeric" });
+  }
   $("#sims-count").textContent = state.data.sims.toLocaleString("es");
+  // results son solo los de grupos; las eliminatorias van aparte.
   $("#results-count").textContent =
-    `${state.data.results.length} partidos reales fijados`;
+    `${state.data.results.length + ko.length} partidos reales fijados`;
   if (state.data.params.mode === "ratings") {
     $("#model-info").textContent =
       `la fuerza ofensiva y defensiva de cada selección se estima por máxima ` +
@@ -465,10 +486,18 @@ function setupWhatIf() {
   groupSel.innerHTML = Object.keys(state.data.groups)
     .map(g => `<option value="${g}">Grupo ${g}</option>`).join("");
 
-  $("#whatif-open").addEventListener("click", () => {
-    renderWhatIfMatches(groupSel.value);
-    dialog.showModal();
-  });
+  // El «¿y si...?» solo puede forzar partidos de grupos aún por jugar. Con el
+  // torneo terminado no queda ninguno, así que el botón se retira en vez de
+  // abrir un diálogo donde todo sale como "jugado" y nada es editable.
+  const pendientes = 72 - state.data.results.length;
+  if (pendientes <= 0) {
+    $("#whatif-open").hidden = true;
+  } else {
+    $("#whatif-open").addEventListener("click", () => {
+      renderWhatIfMatches(groupSel.value);
+      dialog.showModal();
+    });
+  }
   groupSel.addEventListener("change", () => renderWhatIfMatches(groupSel.value));
   $("#whatif-reset").addEventListener("click", () => {
     state.forced.clear();

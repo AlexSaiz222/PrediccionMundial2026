@@ -17,8 +17,11 @@ const STAGE = {
 const dayKey = d => d.toLocaleDateString("es-ES", { year: "numeric", month: "2-digit", day: "2-digit" });
 
 let teams = {}, matches = [], filter = "all";
-// "AAAA-MM-DD|LOCAL|VISITANTE" -> probabilidad que el modelo dio al resultado
-// que acabó pasando. Vacío si aún no hay evaluación (torneo sin terminar).
+// "LOCAL|VISITANTE" -> probabilidad que el modelo dio al resultado que acabó
+// pasando. Vacío si aún no hay evaluación (torneo sin terminar).
+// Sin la fecha en la clave a propósito: results.json y fixtures.json no siempre
+// coinciden en el día (un partido a las 04:00 UTC cae en la víspera en local),
+// y ningún par de selecciones se enfrenta dos veces en todo el torneo.
 let pReal = {};
 
 init();
@@ -37,8 +40,15 @@ async function init() {
   try {
     const ev = await fetch("evaluacion.json", { cache: "no-store" })
       .then(r => { if (!r.ok) throw 0; return r.json(); });
-    for (const m of ev.matches) pReal[`${m.date}|${m.home}|${m.away}`] = m.p_real;
+    for (const m of ev.matches) pReal[`${m.home}|${m.away}`] = m.p_real;
   } catch { /* sin evaluación: se omiten los chips */ }
+
+  // Con el torneo terminado no queda ningún partido por jugar: el filtro solo
+  // llevaría a una lista vacía, así que se retira junto al salto a "hoy".
+  if (!matches.some(m => m.status !== "FINISHED")) {
+    const porJugar = $$(".filter-btn").find(b => b.dataset.filter === "pending");
+    if (porJugar) porJugar.hidden = true;
+  }
 
   $$(".filter-btn").forEach(b => b.addEventListener("click", () => {
     filter = b.dataset.filter;
@@ -72,7 +82,7 @@ function matchRow(m) {
   const score = done
     ? `${gh}<span class="dash">–</span>${ga}`
     : `<span class="dash">–</span>`;
-  const p = pReal[`${m.date.slice(0, 10)}|${m.home}|${m.away}`];
+  const p = pReal[`${m.home}|${m.away}`];
   // Verde si el modelo lo veía venir, rojo si le pilló a contrapié.
   const chip = p === undefined ? "" :
     `<span class="p-chip ${p >= 0.5 ? "p-hi" : p >= 0.3 ? "p-mid" : "p-lo"}"
