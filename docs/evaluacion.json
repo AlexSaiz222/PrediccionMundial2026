@@ -1,0 +1,2299 @@
+{
+ "champion": "ESP",
+ "champion_eve_prob": 0.1174,
+ "champion_eve_rank": 3,
+ "eve_top": [
+  {
+   "id": "ARG",
+   "p": 0.1491
+  },
+  {
+   "id": "BRA",
+   "p": 0.122
+  },
+  {
+   "id": "ESP",
+   "p": 0.1174
+  },
+  {
+   "id": "ENG",
+   "p": 0.0781
+  },
+  {
+   "id": "POR",
+   "p": 0.0587
+  },
+  {
+   "id": "FRA",
+   "p": 0.0572
+  },
+  {
+   "id": "COL",
+   "p": 0.0525
+  },
+  {
+   "id": "MAR",
+   "p": 0.0417
+  },
+  {
+   "id": "GER",
+   "p": 0.0358
+  },
+  {
+   "id": "BEL",
+   "p": 0.0338
+  }
+ ],
+ "champion_brier": 0.8403495300000003,
+ "champion_brier_baseline": 0.9791666666666666,
+ "champion_logloss": 2.142168371588141,
+ "champion_logloss_baseline": 3.871201010907891,
+ "groups": {
+  "n": 72,
+  "brier": 0.5278073804095382,
+  "logloss": 0.8871653482689,
+  "accuracy": 0.5972222222222222,
+  "brier_baseline": 0.6666666666666662,
+  "logloss_baseline": 1.0986122886681084,
+  "accuracy_baseline": 0.3333333333333333
+ },
+ "knockout": {
+  "n": 31,
+  "brier": 0.1702262770644678,
+  "logloss": 0.5189617666442673,
+  "accuracy": 0.8387096774193549,
+  "brier_baseline": 0.25,
+  "logloss_baseline": 0.6931471805599448,
+  "accuracy_baseline": 0.5
+ },
+ "rounds": [
+  {
+   "key": "r16",
+   "label": "Octavos",
+   "n_reach": 16,
+   "brier": 0.13117784479166664,
+   "brier_baseline": 0.22222222222222202,
+   "base_rate": 0.3333333333333333
+  },
+  {
+   "key": "qf",
+   "label": "Cuartos",
+   "n_reach": 8,
+   "brier": 0.1022236302083333,
+   "brier_baseline": 0.13888888888888884,
+   "base_rate": 0.16666666666666666
+  },
+  {
+   "key": "sf",
+   "label": "Semifinales",
+   "n_reach": 4,
+   "brier": 0.05243198666666666,
+   "brier_baseline": 0.07638888888888906,
+   "base_rate": 0.08333333333333333
+  },
+  {
+   "key": "final",
+   "label": "Final",
+   "n_reach": 2,
+   "brier": 0.02866486416666665,
+   "brier_baseline": 0.03993055555555561,
+   "base_rate": 0.041666666666666664
+  },
+  {
+   "key": "champion",
+   "label": "Campeón",
+   "n_reach": 1,
+   "brier": 0.017507281875000006,
+   "brier_baseline": 0.020399305555555566,
+   "base_rate": 0.020833333333333332
+  }
+ ],
+ "matches": [
+  {
+   "date": "2026-06-11",
+   "stage": "GROUP_STAGE",
+   "home": "KOR",
+   "away": "CZE",
+   "score": [
+    2,
+    1
+   ],
+   "probs": [
+    0.4614,
+    0.2708,
+    0.2678
+   ],
+   "p_real": 0.4614,
+   "hit": true,
+   "surprise": 0.0
+  },
+  {
+   "date": "2026-06-11",
+   "stage": "GROUP_STAGE",
+   "home": "MEX",
+   "away": "RSA",
+   "score": [
+    2,
+    0
+   ],
+   "probs": [
+    0.6488,
+    0.222,
+    0.1292
+   ],
+   "p_real": 0.6488,
+   "hit": true,
+   "surprise": 0.0
+  },
+  {
+   "date": "2026-06-12",
+   "stage": "GROUP_STAGE",
+   "home": "CAN",
+   "away": "BIH",
+   "score": [
+    1,
+    1
+   ],
+   "probs": [
+    0.7012,
+    0.1848,
+    0.1141
+   ],
+   "p_real": 0.1848,
+   "hit": false,
+   "surprise": 0.5164
+  },
+  {
+   "date": "2026-06-13",
+   "stage": "GROUP_STAGE",
+   "home": "BRA",
+   "away": "MAR",
+   "score": [
+    1,
+    1
+   ],
+   "probs": [
+    0.4361,
+    0.3183,
+    0.2456
+   ],
+   "p_real": 0.3183,
+   "hit": false,
+   "surprise": 0.1178
+  },
+  {
+   "date": "2026-06-13",
+   "stage": "GROUP_STAGE",
+   "home": "QAT",
+   "away": "SUI",
+   "score": [
+    1,
+    1
+   ],
+   "probs": [
+    0.1477,
+    0.2006,
+    0.6518
+   ],
+   "p_real": 0.2006,
+   "hit": false,
+   "surprise": 0.4512
+  },
+  {
+   "date": "2026-06-13",
+   "stage": "GROUP_STAGE",
+   "home": "USA",
+   "away": "PAR",
+   "score": [
+    4,
+    1
+   ],
+   "probs": [
+    0.47,
+    0.2772,
+    0.2528
+   ],
+   "p_real": 0.47,
+   "hit": true,
+   "surprise": 0.0
+  },
+  {
+   "date": "2026-06-14",
+   "stage": "GROUP_STAGE",
+   "home": "AUS",
+   "away": "TUR",
+   "score": [
+    2,
+    0
+   ],
+   "probs": [
+    0.4655,
+    0.2653,
+    0.2692
+   ],
+   "p_real": 0.4655,
+   "hit": true,
+   "surprise": 0.0
+  },
+  {
+   "date": "2026-06-14",
+   "stage": "GROUP_STAGE",
+   "home": "CIV",
+   "away": "ECU",
+   "score": [
+    1,
+    0
+   ],
+   "probs": [
+    0.2338,
+    0.3337,
+    0.4324
+   ],
+   "p_real": 0.2338,
+   "hit": false,
+   "surprise": 0.1986
+  },
+  {
+   "date": "2026-06-14",
+   "stage": "GROUP_STAGE",
+   "home": "GER",
+   "away": "CUW",
+   "score": [
+    7,
+    1
+   ],
+   "probs": [
+    0.8223,
+    0.1194,
+    0.0583
+   ],
+   "p_real": 0.8223,
+   "hit": true,
+   "surprise": 0.0
+  },
+  {
+   "date": "2026-06-14",
+   "stage": "GROUP_STAGE",
+   "home": "HAI",
+   "away": "SCO",
+   "score": [
+    0,
+    1
+   ],
+   "probs": [
+    0.2419,
+    0.2438,
+    0.5143
+   ],
+   "p_real": 0.5143,
+   "hit": true,
+   "surprise": 0.0
+  },
+  {
+   "date": "2026-06-14",
+   "stage": "GROUP_STAGE",
+   "home": "NED",
+   "away": "JPN",
+   "score": [
+    2,
+    2
+   ],
+   "probs": [
+    0.3703,
+    0.2648,
+    0.3648
+   ],
+   "p_real": 0.2648,
+   "hit": false,
+   "surprise": 0.1055
+  },
+  {
+   "date": "2026-06-15",
+   "stage": "GROUP_STAGE",
+   "home": "BEL",
+   "away": "EGY",
+   "score": [
+    1,
+    1
+   ],
+   "probs": [
+    0.5295,
+    0.2713,
+    0.1992
+   ],
+   "p_real": 0.2713,
+   "hit": false,
+   "surprise": 0.2582
+  },
+  {
+   "date": "2026-06-15",
+   "stage": "GROUP_STAGE",
+   "home": "ESP",
+   "away": "CPV",
+   "score": [
+    0,
+    0
+   ],
+   "probs": [
+    0.8181,
+    0.1309,
+    0.051
+   ],
+   "p_real": 0.1309,
+   "hit": false,
+   "surprise": 0.6872
+  },
+  {
+   "date": "2026-06-15",
+   "stage": "GROUP_STAGE",
+   "home": "KSA",
+   "away": "URU",
+   "score": [
+    1,
+    1
+   ],
+   "probs": [
+    0.1444,
+    0.2743,
+    0.5814
+   ],
+   "p_real": 0.2743,
+   "hit": false,
+   "surprise": 0.3071
+  },
+  {
+   "date": "2026-06-15",
+   "stage": "GROUP_STAGE",
+   "home": "SWE",
+   "away": "TUN",
+   "score": [
+    5,
+    1
+   ],
+   "probs": [
+    0.3601,
+    0.2984,
+    0.3415
+   ],
+   "p_real": 0.3601,
+   "hit": true,
+   "surprise": 0.0
+  },
+  {
+   "date": "2026-06-16",
+   "stage": "GROUP_STAGE",
+   "home": "FRA",
+   "away": "SEN",
+   "score": [
+    3,
+    1
+   ],
+   "probs": [
+    0.484,
+    0.2851,
+    0.231
+   ],
+   "p_real": 0.484,
+   "hit": true,
+   "surprise": 0.0
+  },
+  {
+   "date": "2026-06-16",
+   "stage": "GROUP_STAGE",
+   "home": "IRN",
+   "away": "NZL",
+   "score": [
+    2,
+    2
+   ],
+   "probs": [
+    0.5304,
+    0.2672,
+    0.2025
+   ],
+   "p_real": 0.2672,
+   "hit": false,
+   "surprise": 0.2632
+  },
+  {
+   "date": "2026-06-16",
+   "stage": "GROUP_STAGE",
+   "home": "IRQ",
+   "away": "NOR",
+   "score": [
+    1,
+    4
+   ],
+   "probs": [
+    0.2057,
+    0.2651,
+    0.5292
+   ],
+   "p_real": 0.5292,
+   "hit": true,
+   "surprise": 0.0
+  },
+  {
+   "date": "2026-06-17",
+   "stage": "GROUP_STAGE",
+   "home": "ARG",
+   "away": "ALG",
+   "score": [
+    3,
+    0
+   ],
+   "probs": [
+    0.6414,
+    0.2237,
+    0.1349
+   ],
+   "p_real": 0.6414,
+   "hit": true,
+   "surprise": 0.0
+  },
+  {
+   "date": "2026-06-17",
+   "stage": "GROUP_STAGE",
+   "home": "AUT",
+   "away": "JOR",
+   "score": [
+    3,
+    1
+   ],
+   "probs": [
+    0.4869,
+    0.2648,
+    0.2482
+   ],
+   "p_real": 0.4869,
+   "hit": true,
+   "surprise": 0.0
+  },
+  {
+   "date": "2026-06-17",
+   "stage": "GROUP_STAGE",
+   "home": "ENG",
+   "away": "CRO",
+   "score": [
+    4,
+    2
+   ],
+   "probs": [
+    0.501,
+    0.2785,
+    0.2204
+   ],
+   "p_real": 0.501,
+   "hit": true,
+   "surprise": 0.0
+  },
+  {
+   "date": "2026-06-17",
+   "stage": "GROUP_STAGE",
+   "home": "GHA",
+   "away": "PAN",
+   "score": [
+    1,
+    0
+   ],
+   "probs": [
+    0.3284,
+    0.286,
+    0.3856
+   ],
+   "p_real": 0.3284,
+   "hit": false,
+   "surprise": 0.0572
+  },
+  {
+   "date": "2026-06-17",
+   "stage": "GROUP_STAGE",
+   "home": "POR",
+   "away": "COD",
+   "score": [
+    1,
+    1
+   ],
+   "probs": [
+    0.65,
+    0.2279,
+    0.122
+   ],
+   "p_real": 0.2279,
+   "hit": false,
+   "surprise": 0.4221
+  },
+  {
+   "date": "2026-06-18",
+   "stage": "GROUP_STAGE",
+   "home": "CAN",
+   "away": "QAT",
+   "score": [
+    6,
+    0
+   ],
+   "probs": [
+    0.7039,
+    0.1734,
+    0.1228
+   ],
+   "p_real": 0.7039,
+   "hit": true,
+   "surprise": 0.0
+  },
+  {
+   "date": "2026-06-18",
+   "stage": "GROUP_STAGE",
+   "home": "CZE",
+   "away": "RSA",
+   "score": [
+    1,
+    1
+   ],
+   "probs": [
+    0.433,
+    0.29,
+    0.2769
+   ],
+   "p_real": 0.29,
+   "hit": false,
+   "surprise": 0.143
+  },
+  {
+   "date": "2026-06-18",
+   "stage": "GROUP_STAGE",
+   "home": "SUI",
+   "away": "BIH",
+   "score": [
+    4,
+    1
+   ],
+   "probs": [
+    0.6502,
+    0.2136,
+    0.1362
+   ],
+   "p_real": 0.6502,
+   "hit": true,
+   "surprise": 0.0
+  },
+  {
+   "date": "2026-06-18",
+   "stage": "GROUP_STAGE",
+   "home": "UZB",
+   "away": "COL",
+   "score": [
+    1,
+    3
+   ],
+   "probs": [
+    0.1701,
+    0.2738,
+    0.5561
+   ],
+   "p_real": 0.5561,
+   "hit": true,
+   "surprise": 0.0
+  },
+  {
+   "date": "2026-06-19",
+   "stage": "GROUP_STAGE",
+   "home": "MEX",
+   "away": "KOR",
+   "score": [
+    1,
+    0
+   ],
+   "probs": [
+    0.4775,
+    0.2664,
+    0.2561
+   ],
+   "p_real": 0.4775,
+   "hit": true,
+   "surprise": 0.0
+  },
+  {
+   "date": "2026-06-19",
+   "stage": "GROUP_STAGE",
+   "home": "SCO",
+   "away": "MAR",
+   "score": [
+    0,
+    1
+   ],
+   "probs": [
+    0.1687,
+    0.2842,
+    0.5472
+   ],
+   "p_real": 0.5472,
+   "hit": true,
+   "surprise": 0.0
+  },
+  {
+   "date": "2026-06-19",
+   "stage": "GROUP_STAGE",
+   "home": "USA",
+   "away": "AUS",
+   "score": [
+    2,
+    0
+   ],
+   "probs": [
+    0.3871,
+    0.2694,
+    0.3436
+   ],
+   "p_real": 0.3871,
+   "hit": true,
+   "surprise": 0.0
+  },
+  {
+   "date": "2026-06-20",
+   "stage": "GROUP_STAGE",
+   "home": "BRA",
+   "away": "HAI",
+   "score": [
+    3,
+    0
+   ],
+   "probs": [
+    0.8509,
+    0.1035,
+    0.0455
+   ],
+   "p_real": 0.8509,
+   "hit": true,
+   "surprise": 0.0
+  },
+  {
+   "date": "2026-06-20",
+   "stage": "GROUP_STAGE",
+   "home": "GER",
+   "away": "CIV",
+   "score": [
+    2,
+    1
+   ],
+   "probs": [
+    0.5443,
+    0.2489,
+    0.2068
+   ],
+   "p_real": 0.5443,
+   "hit": true,
+   "surprise": 0.0
+  },
+  {
+   "date": "2026-06-20",
+   "stage": "GROUP_STAGE",
+   "home": "NED",
+   "away": "SWE",
+   "score": [
+    5,
+    1
+   ],
+   "probs": [
+    0.5553,
+    0.2287,
+    0.216
+   ],
+   "p_real": 0.5553,
+   "hit": true,
+   "surprise": 0.0
+  },
+  {
+   "date": "2026-06-20",
+   "stage": "GROUP_STAGE",
+   "home": "TUR",
+   "away": "PAR",
+   "score": [
+    0,
+    1
+   ],
+   "probs": [
+    0.348,
+    0.2948,
+    0.3573
+   ],
+   "p_real": 0.3573,
+   "hit": true,
+   "surprise": 0.0
+  },
+  {
+   "date": "2026-06-21",
+   "stage": "GROUP_STAGE",
+   "home": "BEL",
+   "away": "IRN",
+   "score": [
+    0,
+    0
+   ],
+   "probs": [
+    0.4408,
+    0.2716,
+    0.2876
+   ],
+   "p_real": 0.2716,
+   "hit": false,
+   "surprise": 0.1692
+  },
+  {
+   "date": "2026-06-21",
+   "stage": "GROUP_STAGE",
+   "home": "ECU",
+   "away": "CUW",
+   "score": [
+    0,
+    0
+   ],
+   "probs": [
+    0.6944,
+    0.2131,
+    0.0925
+   ],
+   "p_real": 0.2131,
+   "hit": false,
+   "surprise": 0.4813
+  },
+  {
+   "date": "2026-06-21",
+   "stage": "GROUP_STAGE",
+   "home": "ESP",
+   "away": "KSA",
+   "score": [
+    4,
+    0
+   ],
+   "probs": [
+    0.7482,
+    0.1721,
+    0.0797
+   ],
+   "p_real": 0.7482,
+   "hit": true,
+   "surprise": 0.0
+  },
+  {
+   "date": "2026-06-21",
+   "stage": "GROUP_STAGE",
+   "home": "TUN",
+   "away": "JPN",
+   "score": [
+    0,
+    4
+   ],
+   "probs": [
+    0.2095,
+    0.2864,
+    0.5041
+   ],
+   "p_real": 0.5041,
+   "hit": true,
+   "surprise": 0.0
+  },
+  {
+   "date": "2026-06-21",
+   "stage": "GROUP_STAGE",
+   "home": "URU",
+   "away": "CPV",
+   "score": [
+    2,
+    2
+   ],
+   "probs": [
+    0.6603,
+    0.2356,
+    0.1042
+   ],
+   "p_real": 0.2356,
+   "hit": false,
+   "surprise": 0.4247
+  },
+  {
+   "date": "2026-06-22",
+   "stage": "GROUP_STAGE",
+   "home": "ARG",
+   "away": "AUT",
+   "score": [
+    2,
+    0
+   ],
+   "probs": [
+    0.645,
+    0.2304,
+    0.1246
+   ],
+   "p_real": 0.645,
+   "hit": true,
+   "surprise": 0.0
+  },
+  {
+   "date": "2026-06-22",
+   "stage": "GROUP_STAGE",
+   "home": "FRA",
+   "away": "IRQ",
+   "score": [
+    3,
+    0
+   ],
+   "probs": [
+    0.6721,
+    0.2174,
+    0.1105
+   ],
+   "p_real": 0.6721,
+   "hit": true,
+   "surprise": 0.0
+  },
+  {
+   "date": "2026-06-22",
+   "stage": "GROUP_STAGE",
+   "home": "NZL",
+   "away": "EGY",
+   "score": [
+    1,
+    3
+   ],
+   "probs": [
+    0.2789,
+    0.3172,
+    0.404
+   ],
+   "p_real": 0.404,
+   "hit": true,
+   "surprise": 0.0
+  },
+  {
+   "date": "2026-06-23",
+   "stage": "GROUP_STAGE",
+   "home": "ENG",
+   "away": "GHA",
+   "score": [
+    0,
+    0
+   ],
+   "probs": [
+    0.718,
+    0.1951,
+    0.0869
+   ],
+   "p_real": 0.1951,
+   "hit": false,
+   "surprise": 0.5229
+  },
+  {
+   "date": "2026-06-23",
+   "stage": "GROUP_STAGE",
+   "home": "JOR",
+   "away": "ALG",
+   "score": [
+    1,
+    2
+   ],
+   "probs": [
+    0.2295,
+    0.2449,
+    0.5255
+   ],
+   "p_real": 0.5255,
+   "hit": true,
+   "surprise": 0.0
+  },
+  {
+   "date": "2026-06-23",
+   "stage": "GROUP_STAGE",
+   "home": "NOR",
+   "away": "SEN",
+   "score": [
+    3,
+    2
+   ],
+   "probs": [
+    0.3356,
+    0.2882,
+    0.3762
+   ],
+   "p_real": 0.3356,
+   "hit": false,
+   "surprise": 0.0406
+  },
+  {
+   "date": "2026-06-23",
+   "stage": "GROUP_STAGE",
+   "home": "PAN",
+   "away": "CRO",
+   "score": [
+    0,
+    1
+   ],
+   "probs": [
+    0.1816,
+    0.2375,
+    0.5808
+   ],
+   "p_real": 0.5808,
+   "hit": true,
+   "surprise": 0.0
+  },
+  {
+   "date": "2026-06-23",
+   "stage": "GROUP_STAGE",
+   "home": "POR",
+   "away": "UZB",
+   "score": [
+    5,
+    0
+   ],
+   "probs": [
+    0.5798,
+    0.2567,
+    0.1635
+   ],
+   "p_real": 0.5798,
+   "hit": true,
+   "surprise": 0.0
+  },
+  {
+   "date": "2026-06-24",
+   "stage": "GROUP_STAGE",
+   "home": "BIH",
+   "away": "QAT",
+   "score": [
+    3,
+    1
+   ],
+   "probs": [
+    0.3385,
+    0.2703,
+    0.3912
+   ],
+   "p_real": 0.3385,
+   "hit": false,
+   "surprise": 0.0527
+  },
+  {
+   "date": "2026-06-24",
+   "stage": "GROUP_STAGE",
+   "home": "COL",
+   "away": "COD",
+   "score": [
+    1,
+    0
+   ],
+   "probs": [
+    0.6251,
+    0.2462,
+    0.1287
+   ],
+   "p_real": 0.6251,
+   "hit": true,
+   "surprise": 0.0
+  },
+  {
+   "date": "2026-06-24",
+   "stage": "GROUP_STAGE",
+   "home": "MAR",
+   "away": "HAI",
+   "score": [
+    4,
+    2
+   ],
+   "probs": [
+    0.7061,
+    0.1966,
+    0.0974
+   ],
+   "p_real": 0.7061,
+   "hit": true,
+   "surprise": 0.0
+  },
+  {
+   "date": "2026-06-24",
+   "stage": "GROUP_STAGE",
+   "home": "SCO",
+   "away": "BRA",
+   "score": [
+    0,
+    3
+   ],
+   "probs": [
+    0.1026,
+    0.1908,
+    0.7066
+   ],
+   "p_real": 0.7066,
+   "hit": true,
+   "surprise": 0.0
+  },
+  {
+   "date": "2026-06-24",
+   "stage": "GROUP_STAGE",
+   "home": "SUI",
+   "away": "CAN",
+   "score": [
+    2,
+    1
+   ],
+   "probs": [
+    0.3355,
+    0.2557,
+    0.4088
+   ],
+   "p_real": 0.3355,
+   "hit": false,
+   "surprise": 0.0733
+  },
+  {
+   "date": "2026-06-25",
+   "stage": "GROUP_STAGE",
+   "home": "CUW",
+   "away": "CIV",
+   "score": [
+    0,
+    2
+   ],
+   "probs": [
+    0.1517,
+    0.2501,
+    0.5982
+   ],
+   "p_real": 0.5982,
+   "hit": true,
+   "surprise": 0.0
+  },
+  {
+   "date": "2026-06-25",
+   "stage": "GROUP_STAGE",
+   "home": "CZE",
+   "away": "MEX",
+   "score": [
+    0,
+    3
+   ],
+   "probs": [
+    0.1781,
+    0.2276,
+    0.5943
+   ],
+   "p_real": 0.5943,
+   "hit": true,
+   "surprise": 0.0
+  },
+  {
+   "date": "2026-06-25",
+   "stage": "GROUP_STAGE",
+   "home": "ECU",
+   "away": "GER",
+   "score": [
+    2,
+    1
+   ],
+   "probs": [
+    0.309,
+    0.2898,
+    0.4013
+   ],
+   "p_real": 0.309,
+   "hit": false,
+   "surprise": 0.0923
+  },
+  {
+   "date": "2026-06-25",
+   "stage": "GROUP_STAGE",
+   "home": "JPN",
+   "away": "SWE",
+   "score": [
+    1,
+    1
+   ],
+   "probs": [
+    0.5361,
+    0.2451,
+    0.2188
+   ],
+   "p_real": 0.2451,
+   "hit": false,
+   "surprise": 0.291
+  },
+  {
+   "date": "2026-06-25",
+   "stage": "GROUP_STAGE",
+   "home": "RSA",
+   "away": "KOR",
+   "score": [
+    1,
+    0
+   ],
+   "probs": [
+    0.1997,
+    0.2778,
+    0.5224
+   ],
+   "p_real": 0.1997,
+   "hit": false,
+   "surprise": 0.3227
+  },
+  {
+   "date": "2026-06-25",
+   "stage": "GROUP_STAGE",
+   "home": "TUN",
+   "away": "NED",
+   "score": [
+    1,
+    3
+   ],
+   "probs": [
+    0.2086,
+    0.2672,
+    0.5242
+   ],
+   "p_real": 0.5242,
+   "hit": true,
+   "surprise": 0.0
+  },
+  {
+   "date": "2026-06-26",
+   "stage": "GROUP_STAGE",
+   "home": "NOR",
+   "away": "FRA",
+   "score": [
+    1,
+    4
+   ],
+   "probs": [
+    0.2165,
+    0.2441,
+    0.5395
+   ],
+   "p_real": 0.5395,
+   "hit": true,
+   "surprise": 0.0
+  },
+  {
+   "date": "2026-06-26",
+   "stage": "GROUP_STAGE",
+   "home": "PAR",
+   "away": "AUS",
+   "score": [
+    0,
+    0
+   ],
+   "probs": [
+    0.2617,
+    0.3181,
+    0.4202
+   ],
+   "p_real": 0.3181,
+   "hit": false,
+   "surprise": 0.1021
+  },
+  {
+   "date": "2026-06-26",
+   "stage": "GROUP_STAGE",
+   "home": "SEN",
+   "away": "IRQ",
+   "score": [
+    5,
+    0
+   ],
+   "probs": [
+    0.5125,
+    0.298,
+    0.1895
+   ],
+   "p_real": 0.5125,
+   "hit": true,
+   "surprise": 0.0
+  },
+  {
+   "date": "2026-06-26",
+   "stage": "GROUP_STAGE",
+   "home": "TUR",
+   "away": "USA",
+   "score": [
+    3,
+    2
+   ],
+   "probs": [
+    0.2527,
+    0.2304,
+    0.517
+   ],
+   "p_real": 0.2527,
+   "hit": false,
+   "surprise": 0.2643
+  },
+  {
+   "date": "2026-06-27",
+   "stage": "GROUP_STAGE",
+   "home": "COD",
+   "away": "UZB",
+   "score": [
+    3,
+    1
+   ],
+   "probs": [
+    0.2699,
+    0.3409,
+    0.3892
+   ],
+   "p_real": 0.2699,
+   "hit": false,
+   "surprise": 0.1193
+  },
+  {
+   "date": "2026-06-27",
+   "stage": "GROUP_STAGE",
+   "home": "COL",
+   "away": "POR",
+   "score": [
+    0,
+    0
+   ],
+   "probs": [
+    0.3487,
+    0.2824,
+    0.3688
+   ],
+   "p_real": 0.2824,
+   "hit": false,
+   "surprise": 0.0864
+  },
+  {
+   "date": "2026-06-27",
+   "stage": "GROUP_STAGE",
+   "home": "CPV",
+   "away": "KSA",
+   "score": [
+    0,
+    0
+   ],
+   "probs": [
+    0.2688,
+    0.3197,
+    0.4115
+   ],
+   "p_real": 0.3197,
+   "hit": false,
+   "surprise": 0.0918
+  },
+  {
+   "date": "2026-06-27",
+   "stage": "GROUP_STAGE",
+   "home": "CRO",
+   "away": "GHA",
+   "score": [
+    2,
+    1
+   ],
+   "probs": [
+    0.5909,
+    0.2457,
+    0.1634
+   ],
+   "p_real": 0.5909,
+   "hit": true,
+   "surprise": 0.0
+  },
+  {
+   "date": "2026-06-27",
+   "stage": "GROUP_STAGE",
+   "home": "EGY",
+   "away": "IRN",
+   "score": [
+    1,
+    1
+   ],
+   "probs": [
+    0.2523,
+    0.3133,
+    0.4344
+   ],
+   "p_real": 0.3133,
+   "hit": false,
+   "surprise": 0.1211
+  },
+  {
+   "date": "2026-06-27",
+   "stage": "GROUP_STAGE",
+   "home": "NZL",
+   "away": "BEL",
+   "score": [
+    1,
+    5
+   ],
+   "probs": [
+    0.1488,
+    0.2178,
+    0.6334
+   ],
+   "p_real": 0.6334,
+   "hit": true,
+   "surprise": 0.0
+  },
+  {
+   "date": "2026-06-27",
+   "stage": "GROUP_STAGE",
+   "home": "PAN",
+   "away": "ENG",
+   "score": [
+    0,
+    2
+   ],
+   "probs": [
+    0.0955,
+    0.1883,
+    0.7162
+   ],
+   "p_real": 0.7162,
+   "hit": true,
+   "surprise": 0.0
+  },
+  {
+   "date": "2026-06-27",
+   "stage": "GROUP_STAGE",
+   "home": "URU",
+   "away": "ESP",
+   "score": [
+    0,
+    1
+   ],
+   "probs": [
+    0.2414,
+    0.2854,
+    0.4732
+   ],
+   "p_real": 0.4732,
+   "hit": true,
+   "surprise": 0.0
+  },
+  {
+   "date": "2026-06-28",
+   "stage": "GROUP_STAGE",
+   "home": "ALG",
+   "away": "AUT",
+   "score": [
+    3,
+    3
+   ],
+   "probs": [
+    0.3879,
+    0.2715,
+    0.3406
+   ],
+   "p_real": 0.2715,
+   "hit": false,
+   "surprise": 0.1164
+  },
+  {
+   "date": "2026-06-28",
+   "stage": "GROUP_STAGE",
+   "home": "JOR",
+   "away": "ARG",
+   "score": [
+    1,
+    3
+   ],
+   "probs": [
+    0.0703,
+    0.1648,
+    0.7648
+   ],
+   "p_real": 0.7648,
+   "hit": true,
+   "surprise": 0.0
+  },
+  {
+   "date": "2026-06-28",
+   "stage": "LAST_32",
+   "home": "RSA",
+   "away": "CAN",
+   "score": [
+    0,
+    1
+   ],
+   "winner": "CAN",
+   "p_home": 0.2294,
+   "p_real": 0.7706,
+   "hit": true,
+   "surprise": 0.0
+  },
+  {
+   "date": "2026-06-29",
+   "stage": "LAST_32",
+   "home": "BRA",
+   "away": "JPN",
+   "score": [
+    2,
+    1
+   ],
+   "winner": "BRA",
+   "p_home": 0.6613,
+   "p_real": 0.6613,
+   "hit": true,
+   "surprise": 0.0
+  },
+  {
+   "date": "2026-06-29",
+   "stage": "LAST_32",
+   "home": "GER",
+   "away": "PAR",
+   "score": [
+    4,
+    5
+   ],
+   "winner": "PAR",
+   "p_home": 0.6901,
+   "p_real": 0.3099,
+   "hit": false,
+   "surprise": 0.3802
+  },
+  {
+   "date": "2026-06-30",
+   "stage": "LAST_32",
+   "home": "CIV",
+   "away": "NOR",
+   "score": [
+    1,
+    2
+   ],
+   "winner": "NOR",
+   "p_home": 0.4317,
+   "p_real": 0.5683,
+   "hit": true,
+   "surprise": 0.0
+  },
+  {
+   "date": "2026-06-30",
+   "stage": "LAST_32",
+   "home": "FRA",
+   "away": "SWE",
+   "score": [
+    3,
+    0
+   ],
+   "winner": "FRA",
+   "p_home": 0.7482,
+   "p_real": 0.7482,
+   "hit": true,
+   "surprise": 0.0
+  },
+  {
+   "date": "2026-06-30",
+   "stage": "LAST_32",
+   "home": "NED",
+   "away": "MAR",
+   "score": [
+    3,
+    4
+   ],
+   "winner": "MAR",
+   "p_home": 0.4693,
+   "p_real": 0.5307,
+   "hit": true,
+   "surprise": 0.0
+  },
+  {
+   "date": "2026-07-01",
+   "stage": "LAST_32",
+   "home": "BEL",
+   "away": "SEN",
+   "score": [
+    3,
+    2
+   ],
+   "winner": "BEL",
+   "p_home": 0.6036,
+   "p_real": 0.6036,
+   "hit": true,
+   "surprise": 0.0
+  },
+  {
+   "date": "2026-07-01",
+   "stage": "LAST_32",
+   "home": "ENG",
+   "away": "COD",
+   "score": [
+    2,
+    1
+   ],
+   "winner": "ENG",
+   "p_home": 0.8095,
+   "p_real": 0.8095,
+   "hit": true,
+   "surprise": 0.0
+  },
+  {
+   "date": "2026-07-01",
+   "stage": "LAST_32",
+   "home": "MEX",
+   "away": "ECU",
+   "score": [
+    2,
+    0
+   ],
+   "winner": "MEX",
+   "p_home": 0.5391,
+   "p_real": 0.5391,
+   "hit": true,
+   "surprise": 0.0
+  },
+  {
+   "date": "2026-07-02",
+   "stage": "LAST_32",
+   "home": "ESP",
+   "away": "AUT",
+   "score": [
+    3,
+    0
+   ],
+   "winner": "ESP",
+   "p_home": 0.7817,
+   "p_real": 0.7817,
+   "hit": true,
+   "surprise": 0.0
+  },
+  {
+   "date": "2026-07-02",
+   "stage": "LAST_32",
+   "home": "POR",
+   "away": "CRO",
+   "score": [
+    2,
+    1
+   ],
+   "winner": "POR",
+   "p_home": 0.6425,
+   "p_real": 0.6425,
+   "hit": true,
+   "surprise": 0.0
+  },
+  {
+   "date": "2026-07-02",
+   "stage": "LAST_32",
+   "home": "USA",
+   "away": "BIH",
+   "score": [
+    2,
+    0
+   ],
+   "winner": "USA",
+   "p_home": 0.8243,
+   "p_real": 0.8243,
+   "hit": true,
+   "surprise": 0.0
+  },
+  {
+   "date": "2026-07-03",
+   "stage": "LAST_32",
+   "home": "ARG",
+   "away": "CPV",
+   "score": [
+    3,
+    2
+   ],
+   "winner": "ARG",
+   "p_home": 0.9181,
+   "p_real": 0.9181,
+   "hit": true,
+   "surprise": 0.0
+  },
+  {
+   "date": "2026-07-03",
+   "stage": "LAST_32",
+   "home": "AUS",
+   "away": "EGY",
+   "score": [
+    3,
+    5
+   ],
+   "winner": "EGY",
+   "p_home": 0.6034,
+   "p_real": 0.3966,
+   "hit": false,
+   "surprise": 0.2068
+  },
+  {
+   "date": "2026-07-03",
+   "stage": "LAST_32",
+   "home": "SUI",
+   "away": "ALG",
+   "score": [
+    2,
+    0
+   ],
+   "winner": "SUI",
+   "p_home": 0.5398,
+   "p_real": 0.5398,
+   "hit": true,
+   "surprise": 0.0
+  },
+  {
+   "date": "2026-07-04",
+   "stage": "LAST_16",
+   "home": "CAN",
+   "away": "MAR",
+   "score": [
+    0,
+    3
+   ],
+   "winner": "MAR",
+   "p_home": 0.4281,
+   "p_real": 0.5719,
+   "hit": true,
+   "surprise": 0.0
+  },
+  {
+   "date": "2026-07-04",
+   "stage": "LAST_32",
+   "home": "COL",
+   "away": "GHA",
+   "score": [
+    1,
+    0
+   ],
+   "winner": "COL",
+   "p_home": 0.8361,
+   "p_real": 0.8361,
+   "hit": true,
+   "surprise": 0.0
+  },
+  {
+   "date": "2026-07-04",
+   "stage": "LAST_16",
+   "home": "PAR",
+   "away": "FRA",
+   "score": [
+    0,
+    1
+   ],
+   "winner": "FRA",
+   "p_home": 0.2774,
+   "p_real": 0.7226,
+   "hit": true,
+   "surprise": 0.0
+  },
+  {
+   "date": "2026-07-05",
+   "stage": "LAST_16",
+   "home": "BRA",
+   "away": "NOR",
+   "score": [
+    1,
+    2
+   ],
+   "winner": "NOR",
+   "p_home": 0.7644,
+   "p_real": 0.2356,
+   "hit": false,
+   "surprise": 0.5288
+  },
+  {
+   "date": "2026-07-06",
+   "stage": "LAST_16",
+   "home": "MEX",
+   "away": "ENG",
+   "score": [
+    2,
+    3
+   ],
+   "winner": "ENG",
+   "p_home": 0.3953,
+   "p_real": 0.6047,
+   "hit": true,
+   "surprise": 0.0
+  },
+  {
+   "date": "2026-07-06",
+   "stage": "LAST_16",
+   "home": "POR",
+   "away": "ESP",
+   "score": [
+    0,
+    1
+   ],
+   "winner": "ESP",
+   "p_home": 0.4194,
+   "p_real": 0.5806,
+   "hit": true,
+   "surprise": 0.0
+  },
+  {
+   "date": "2026-07-07",
+   "stage": "LAST_16",
+   "home": "ARG",
+   "away": "EGY",
+   "score": [
+    3,
+    2
+   ],
+   "winner": "ARG",
+   "p_home": 0.8085,
+   "p_real": 0.8085,
+   "hit": true,
+   "surprise": 0.0
+  },
+  {
+   "date": "2026-07-07",
+   "stage": "LAST_16",
+   "home": "SUI",
+   "away": "COL",
+   "score": [
+    4,
+    3
+   ],
+   "winner": "SUI",
+   "p_home": 0.3547,
+   "p_real": 0.3547,
+   "hit": false,
+   "surprise": 0.2906
+  },
+  {
+   "date": "2026-07-07",
+   "stage": "LAST_16",
+   "home": "USA",
+   "away": "BEL",
+   "score": [
+    1,
+    4
+   ],
+   "winner": "BEL",
+   "p_home": 0.4236,
+   "p_real": 0.5764,
+   "hit": true,
+   "surprise": 0.0
+  },
+  {
+   "date": "2026-07-09",
+   "stage": "QUARTER_FINALS",
+   "home": "FRA",
+   "away": "MAR",
+   "score": [
+    2,
+    0
+   ],
+   "winner": "FRA",
+   "p_home": 0.5343,
+   "p_real": 0.5343,
+   "hit": true,
+   "surprise": 0.0
+  },
+  {
+   "date": "2026-07-10",
+   "stage": "QUARTER_FINALS",
+   "home": "ESP",
+   "away": "BEL",
+   "score": [
+    2,
+    1
+   ],
+   "winner": "ESP",
+   "p_home": 0.6427,
+   "p_real": 0.6427,
+   "hit": true,
+   "surprise": 0.0
+  },
+  {
+   "date": "2026-07-11",
+   "stage": "QUARTER_FINALS",
+   "home": "NOR",
+   "away": "ENG",
+   "score": [
+    1,
+    2
+   ],
+   "winner": "ENG",
+   "p_home": 0.2878,
+   "p_real": 0.7122,
+   "hit": true,
+   "surprise": -0.0
+  },
+  {
+   "date": "2026-07-12",
+   "stage": "QUARTER_FINALS",
+   "home": "ARG",
+   "away": "SUI",
+   "score": [
+    3,
+    1
+   ],
+   "winner": "ARG",
+   "p_home": 0.7576,
+   "p_real": 0.7576,
+   "hit": true,
+   "surprise": 0.0
+  },
+  {
+   "date": "2026-07-14",
+   "stage": "SEMI_FINALS",
+   "home": "FRA",
+   "away": "ESP",
+   "score": [
+    0,
+    2
+   ],
+   "winner": "ESP",
+   "p_home": 0.4152,
+   "p_real": 0.5848,
+   "hit": true,
+   "surprise": 0.0
+  },
+  {
+   "date": "2026-07-15",
+   "stage": "SEMI_FINALS",
+   "home": "ENG",
+   "away": "ARG",
+   "score": [
+    1,
+    2
+   ],
+   "winner": "ARG",
+   "p_home": 0.4145,
+   "p_real": 0.5855,
+   "hit": true,
+   "surprise": 0.0
+  },
+  {
+   "date": "2026-07-19",
+   "stage": "FINAL",
+   "home": "ESP",
+   "away": "ARG",
+   "score": [
+    1,
+    0
+   ],
+   "winner": "ESP",
+   "p_home": 0.4503,
+   "p_real": 0.4503,
+   "hit": false,
+   "surprise": 0.0994
+  }
+ ],
+ "biggest_upsets": [
+  {
+   "date": "2026-06-15",
+   "stage": "GROUP_STAGE",
+   "home": "ESP",
+   "away": "CPV",
+   "score": [
+    0,
+    0
+   ],
+   "probs": [
+    0.8181,
+    0.1309,
+    0.051
+   ],
+   "p_real": 0.1309,
+   "hit": false,
+   "surprise": 0.6872
+  },
+  {
+   "date": "2026-07-05",
+   "stage": "LAST_16",
+   "home": "BRA",
+   "away": "NOR",
+   "score": [
+    1,
+    2
+   ],
+   "winner": "NOR",
+   "p_home": 0.7644,
+   "p_real": 0.2356,
+   "hit": false,
+   "surprise": 0.5288
+  },
+  {
+   "date": "2026-06-23",
+   "stage": "GROUP_STAGE",
+   "home": "ENG",
+   "away": "GHA",
+   "score": [
+    0,
+    0
+   ],
+   "probs": [
+    0.718,
+    0.1951,
+    0.0869
+   ],
+   "p_real": 0.1951,
+   "hit": false,
+   "surprise": 0.5229
+  },
+  {
+   "date": "2026-06-12",
+   "stage": "GROUP_STAGE",
+   "home": "CAN",
+   "away": "BIH",
+   "score": [
+    1,
+    1
+   ],
+   "probs": [
+    0.7012,
+    0.1848,
+    0.1141
+   ],
+   "p_real": 0.1848,
+   "hit": false,
+   "surprise": 0.5164
+  },
+  {
+   "date": "2026-06-21",
+   "stage": "GROUP_STAGE",
+   "home": "ECU",
+   "away": "CUW",
+   "score": [
+    0,
+    0
+   ],
+   "probs": [
+    0.6944,
+    0.2131,
+    0.0925
+   ],
+   "p_real": 0.2131,
+   "hit": false,
+   "surprise": 0.4813
+  },
+  {
+   "date": "2026-06-13",
+   "stage": "GROUP_STAGE",
+   "home": "QAT",
+   "away": "SUI",
+   "score": [
+    1,
+    1
+   ],
+   "probs": [
+    0.1477,
+    0.2006,
+    0.6518
+   ],
+   "p_real": 0.2006,
+   "hit": false,
+   "surprise": 0.4512
+  },
+  {
+   "date": "2026-06-21",
+   "stage": "GROUP_STAGE",
+   "home": "URU",
+   "away": "CPV",
+   "score": [
+    2,
+    2
+   ],
+   "probs": [
+    0.6603,
+    0.2356,
+    0.1042
+   ],
+   "p_real": 0.2356,
+   "hit": false,
+   "surprise": 0.4247
+  },
+  {
+   "date": "2026-06-17",
+   "stage": "GROUP_STAGE",
+   "home": "POR",
+   "away": "COD",
+   "score": [
+    1,
+    1
+   ],
+   "probs": [
+    0.65,
+    0.2279,
+    0.122
+   ],
+   "p_real": 0.2279,
+   "hit": false,
+   "surprise": 0.4221
+  },
+  {
+   "date": "2026-06-29",
+   "stage": "LAST_32",
+   "home": "GER",
+   "away": "PAR",
+   "score": [
+    4,
+    5
+   ],
+   "winner": "PAR",
+   "p_home": 0.6901,
+   "p_real": 0.3099,
+   "hit": false,
+   "surprise": 0.3802
+  },
+  {
+   "date": "2026-06-25",
+   "stage": "GROUP_STAGE",
+   "home": "RSA",
+   "away": "KOR",
+   "score": [
+    1,
+    0
+   ],
+   "probs": [
+    0.1997,
+    0.2778,
+    0.5224
+   ],
+   "p_real": 0.1997,
+   "hit": false,
+   "surprise": 0.3227
+  }
+ ],
+ "best_calls": [
+  {
+   "date": "2026-07-03",
+   "stage": "LAST_32",
+   "home": "ARG",
+   "away": "CPV",
+   "score": [
+    3,
+    2
+   ],
+   "winner": "ARG",
+   "p_home": 0.9181,
+   "p_real": 0.9181,
+   "hit": true,
+   "surprise": 0.0
+  },
+  {
+   "date": "2026-06-20",
+   "stage": "GROUP_STAGE",
+   "home": "BRA",
+   "away": "HAI",
+   "score": [
+    3,
+    0
+   ],
+   "probs": [
+    0.8509,
+    0.1035,
+    0.0455
+   ],
+   "p_real": 0.8509,
+   "hit": true,
+   "surprise": 0.0
+  },
+  {
+   "date": "2026-07-04",
+   "stage": "LAST_32",
+   "home": "COL",
+   "away": "GHA",
+   "score": [
+    1,
+    0
+   ],
+   "winner": "COL",
+   "p_home": 0.8361,
+   "p_real": 0.8361,
+   "hit": true,
+   "surprise": 0.0
+  },
+  {
+   "date": "2026-07-02",
+   "stage": "LAST_32",
+   "home": "USA",
+   "away": "BIH",
+   "score": [
+    2,
+    0
+   ],
+   "winner": "USA",
+   "p_home": 0.8243,
+   "p_real": 0.8243,
+   "hit": true,
+   "surprise": 0.0
+  },
+  {
+   "date": "2026-06-14",
+   "stage": "GROUP_STAGE",
+   "home": "GER",
+   "away": "CUW",
+   "score": [
+    7,
+    1
+   ],
+   "probs": [
+    0.8223,
+    0.1194,
+    0.0583
+   ],
+   "p_real": 0.8223,
+   "hit": true,
+   "surprise": 0.0
+  },
+  {
+   "date": "2026-07-01",
+   "stage": "LAST_32",
+   "home": "ENG",
+   "away": "COD",
+   "score": [
+    2,
+    1
+   ],
+   "winner": "ENG",
+   "p_home": 0.8095,
+   "p_real": 0.8095,
+   "hit": true,
+   "surprise": 0.0
+  },
+  {
+   "date": "2026-07-07",
+   "stage": "LAST_16",
+   "home": "ARG",
+   "away": "EGY",
+   "score": [
+    3,
+    2
+   ],
+   "winner": "ARG",
+   "p_home": 0.8085,
+   "p_real": 0.8085,
+   "hit": true,
+   "surprise": 0.0
+  },
+  {
+   "date": "2026-07-02",
+   "stage": "LAST_32",
+   "home": "ESP",
+   "away": "AUT",
+   "score": [
+    3,
+    0
+   ],
+   "winner": "ESP",
+   "p_home": 0.7817,
+   "p_real": 0.7817,
+   "hit": true,
+   "surprise": 0.0
+  },
+  {
+   "date": "2026-06-28",
+   "stage": "LAST_32",
+   "home": "RSA",
+   "away": "CAN",
+   "score": [
+    0,
+    1
+   ],
+   "winner": "CAN",
+   "p_home": 0.2294,
+   "p_real": 0.7706,
+   "hit": true,
+   "surprise": 0.0
+  },
+  {
+   "date": "2026-06-28",
+   "stage": "GROUP_STAGE",
+   "home": "JOR",
+   "away": "ARG",
+   "score": [
+    1,
+    3
+   ],
+   "probs": [
+    0.0703,
+    0.1648,
+    0.7648
+   ],
+   "p_real": 0.7648,
+   "hit": true,
+   "surprise": 0.0
+  }
+ ],
+ "blind_spot": {
+  "n_draws": 20,
+  "n_group": 72,
+  "draw_rate": 0.2777777777777778,
+  "max_draw_prob": 0.3409,
+  "predicted_draws": 0,
+  "accuracy_decisive": 0.8269230769230769
+ },
+ "calibration": [
+  {
+   "lo": 0.0,
+   "hi": 0.2,
+   "n": 44,
+   "predicted": 0.13711363636363633,
+   "observed": 0.09090909090909091
+  },
+  {
+   "lo": 0.2,
+   "hi": 0.4,
+   "n": 115,
+   "predicted": 0.27850521739130435,
+   "observed": 0.25217391304347825
+  },
+  {
+   "lo": 0.4,
+   "hi": 0.6,
+   "n": 51,
+   "predicted": 0.4925549019607843,
+   "observed": 0.5686274509803921
+  },
+  {
+   "lo": 0.6,
+   "hi": 0.8,
+   "n": 29,
+   "predicted": 0.6838965517241379,
+   "observed": 0.6896551724137931
+  },
+  {
+   "lo": 0.8,
+   "hi": 1.0,
+   "n": 8,
+   "predicted": 0.8359749999999999,
+   "observed": 0.875
+  }
+ ],
+ "reached": {
+  "r16": [
+   "ARG",
+   "BEL",
+   "BRA",
+   "CAN",
+   "COL",
+   "EGY",
+   "ENG",
+   "ESP",
+   "FRA",
+   "MAR",
+   "MEX",
+   "NOR",
+   "PAR",
+   "POR",
+   "SUI",
+   "USA"
+  ],
+  "qf": [
+   "ARG",
+   "BEL",
+   "ENG",
+   "ESP",
+   "FRA",
+   "MAR",
+   "NOR",
+   "SUI"
+  ],
+  "sf": [
+   "ARG",
+   "ENG",
+   "ESP",
+   "FRA"
+  ],
+  "final": [
+   "ARG",
+   "ESP"
+  ],
+  "champion": [
+   "ESP"
+  ]
+ }
+}

@@ -666,7 +666,7 @@ footer p { max-inline-size: 75ch; }
 }
 .cal-today-link:hover { text-decoration: underline; }
 .cal-match {
-  display: grid; grid-template-columns: 4.3rem minmax(0, 1fr) auto minmax(0, 1fr);
+  display: grid; grid-template-columns: 4.3rem minmax(0, 1fr) auto minmax(0, 1fr) 3rem;
   align-items: center; gap: 0.7rem;
   padding: 0.6rem 0.2rem; border-block-end: 1px solid var(--border);
 }
@@ -687,7 +687,147 @@ footer p { max-inline-size: 75ch; }
 .cal-match:not(.is-done) .cal-score { color: var(--text-dim); font-weight: 400; }
 
 @media (max-width: 560px) {
-  .cal-match { grid-template-columns: 3.2rem minmax(0,1fr) auto minmax(0,1fr); gap: 0.4rem; }
+  .cal-match { grid-template-columns: 3.2rem minmax(0,1fr) auto minmax(0,1fr) 2.6rem; gap: 0.4rem; }
   .cal-side { gap: 0.35rem; font-size: 0.92rem; }
   .cal-score { min-inline-size: 2.4rem; font-size: 0.95rem; }
 }
+
+/* ---------- balance (post-mortem del modelo) ---------- */
+
+.mono { font-variant-numeric: tabular-nums; }
+.dim { color: var(--text-dim); }
+.better { color: var(--accent); font-weight: 700; }
+.worse { color: var(--danger); font-weight: 700; }
+
+/* veredicto */
+.verdict-grid {
+  display: grid; gap: 0.9rem; margin-block: 1.4rem 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+}
+.verdict-card {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 10px; padding: 1.1rem 1.2rem;
+}
+.verdict-main { border-color: var(--gold); background: var(--amber-bg); }
+.vc-label {
+  font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em;
+  color: var(--text-dim); margin-block-end: 0.5rem;
+}
+.vc-team { display: flex; align-items: center; gap: 0.6rem; font-size: 1.5rem; }
+.vc-big {
+  font-size: 2.2rem; font-weight: 700; line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+}
+.vc-sub { color: var(--text-dim); font-size: 0.82rem; margin-block-start: 0.4rem; }
+.flag-lg { inline-size: 2.4rem; block-size: 1.8rem; }
+.verdict-note { max-inline-size: 74ch; }
+
+/* tarjeta de resultados */
+.scorecard {
+  display: grid; gap: 1rem; margin-block-start: 1.4rem;
+  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+}
+.score-card {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 10px; padding: 1rem 1.1rem 0.6rem;
+}
+.score-card h3 { margin: 0 0 0.2rem; font-size: 1rem; }
+.score-card h3 .n { color: var(--text-dim); font-weight: 400; font-size: 0.82rem; }
+.score-hint { color: var(--text-dim); font-size: 0.78rem; margin: 0 0 0.7rem; }
+.score-table { inline-size: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.score-table th { text-align: start; font-weight: 600; }
+.score-table thead th {
+  font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.04em;
+  color: var(--text-dim); font-weight: 600; text-align: end;
+  border-block-end: 1px solid var(--border); padding-block-end: 0.3rem;
+}
+.score-table tbody th { padding-block: 0.4rem; }
+.score-table td { text-align: end; padding-block: 0.4rem; }
+
+/* calibración */
+.cal-chart { margin-block-start: 1.4rem; display: grid; gap: 0.7rem; }
+.cal-row {
+  display: grid; gap: 0.5rem; align-items: center;
+  grid-template-columns: 7.5rem 1fr;
+}
+.cal-label { font-size: 0.8rem; font-variant-numeric: tabular-nums; }
+.cal-n { color: var(--text-dim); display: block; font-size: 0.72rem; }
+.cal-bars { display: grid; gap: 0.22rem; }
+.cal-bar {
+  block-size: 1.15rem; border-radius: 3px; display: flex; align-items: center;
+  min-inline-size: 5.5rem;
+}
+.cal-bar span {
+  font-size: 0.7rem; padding-inline-start: 0.45rem; color: #fff;
+  white-space: nowrap; font-variant-numeric: tabular-nums;
+}
+.cal-pred { background: var(--text-dim); }
+.cal-obs { background: var(--accent); }
+.cal-legend {
+  display: flex; gap: 1.2rem; font-size: 0.78rem; color: var(--text-dim);
+  margin-block-start: 0.4rem;
+}
+.sw { display: inline-block; inline-size: 0.7rem; block-size: 0.7rem; border-radius: 2px; }
+.sw-pred { background: var(--text-dim); }
+.sw-obs { background: var(--accent); }
+.cal-foot { margin-block-start: 1rem; }
+
+/* punto ciego */
+.callout {
+  background: var(--amber-bg); border: 1px solid var(--amber-border);
+  border-radius: 10px; padding: 1.1rem 1.3rem; margin-block-start: 1.2rem;
+}
+.callout p { margin-block: 0 0.8rem; max-inline-size: 78ch; }
+.callout p:last-child { margin-block-end: 0; }
+
+/* sorpresas / aciertos */
+.two-col {
+  display: grid; gap: 1.6rem; margin-block-start: 1.4rem;
+  grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr));
+}
+.col-title { font-size: 0.9rem; margin: 0 0 0.7rem; color: var(--text-dim); }
+.match-rank { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.55rem; }
+.rank-row {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 8px; padding: 0.6rem 0.8rem;
+}
+.rank-head {
+  display: flex; justify-content: space-between; font-size: 0.7rem;
+  color: var(--text-dim); margin-block-end: 0.35rem;
+}
+.rank-match {
+  display: grid; grid-template-columns: 1fr auto 1fr; gap: 0.5rem;
+  align-items: center; font-size: 0.88rem;
+}
+.rank-team { display: flex; align-items: center; gap: 0.4rem; }
+.rank-match .rank-team:last-child { justify-content: end; }
+.rank-team.won { font-weight: 700; }
+.rank-score { font-variant-numeric: tabular-nums; font-weight: 700; }
+.rank-prob { font-size: 0.76rem; margin-block-start: 0.35rem; }
+.rank-prob.bad { color: var(--danger); }
+.rank-prob.good { color: var(--accent); }
+
+/* franja de resultado en la portada (torneo finalizado) */
+.result-band {
+  display: flex; flex-wrap: wrap; gap: 1.6rem;
+  background: var(--amber-bg); border: 1px solid var(--amber-border);
+  border-radius: 10px; padding: 0.9rem 1.2rem; margin-block: 1.1rem 0.6rem;
+}
+.rb-item { display: grid; gap: 0.1rem; }
+.rb-label {
+  font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.06em;
+  color: var(--text-dim);
+}
+.rb-item strong { font-size: 1.25rem; line-height: 1.2; }
+.rb-sub { font-size: 0.76rem; color: var(--text-dim); }
+
+/* probabilidad que el modelo dio a cada resultado (columna del calendario) */
+.cal-p { text-align: end; }
+.p-chip {
+  display: inline-block; font-size: 0.72rem; font-weight: 700;
+  font-variant-numeric: tabular-nums; padding: 0.1rem 0.35rem;
+  border-radius: 4px; cursor: help;
+}
+.p-hi { background: var(--accent-soft); color: var(--accent); }
+.p-mid { background: var(--bg-inset); color: var(--text-dim); }
+.p-lo { background: #b3362c14; color: var(--danger); }

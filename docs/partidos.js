@@ -17,6 +17,9 @@ const STAGE = {
 const dayKey = d => d.toLocaleDateString("es-ES", { year: "numeric", month: "2-digit", day: "2-digit" });
 
 let teams = {}, matches = [], filter = "all";
+// "AAAA-MM-DD|LOCAL|VISITANTE" -> probabilidad que el modelo dio al resultado
+// que acabó pasando. Vacío si aún no hay evaluación (torneo sin terminar).
+let pReal = {};
 
 init();
 
@@ -29,6 +32,13 @@ async function init() {
     matches = fx.matches;
     for (const t of data.teams) teams[t.id] = t;
   } catch { $("#load-error").hidden = false; return; }
+
+  // El balance es opcional: si falla, el calendario se pinta igual.
+  try {
+    const ev = await fetch("evaluacion.json", { cache: "no-store" })
+      .then(r => { if (!r.ok) throw 0; return r.json(); });
+    for (const m of ev.matches) pReal[`${m.date}|${m.home}|${m.away}`] = m.p_real;
+  } catch { /* sin evaluación: se omiten los chips */ }
 
   $$(".filter-btn").forEach(b => b.addEventListener("click", () => {
     filter = b.dataset.filter;
@@ -62,11 +72,18 @@ function matchRow(m) {
   const score = done
     ? `${gh}<span class="dash">–</span>${ga}`
     : `<span class="dash">–</span>`;
+  const p = pReal[`${m.date.slice(0, 10)}|${m.home}|${m.away}`];
+  // Verde si el modelo lo veía venir, rojo si le pilló a contrapié.
+  const chip = p === undefined ? "" :
+    `<span class="p-chip ${p >= 0.5 ? "p-hi" : p >= 0.3 ? "p-mid" : "p-lo"}"
+       title="Probabilidad que el modelo daba a este resultado antes de jugarse">
+       ${(p * 100).toFixed(0)}%</span>`;
   return `<div class="cal-match${done ? " is-done" : ""}">
     <div class="cal-when"><span class="cal-time">${time}</span><span class="cal-tag">${tag}</span></div>
     <div class="cal-side cal-home${hw ? " win" : ""}"><span class="tn">${sideName(m.home)}</span>${flag(m.home)}</div>
     <div class="cal-score">${score}</div>
     <div class="cal-side cal-away${aw ? " win" : ""}">${flag(m.away)}<span class="tn">${sideName(m.away)}</span></div>
+    <div class="cal-p">${chip}</div>
   </div>`;
 }
 

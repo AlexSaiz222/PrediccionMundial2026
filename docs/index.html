@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Predicción Mundial 2026: probabilidades actualizadas cada jornada</title>
-  <meta name="description" content="Probabilidades de cada selección en el Mundial 2026, recalculadas cada día con simulación Monte Carlo y un modelo estadístico entrenado con el histórico de partidos internacionales.">
+  <title>Predicción Mundial 2026: qué dijo el modelo y qué pasó</title>
+  <meta name="description" content="España ganó el Mundial 2026 partiendo de un 11,7% según este modelo. Probabilidades día a día con simulación Monte Carlo, y el balance de aciertos ahora que el torneo ha terminado.">
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230b7a4b'/><text x='50' y='68' font-size='46' font-weight='bold' font-family='Segoe UI,sans-serif' fill='white' text-anchor='middle'>26</text></svg>">
 </head>
@@ -14,6 +14,7 @@
   <a class="brand" href="index.html">Predicción Mundial 2026<span class="dot">.</span></a>
   <div class="topnav">
     <a href="index.html" aria-current="page">Probabilidades</a>
+    <a href="balance.html">Balance</a>
     <a href="partidos.html">Partidos</a>
     <a href="evolucion.html">Evolución</a>
     <a href="metodologia.html">Metodología</a>
@@ -22,12 +23,22 @@
 
 <div class="layout">
 <header class="hero">
-  <h1>¿Quién ganará el Mundial 2026?</h1>
-  <p class="tagline">Un modelo estadístico entrenado con miles de partidos internacionales
-    simula el Mundial completo <strong id="sims-count">miles de</strong> veces cada día,
-    incorporando los resultados reales según se van jugando. De esas simulaciones sale
-    cada cifra de esta página: quién gana su grupo, quién supera cada cruce y quién
-    acaba levantando la copa.</p>
+  <h1>Ganó España. El modelo le daba un 11,7%.</h1>
+  <p class="tagline">Durante el Mundial, un modelo estadístico entrenado con miles de
+    partidos internacionales simuló el torneo completo <strong id="sims-count">miles de</strong>
+    veces cada día, incorporando los resultados según se jugaban. El torneo ya ha
+    terminado, así que esta página se ha convertido en su archivo: los porcentajes que
+    ves son los que se publicaron en su momento, sin retocar.
+    <a href="balance.html">¿Cuánto acertó? El balance completo, aquí</a>.</p>
+
+  <div class="result-band">
+    <div class="rb-item"><span class="rb-label">Campeona</span>
+      <strong>España</strong> <span class="rb-sub">1–0 a Argentina en la final</span></div>
+    <div class="rb-item"><span class="rb-label">La víspera iba</span>
+      <strong>3.ª</strong> <span class="rb-sub">con 11,7%, tras Argentina y Brasil</span></div>
+    <div class="rb-item"><span class="rb-label">Acierto en eliminatorias</span>
+      <strong>83,9%</strong> <span class="rb-sub">26 de 31 cruces</span></div>
+  </div>
   <p class="meta">
     <span id="updated">Cargando...</span> ·
     <span id="results-count"></span> ·

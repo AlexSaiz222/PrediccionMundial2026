@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Balance: ¿cuánto acertó el modelo en el Mundial 2026?</title>
+  <meta name="description" content="Evaluación del modelo tras el Mundial 2026: Brier score, log-loss, calibración y aciertos por ronda, comparados contra baselines. España campeona partiendo de un 11,7%.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230b7a4b'/><text x='50' y='68' font-size='46' font-weight='bold' font-family='Segoe UI,sans-serif' fill='white' text-anchor='middle'>26</text></svg>">
+</head>
+<body>
+
+<nav class="topbar" aria-label="Principal">
+  <a class="brand" href="index.html">Predicción Mundial 2026<span class="dot">.</span></a>
+  <div class="topnav">
+    <a href="index.html">Probabilidades</a>
+    <a href="balance.html" aria-current="page">Balance</a>
+    <a href="partidos.html">Partidos</a>
+    <a href="evolucion.html">Evolución</a>
+    <a href="metodologia.html">Metodología</a>
+  </div>
+</nav>
+
+<div class="layout">
+<header class="hero">
+  <h1>¿Cuánto acertó el modelo?</h1>
+  <p class="tagline">El Mundial ha terminado, así que las predicciones ya se pueden
+    corregir. Esta página compara todo lo que el modelo anunció antes de cada partido
+    con lo que acabó pasando. Ningún número de aquí se ha elegido después de ver el
+    resultado: son las probabilidades publicadas en su día.</p>
+  <p class="meta"><span id="updated">Cargando...</span> ·
+    <a href="metodologia.html">cómo se calcula</a></p>
+</header>
+
+<aside class="toc" aria-label="Índice de secciones">
+  <p class="toc-title">En esta página</p>
+  <a href="#veredicto">El veredicto</a>
+  <a href="#tarjeta">Tarjeta de resultados</a>
+  <a href="#calibracion">¿Están bien calibradas?</a>
+  <a href="#rondas">Acierto por ronda</a>
+  <a href="#punto-ciego">El punto ciego</a>
+  <a href="#sorpresas">Sorpresas y aciertos</a>
+</aside>
+
+<main>
+  <section aria-labelledby="verdict-title" id="veredicto">
+    <h2 id="verdict-title">El veredicto</h2>
+    <p class="hint">Lo esencial, sin adornos: dónde situaba el modelo a la campeona
+      antes de que empezara el torneo.</p>
+    <div id="verdict" class="verdict-grid"></div>
+    <p id="verdict-note" class="hint verdict-note"></p>
+  </section>
+
+  <section aria-labelledby="card-title" id="tarjeta">
+    <h2 id="card-title">Tarjeta de resultados</h2>
+    <p class="hint">Tres métricas estándar, cada una contra un <em>baseline</em>
+      honesto. Sin ese contraste un Brier score suelto no significa nada: lo que
+      importa no es el número, sino cuánto le gana a no saber nada.
+      En Brier y log-loss, <strong>más bajo es mejor</strong>.</p>
+    <div id="scorecard" class="scorecard"></div>
+  </section>
+
+  <section aria-labelledby="cal-title" id="calibracion">
+    <h2 id="cal-title">¿Están bien calibradas?</h2>
+    <p class="hint">Acertar el ganador es una cosa; que los porcentajes signifiquen
+      algo es otra. Un modelo bien calibrado cumple que, de todo lo que anuncia al
+      30%, pasa aproximadamente el 30%. Cada barra agrupa todas las probabilidades
+      publicadas en ese tramo y las compara con la frecuencia real.</p>
+    <div id="calibration" class="cal-chart"></div>
+    <p class="hint cal-foot">Cuanto más parecidas sean las dos barras de cada tramo,
+      mejor calibrado está. Si la verde es más larga, el modelo se quedaba corto;
+      si es más corta, se venía arriba.</p>
+  </section>
+
+  <section aria-labelledby="rounds-title" id="rondas">
+    <h2 id="rounds-title">Acierto por ronda</h2>
+    <p class="hint">Para cada ronda se compara la probabilidad que el modelo daba
+      la víspera a cada una de las 48 selecciones de llegar, con si llegó de verdad.
+      El baseline aquí es la <em>climatología</em>: dar a todas la misma
+      probabilidad, la tasa base de la ronda (16 de 48 llegan a octavos, etc.).
+      Es un rival mucho más duro que el azar puro.</p>
+    <div class="table-wrap">
+      <table id="rounds-table">
+        <thead>
+          <tr>
+            <th class="sticky-col">Ronda</th>
+            <th>Llegan</th><th>Brier del modelo</th>
+            <th>Climatología</th><th>Mejora</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section aria-labelledby="blind-title" id="punto-ciego">
+    <h2 id="blind-title">El punto ciego</h2>
+    <p class="hint">Lo que el modelo no supo hacer, que es la parte que de verdad
+      enseña algo.</p>
+    <div id="blind" class="callout"></div>
+  </section>
+
+  <section aria-labelledby="ups-title" id="sorpresas">
+    <h2 id="ups-title">Sorpresas y aciertos</h2>
+    <p class="hint">A la izquierda, los partidos donde más se equivocó: la distancia
+      entre lo que anunciaba para su favorito y lo que le daba al resultado que
+      acabó pasando. A la derecha, donde más clavado estuvo.</p>
+    <div class="two-col">
+      <div>
+        <h3 class="col-title">Donde peor lo vio</h3>
+        <ol id="upsets" class="match-rank"></ol>
+      </div>
+      <div>
+        <h3 class="col-title">Donde mejor lo vio</h3>
+        <ol id="calls" class="match-rank"></ol>
+      </div>
+    </div>
+  </section>
+</main>
+</div>
+
+<footer>
+  <p><strong>Cómo se calcula:</strong> las probabilidades de cada partido se obtienen
+    de forma analítica con el mismo modelo de Poisson que alimentaba las simulaciones
+    (<code>engine/evaluate.py</code>), usando los ratings entrenados <em>antes</em> del
+    torneo. Las de campeón y ronda salen del snapshot del 10 de junio, la víspera.
+    <a href="metodologia.html">Explicación completa del modelo</a>.</p>
+  <p>Proyecto académico de
+    <a href="https://www.linkedin.com/in/alejandrosaizgarc%C3%ADa">Alejandro Saiz García</a>.
+    <a href="https://github.com/AlexSaiz222/PrediccionMundial2026">Código fuente en GitHub</a>.</p>
+</footer>
+
+<div id="load-error" class="load-error" hidden>
+  No se pudo cargar <code>evaluacion.json</code>. Si abriste el archivo directamente,
+  arranca un servidor local: <code>python -m http.server</code> dentro de la carpeta
+  <code>docs/</code> y abre <a href="http://localhost:8000">localhost:8000</a>.
+</div>
+
+<script src="balance.js"></script>
+</body>
+</html>

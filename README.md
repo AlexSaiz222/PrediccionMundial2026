@@ -1,10 +1,16 @@
 # Predicción Mundial 2026
 
-Modelo estadístico que calcula, en vivo, las probabilidades de cada selección en el
-Mundial 2026: quién gana su grupo, hasta qué ronda llega y quién levanta la copa.
+Modelo estadístico que calculó, jornada a jornada, las probabilidades de cada selección
+en el Mundial 2026: quién gana su grupo, hasta qué ronda llega y quién levanta la copa.
 Las probabilidades se obtienen por **simulación Monte Carlo** (20.000 torneos completos)
 sobre un modelo de goles **Poisson** con ratings de ataque/defensa entrenados por máxima
-verosimilitud, y se recalculan con los resultados reales según se van jugando.
+verosimilitud, y se recalcularon con los resultados reales según se iban jugando.
+
+> **Torneo finalizado el 19 de julio de 2026.** Ganó **España**, a la que el modelo daba
+> un **11,7%** la víspera del torneo (3.ª favorita, tras Argentina y Brasil). La
+> actualización automática está desactivada y el proyecto es ahora un archivo cerrado,
+> con el añadido de un **[balance de aciertos](#balance-cuánto-acertó)** que compara todo
+> lo que se publicó con lo que acabó pasando.
 
 ### [**Ver la web en vivo →**](https://alexsaiz222.github.io/PrediccionMundial2026/)
 
@@ -22,6 +28,35 @@ verosimilitud, y se recalculan con los resultados reales según se van jugando.
 | **Evolución e historial** | Gráfica de la probabilidad de campeón jornada a jornada y «viaje en el tiempo» para revisar la predicción completa de cualquier día pasado. |
 | **Cara a cara** | Enfrenta dos selecciones y obtén el 1X2, los marcadores más probables y la probabilidad de superar una eliminatoria. |
 | **Camino más probable** | Pulsa una selección y verás sus rivales más probables en cada ronda y con qué frecuencia los supera. |
+| **Balance** | Evaluación del modelo una vez terminado el torneo: Brier score, log-loss, calibración y acierto por ronda, siempre contra un baseline. |
+
+## Balance: cuánto acertó
+
+Con el Mundial terminado, `engine/evaluate.py` corrige las predicciones contra lo que
+pasó de verdad y genera `docs/evaluacion.json`. Todas las probabilidades usadas son las
+que se publicaron **antes** de cada partido; ninguna se ha recalculado a posteriori.
+
+| Bloque | Métrica | Modelo | Baseline | |
+|---|---|---|---|---|
+| **Campeón** (víspera) | Brier | **0,840** | 0,979 (uniforme 1/48) | ▼ 14% |
+| | Log-loss | **2,142** | 3,871 | ▼ 45% |
+| **Grupos** (72 partidos) | Acierto | **59,7%** | 33,3% (1/3 a cada opción) | ▲ 79% |
+| | Brier | **0,528** | 0,667 | ▼ 21% |
+| **Eliminatorias** (31 cruces) | Acierto | **83,9%** | 50% (moneda al aire) | ▲ 68% |
+| | Brier | **0,170** | 0,250 | ▼ 32% |
+
+El modelo gana a su baseline en **todas** las métricas, incluido el Brier por ronda frente
+a la climatología (dar a cada selección la tasa base de la ronda), que es un rival bastante
+más duro que el azar. La calibración también aguanta: de lo que anunciaba al 28% ocurrió el
+25%; de lo que anunciaba al 68%, el 69%.
+
+**El punto ciego**, que es lo que de verdad enseña algo: el modelo **no predijo ni un solo
+empate**. Con dos Poisson independientes la probabilidad de empate nunca supera el 34,1%,
+así que jamás puede ser el resultado más probable de un partido — y hubo 20 empates en 72
+partidos de grupos (27,8%). Su acierto en los partidos que sí tuvieron ganador fue del
+82,7%; el techo en grupos venía impuesto por el propio modelo. Corregirlo pide un término
+de correlación entre goles (el ajuste de Dixon-Coles para marcadores bajos) o tratar el
+empate como suceso propio. Es la mejora pendiente más clara.
 
 ## El modelo
 
